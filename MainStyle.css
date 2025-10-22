@@ -1,0 +1,2041 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #1B2025;
+    /*background-color: black;*/
+    margin: 0;
+    padding: 0;
+}
+
+.parallax {
+    background-color: black;
+    background-image: url('images/black_background_2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+main {
+    flex: 1;
+}
+
+/* permet de garantir que le pied de page est toujours tout en bas */
+.page-container {
+    min-height: 100vh; /* 100% de la hauteur de la vue */
+    display: flex;
+    flex-direction: column;
+}
+
+/* section avec le fond entièrement noir */
+.formation,
+.development,
+.about_us,
+.training_company,
+.job,
+.fao,
+.dnc,
+.events {
+    background-color: black;
+}
+
+/******************************************************** ENTETE ********************************************************/
+.entete {
+    position: fixed;
+    display: flex;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    z-index: 10;
+}
+
+.bannier {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color:transparent;
+    backdrop-filter: blur(30px);  /*flou */
+}
+
+.logo img {
+    position: relative;
+    z-index: 1;
+    max-height: 60px; /* Largeur max du logo */
+    height: 50px;
+    width: auto; /* S'ajuste automatiquement en fonction de la hauteur */
+    padding-left: 15px;
+    padding-top: 8px;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    padding-right: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li {
+    margin: 0 10px;
+    position: relative;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 10px 10px; /* le deuxième permet de régler l'écart entre les menu */
+    font-family: Georgia;
+}
+
+    .menu a:hover {
+        background-color: transparent;
+        backdrop-filter: blur(30px);
+        border-radius: 3px 3px 0 0; /* Coins du haut arrondis */
+    }
+
+    .menu :hover {
+        color:#45a049;
+    }
+
+.activemenu {
+    border-top: 2px solid;
+    border-image: linear-gradient(to right, #0000002c, #45a049, #0000002c) 1;
+    border-image-slice: 1;
+}
+
+.sous-menu {
+    display: none;
+    list-style: none;
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    background-color: transparent;
+    backdrop-filter: blur(30px);
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1); /* Ombre légère */
+}
+
+.menu li .sous-menu {
+    display: none;
+}
+
+.menu li:hover .sous-menu {
+    display: block;
+}
+
+.sous-menu li {
+    margin: 0;
+}
+
+.has-submenu:hover .sous-menu {
+    display: block;
+    width: max-content;
+}
+
+.language_selector {
+    position: absolute;
+    font-size: 9px;
+    color: gray;
+    top: 5px;
+    right: 10px;
+    z-index: 100;
+}
+
+.language_link {
+    text-decoration: none;
+    color: white; /* Couleur du texte des liens */
+    margin: 0 5px; /* Espacement entre les liens */
+}
+
+.menu a.pkorg-link {
+    color: grey;
+    font-weight: bold;
+}
+
+.menu a.pkorg-link:hover {
+    color: #45a049;
+}
+
+.language_link:hover {
+   text-decoration: underline; /* Soulignement au survol */
+}
+
+.burger-menu{
+    display:none;
+}
+
+/******************************************************** GENERIC ********************************************************/
+.button-container {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
+    margin-top: 50px;
+    gap: 500px; /* Ajustez ici pour l'espacement */
+}
+
+.generic_button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+    .generic_button:hover {
+        background-color: #45a049;
+    }
+
+.buttons {
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto; /* Centrez le conteneur horizontalement */
+}
+
+.generic_page_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes*/
+    grid-gap: 20px; /* Espacement entre les éléments */
+    /* --- */
+    padding-left: 30px;
+    padding-right: 30px;
+    background-size: cover;
+    
+    color: white;
+    font-family: Georgia;
+}
+
+    .generic_page_grid h1 {
+        margin-top: 90px; /* Evite que le titre vienne sous l'entête lors de la navigation dans la sous-rubrique */
+        font-size: 40px;
+        padding-left: 20px;
+    }
+
+    .generic_page_grid h2 {
+        font-size: 25px;
+        text-decoration: underline;
+        padding-left: 20px;
+    }
+
+    .generic_page_grid p {
+        font-size: 18px;
+        padding-left: 20px;
+    }
+
+.topic_liste {
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.paragraph_after_topic_list {
+    padding-left: 60px;
+    font-style: italic;
+    color:lightgray;
+}
+
+.generic_grid_for_picto-item {
+    position: relative;
+    background-color: transparent; /* Couleur de fond pour visualiser les cellules */
+    overflow: hidden; /* Empêche le contenu de déborder de la cellule */
+    border-radius: 10px;
+}
+
+    .generic_grid_for_picto-item::before {
+        content: "";
+        display: block;
+        padding-top: 100%; /* Ratio pour créer des cellules carrées */
+    }
+
+    .generic_grid_for_picto-item img {
+        position: absolute;
+        top: 5px; /* Marge de 5 pixels en haut */
+        left: 20px; /* Marge de 5 pixels à gauche */
+        right: 20px; /* Marge de 5 pixels à droite */
+        bottom: 35px; /* Marge de 5 pixels en bas */
+        width: calc(100% - 40px); /* Réduire la largeur de l'image pour inclure les marges de 5px */
+        height: calc(100% - 40px); /* Réduire la hauteur de l'image pour inclure les marges de 5px */
+        object-fit: contain; /* Permet à l'image de se réduire jusqu'à entrer dans la cellule */
+    }
+
+    .generic_grid_for_picto-item:hover {
+        transform: scale(1.4); /* L'image sera agrandie à 140% de sa taille d'origine au survol */
+    }
+
+.overlay_picto-text {
+    position: absolute;
+    bottom: -5px; /* Ajustez la position du texte en bas */
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: transparent; /* Fond transparent pour le texte */
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Gestion style bi-colonnes */
+.double-colonne {
+    grid-column: span 2; /* Les éléments prennent deux colonnes */
+    position: relative;
+    
+}
+
+.colonne1,
+.colonne2 {
+    /*border:solid;*/
+    grid-column: span 1; /* Les éléments prennent une colonne chacun */
+    position: relative;
+    
+}
+
+.colonne1 {
+    grid-column: 1; /* Cette div prend la colonne 1 */
+}
+
+.colonne2 {
+    grid-column: 2; /* Cette div prend la colonne 2 */
+}
+
+.image_bicolonnes_style {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* --- */
+
+.divWithScroll {
+    width: 100%; /* Définissez la largeur de votre div */
+    height: 450px; /* Définissez la hauteur de votre div */
+    overflow: auto; /* Cette propriété active la barre de défilement */
+}
+
+/* Design de la scrollbar */
+/* Largeur de la barre de défilement */
+    .divWithScroll::-webkit-scrollbar {
+        width: 0px;
+    }
+
+/* Style de la poignée (thumb) */
+    .divWithScroll::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 10px;
+    }
+
+/* Style de la piste (track) */
+    .divWithScroll::-webkit-scrollbar-track {
+        background-color: transparent;
+        border-radius: 8px;
+    }
+
+/* Lorsque la barre de défilement est en survol */
+    .divWithScroll::-webkit-scrollbar-thumb:hover {
+        background-color: transparent;
+    }
+
+    .pagetitle {
+        text-align: left;
+        background-size: cover;
+        color: white;
+        font-size: 18px;
+        line-height: 1.5;
+        padding-left: 0px;
+        padding-bottom: 20px;
+    }
+    
+    .pagetitle-container  {
+        width:100%;
+        height: 120px;
+        position: absolute;
+        top: 60px;
+        left: 40px;  
+    }
+
+    .pagetitle h2 {
+        font-size: 36px;
+        font-family: 'Lobster', cursive;
+        font-weight: normal;
+    }
+
+    .pagetitle p {
+        font-size: 20px;
+    }
+
+    .circle-background1 {
+        width: 1000px;
+        height: 1000px;
+        border-radius: 50%;
+        background-color: transparent;
+        position: absolute;
+        top: -50px;
+        left: 30%;
+        transform: translateX(-50%);
+        z-index: -100;
+        box-shadow: 3px -6px 10px rgba(15, 214, 32, 0.584);
+        position: fixed;
+    }
+    
+    .circle-background2 {
+        width: 1100px;
+        height: 1100px;
+        border-radius: 50%;
+        background-color: transparent;
+        position: absolute;
+        top: -400px;
+        left: 90%;
+        transform: translateX(-50%);
+        z-index: -100;
+        box-shadow: -5px 2px 10px rgba(15, 214, 32, 0.447);
+        position: fixed;
+    }
+    
+    .circle-background3 {
+        width: 800px;
+        height: 800px;
+        border-radius: 500%;
+        background-color: transparent;
+        position: absolute;
+        top: 30px;
+        left: 80%;
+        transform: translateX(-50%);
+        z-index: -100;
+        box-shadow: -4px -6px 10px rgba(15, 214, 32, 0.29);
+        position: fixed;
+    }
+    
+    .circle-background4 {
+        width: 300px;
+        height: 300px;
+        border-radius: 500%;
+        background-color: transparent;
+        position: absolute;
+        top: 20px;
+        left: 5%;
+        transform: translateX(-50%);
+        z-index: -100;
+        box-shadow: 2px 3px 10px rgba(15, 214, 32, 0.304);
+        position: fixed;
+    }
+    
+    .circle-background5 {
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background-color: transparent;
+        position: absolute;
+        top: -50px;
+        left: 80%;
+        transform: translateX(-50%);
+        z-index: -100;
+        box-shadow: 3px -6px 10px rgba(15, 214, 32, 0.182);
+        position: fixed;
+    }
+    
+    .circle-background6 {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background-color: transparent;
+        position: absolute;
+        top: 500px;
+        left: 35%;
+        transform: translateX(-50%);
+        z-index: -100;
+        box-shadow: 3px -6px 10px rgba(15, 214, 32, 0.182);
+        position: fixed;
+        top: 20%;  /* Distance par rapport au haut de l'écran */
+        left: 30%; /* Distance par rapport à la gauche de l'écran */
+        transform: translate(-50%, -50%); /* Centre l'élément au point défini par top et left */
+    }
+
+    .sphere-background1 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle at 30% 30%, #fff, green, #000);
+        border-radius: 50%;
+        box-shadow: inset -20px -20px 40px rgba(255, 255, 255, 0.2),
+                    inset 20px 20px 40px rgba(0, 0, 0, 0.3);
+        opacity: 0.4; /* Rend la sphère légèrement transparente */
+        position: fixed;
+        /* Positionnement */
+        top: 70%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        z-index: -100;
+    }
+
+    .sphere-background2 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle at 30% 30%, #fff, green, #000);
+        border-radius: 50%;
+        box-shadow: inset -20px -20px 40px rgba(255, 255, 255, 0.2),
+                    inset 20px 20px 40px rgba(0, 0, 0, 0.3);
+        opacity: 0.4; /* Rend la sphère légèrement transparente */
+        position: fixed;
+        /* Positionnement */
+        top: 20%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        z-index: -100;
+    }
+
+    .sphere-background3 {
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle at 30% 30%, #fff, green, #000);
+        border-radius: 50%;
+        box-shadow: inset -20px -20px 40px rgba(255, 255, 255, 0.2),
+                    inset 20px 20px 40px rgba(0, 0, 0, 0.3);
+        opacity: 0.4; /* Rend la sphère légèrement transparente */
+        position: fixed;
+        /* Positionnement */
+        top: 80%;
+        left: 80%;
+        transform: translate(-50%, -50%);
+        z-index: -100;
+    }
+
+    .sphere-background4 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle at 30% 30%, #fff, green, #000);
+        border-radius: 50%;
+        box-shadow: inset -20px -20px 40px rgba(255, 255, 255, 0.2),
+                    inset 20px 20px 40px rgba(0, 0, 0, 0.3);
+        opacity: 0.4; /* Rend la sphère légèrement transparente */
+        position: fixed;
+        /* Positionnement */
+        top: 65%;
+        left: 10%;
+        transform: translate(-50%, -50%);
+        z-index: -100;
+    }
+
+    .sphere-background5 {
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle at 30% 30%, #fff, green, #000);
+        border-radius: 50%;
+        box-shadow: inset -20px -20px 40px rgba(255, 255, 255, 0.2),
+                    inset 20px 20px 40px rgba(0, 0, 0, 0.3);
+        opacity: 0.4; /* Rend la sphère légèrement transparente */
+        position: fixed;
+        /* Positionnement */
+        top: 45%;
+        left: 45%;
+        transform: translate(-50%, -50%);
+        z-index: -100;
+    }
+
+    .sphere-background6 {
+        width: 800px;
+        height: 800px;
+        background: radial-gradient(circle at 30% 30%, #fff, green, #000);
+        border-radius: 50%;
+        box-shadow: inset -20px -20px 40px rgba(255, 255, 255, 0.2),
+                    inset 20px 20px 40px rgba(0, 0, 0, 0.3);
+        opacity: 0.4; /* Rend la sphère légèrement transparente */
+        position: fixed;
+        /* Positionnement */
+        top: 95%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+        z-index: -100;
+    }
+
+    .container-threeCombobox {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .combobox {
+        position: relative;
+        display: inline-block;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    .combobox input[type="checkbox"] {
+        display: none;
+    }
+    
+    .combobox label {
+        background-color: #4caf50;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: black;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: inline-block;
+        font-size: 16px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .combobox label:hover {
+        background-color: #45a049;
+    }
+    
+    .combobox .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: transparent; /* Fond blanc pour le menu déroulant */
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1;
+        overflow: hidden;
+        padding: 10px;
+    }
+    
+    .combobox input:checked ~ .dropdown-content {
+        display: block;
+    }
+    
+    .dropdown-content label {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+        border-radius: 5px;
+        background-color: #f9f9f9; /* Couleur de fond par défaut */
+    }
+    
+    .dropdown-content label:hover {
+        background-color: #f1f1f1;
+    }
+    
+    /* Style pour les cases à cocher */
+    .dropdown-content input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+    }
+    
+    /* Style quand l'élément est activé */
+    .dropdown-content label.active {
+        background-color: #dff0d8; /* Fond vert clair pour les éléments actifs */
+        color: #333; /* Couleur du texte pour les éléments actifs */
+    }
+    
+    /* Style des images */
+    .images {
+        display: flex;
+        justify-content: center;
+    }
+
+    .images img {
+        display: none;
+        margin: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        width: 200px;
+        height: 200px;
+        
+        object-fit: contain;
+        display: block;
+        background-color: white;
+    }
+    
+    .images img:hover {
+        transform: scale(1.05);
+    }
+    
+    /* Disposition des images */
+    .images {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+/* --- */
+
+/******************************************************** MAIN ACCUEIL ********************************************************/
+.hero {
+    text-align: left;
+    background-size: cover;
+    color: white;
+    height: 100vh; /* pousse le pied de page contre le bas */
+    font-size: 18px;
+    line-height: 1.5;
+    padding-left: 0px;
+}
+
+.title-container  {
+    clip-path: polygon(85% 0%, 100% 100%, 0% 100%, 0% 0%);
+    width: 600px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+    left: 0px;
+    background-color: transparent; /* Blanc avec 60% d'opacité */
+}
+
+.sub-title {
+    padding-left: 100px; /* Gestion du décalage du texte */
+}
+
+    .hero h2 {
+        font-size: 36px;
+        font-family: 'Lobster', cursive;
+        font-weight: normal;
+        /* text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); */
+        /*border-bottom: 1px solid;
+        border-image: linear-gradient(to right, #00000080, white, #00000020) 1;
+        border-image-slice: 1;*/
+        /* Pour effet JS */
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .hero p {
+        font-size: 20px;
+        /* Pour effet JS */
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .hero p.active,
+    .hero h2.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .news-section {
+        position: absolute;
+        top: 250px;
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        font-family: Georgia;
+        left: 50%;
+        transform: translateX(-50%); /* Les 2 lignes permettent de centrer horizontalement le contenu */
+    }
+
+.transparent-background {
+	background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative; /* Nécessaire pour positionner la date */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.news-container {
+    width: 600px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Couleur et flou */
+    /* Pour effet JS */
+    opacity: 0; /* Commence invisible */
+    transform: translateX(20px); /* Légèrement décalé pour l'effet */
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.news-container.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.news-item {
+    text-align: center;
+    position: relative;
+}
+
+.news-nav {
+    background: none;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.news-date {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 1em;
+    color: #45a049;
+}
+
+#news-link {
+    color: white; /* Change la couleur du texte en blanc */
+    /*text-decoration: none;  Enlève le soulignement */
+    transition: font-size 0.3s ease;
+}
+
+#news-link:hover {
+    color: #45a049;
+    font-size: 1.2em;
+}
+
+.features {
+    position: absolute;
+    bottom: 10%; /* Position depuis le bas de page */
+    /* --- */
+    left: 50%;
+    transform: translateX(-50%); /* Les 2 lignes permettent de centrer horizontalement le contenu */
+    width: 90%; /* centre les éléments sur une largeur de 90% de l'écran -> évite d'aller trop dans les bords */
+    /* --- */
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0px;
+    color: white;
+}
+
+.circle {
+    width: 200px;
+    height: 150px;
+    background-color: transparent;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.9); /* Effet bord d'images */
+    /* Pour effet JS */
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;     
+}
+
+    .circle.active {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .circle a {
+        text-align: center; /* Positionne le texte sous l'image au centre */
+        color: white; /* permet d'avoir les liens hypertextes en blanc */
+        text-decoration: none; /* permet d'éviter les liens hypertextes soulignés */
+    }
+
+    .circle h3 {
+        font-family: Georgia;
+    }
+
+    .circle:hover {
+        box-shadow: 0 0 30px rgba(15, 214, 31, 0.9);
+        border-color: #45a049;
+        background-color: rgba(69, 160, 73, 0.3);
+        transition: transform 0.2s ease;
+        transform: scale(1.4); /* L'image sera agrandie à 140% de sa taille d'origine au survol */
+        cursor: pointer;
+    }
+	
+    #gradient-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at top left, rgba(95, 108, 124, 0.7) , rgba(0, 0, 0, 0.7) 70%);
+        z-index: -2; /* Derrière la vidéo */
+    }
+
+.video-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#background-video {
+    position: fixed;
+    opacity: 0.;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+
+#background-video2 {
+    position: fixed;
+    opacity: 0.3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    /* --- */
+    border-left: 900px solid rgba(0, 0, 0, 0.9); /* Décale sur la droite et adouci la bordure de vidéo à gauche */
+    background-clip: content-box;
+}
+
+.linktoweb {
+    color: white;
+    text-decoration: underline;
+}
+
+.socialnetwork_contact a {
+    max-width: 200px;
+    margin-right: 10px;
+    padding-top: 10px;
+    width: 80px;
+    height: auto;
+    text-decoration: none;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0px 4px 4px 0px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+.video_container_globe {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#background_video_globe {
+    position: fixed;
+    opacity: 0.3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+
+/******************************************************** COLLEGE - PROFESSION - EXAMENS ********************************************************/
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes égales */
+    grid-template-rows: 1fr 1fr 1fr; /* Trois lignes égales */
+    gap: 50px; /* Espacement entre les cellules */
+    width: 90%; /* Prend 90% de la largeur de l'écran */
+    height: 80%; /* Prend toute la hauteur de l'écran */
+    padding: 10px; /* Padding pour l'ensemble de la grille */
+    box-sizing: border-box;
+    margin: 0 auto; /* Centre la grille horizontalement */
+    
+    position: absolute; /* Positionne la grille relativement au conteneur parent */
+    top: 100px; /* Espace depuis le haut de la page */
+    left: 50%;
+    transform: translateX(-50%); /* Centre horizontalement */
+
+    color: white;
+    font-family: Georgia;
+    font-size: 30px;
+
+    /*height: 100vh;  pousse le pied de page contre le bas */
+}
+
+.general-grid-item {
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: left;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1); /* Blanc avec 10% d'opacité */
+    font-size: 1.2em;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Couleur et flou */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.secondary-text {
+    font-size: 0.5em; /* Ajustez la taille selon vos besoins */
+    color: rgba(255, 255, 255, 0.8); /* Blanc avec un peu de transparence */
+    margin-top: 10px; /* Espace entre le texte principal et secondaire */
+    text-align: left; /* Centre le texte secondaire */
+}
+
+.grid-container a {
+    text-decoration: none; /* Enlève le soulignement par défaut des liens */
+    color: inherit; /* Utilise la couleur du texte du parent */
+}
+
+.general-grid-item:hover {
+    box-shadow: 0 0 30px rgba(15, 214, 31, 0.9);
+    border-color: #45a049;
+    background-color: rgba(69, 160, 73, 0.3);
+    transition: transform 0.2s ease;
+    transform: scale(1.05); /* L'image sera agrandie à 105% de sa taille d'origine au survol */
+    cursor: pointer;
+}
+
+/******************************************************** ABOUT ********************************************************/
+.counter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10%;
+    height: 100vh;  
+}
+
+.circle-counter {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: transparent;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 3px 6px 8px rgb(246, 245, 245);
+}
+
+.number {
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+.label-about {
+    font-size: 20px;
+    color: rgb(213, 200, 200);
+    margin-top: 10px;
+}
+
+
+.mission {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left; 
+    color: white; /* Changez la couleur du texte selon le besoin */
+    font-family: Georgia;
+    margin: 0;
+    padding: 0;
+    margin-left: 10%; /* Décale tout le bloc à droite de 10% */ 
+}
+
+.valeurs {
+    width: calc(100% - 10%); /* Ajuste la largeur en tenant compte de la marge */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Aligne les éléments à droite */
+    text-align: right; /* Aligne le texte à droite */
+    color: white; /* Conserve la couleur du texte */
+    font-family: Georgia;
+    margin-right: 10%; /* Décale tout le bloc à gauche de 10% */
+    margin: 0;
+    padding: 0;
+
+}
+
+.mission-title {    
+    font-size: 60px;
+    
+    margin-bottom: 0px;
+}
+
+.mission-title::first-letter {
+    color: #45a049;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.mission-texte {
+    font-size: 20px;
+    max-width: 500px;
+    margin-bottom: 50px;
+}
+
+/******************************************************** ORG CHART ********************************************************/
+
+.organigramme-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 60px; /* permet de définir le début du diagramme */
+    height: 100vh;  /*pousse le pied de page contre le bas */
+}
+
+.organigramme ul {
+    padding: 0px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.organigramme ul ul {
+    flex-direction: row;
+    padding-top: 240px;
+}
+
+.organigramme li {
+    list-style-type: none;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 5px 0 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.organigramme li::before, .organigramme li::after {
+    content: '';
+    position: absolute;
+    top: -20px; /* Part du bas de la boîte par rapport au parent */
+    width: 50%;
+    height: 40px; /* Hauteur des traits */
+    border-top: 2px solid #ccc;
+}
+
+.organigramme li::before {
+    right: 50%;
+    margin-right: 1px;
+}
+
+.organigramme li::after {
+    left: 50%;
+    margin-left: 1px;
+    border-left: 2px solid #ccc;
+}
+
+.organigramme li:only-child::after, .organigramme li:only-child::before {
+    display: none;
+}
+
+.organigramme li:only-child {
+    padding-top: 0;
+}
+
+.organigramme li:first-child::before, .organigramme li:last-child::after {
+    border: 0 none;
+}
+
+.organigramme li:last-child::before {
+    border-right: 2px solid #ccc;
+    border-radius: 0 5px 0 0;
+}
+
+.organigramme .boite {
+    border: 2px solid #ccc;
+    padding: 10px 20px;
+    display: flex; /* Utilisation de Flexbox pour aligner le contenu */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    transition: all 0.5s;
+    width: 300px;
+    height: 80px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre portée */
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.boite p {
+    margin: 5px 0; /* Espacement entre les lignes */
+}
+
+.boite .role {
+    font-weight: bold;
+    color: white;
+    font-size: 16px; /* Taille de la police pour le rôle */
+}
+
+.boite .name,
+.boite .assistant {
+    font-weight: normal;
+    color: white;
+    font-size: 14px;
+    display: flex; /* Utilise Flexbox pour aligner les éléments en ligne */
+    align-items: center; /* Aligne verticalement les éléments */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les espacements internes */
+}
+
+.boite .name .label,
+.boite .assistant .label {
+    margin-right: 30px; /* Décalage de 30px entre l'étiquette et la valeur */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+}
+
+.boite .name .value,
+.boite .assistant .value {
+    flex: 1; /* Laisse la valeur occuper l'espace restant */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.boite .assistant {
+    color: grey; /* Couleur du texte pour le nom de l'assistant */
+}
+
+.boite .name, .boite .assistant {
+    position: relative; /* Assure que les éléments sont positionnés correctement */
+}
+
+.boite .name .value,
+.boite .assistant .value {
+    position: absolute; /* Positionne les valeurs de manière absolue par rapport au conteneur */
+    left: 120px; /* Décalage du texte de 30px */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+}
+
+.organigramme ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 2px solid #ccc;
+    height: 220px; /* Ajuster la hauteur du trait vertical */
+}
+
+.organigramme ul ul ul::before {
+    content: '';
+    position: absolute;
+    top: -20px; /* Ajuste la hauteur de la ligne reliant les boîtes */
+    left: 50%;
+    border-left: 2px solid #ccc;
+    height: 20px;
+}
+
+/* Cible la boîte "informatique et ajuste son positionnement */
+.organigramme .informatique {
+    position: absolute; /* Positionnement absolu pour un placement précis */
+    top: -80px; /* Ajustez cette valeur pour contrôler la hauteur par rapport à la boîte "Management" */
+    left: 50%; /* Place à droite du centre */
+    transform: translateX(150px); /* Ajuste l'éloignement horizontal du centre */
+    display: flex;
+    justify-content: center;
+    height: 80px;
+}
+
+/* Ligne de connexion horizontale pour la boîte "informatique" */
+.organigramme .informatique::before {
+    content: '';
+    position: absolute;
+    top: 280px; /* Centré verticalement par rapport à la boîte */
+    left: -150px; /* Ajuste l'emplacement du trait horizontal */
+    border-top: 2px solid #ccc; /* Utilise une bordure en haut pour un trait horizontal */
+    width: 150px; /* Ajuste la largeur du trait horizontal pour qu'il relie les boîtes */
+    height: 0px;
+    transform: translateY(-50%); /* Centre verticalement */
+}
+
+.organigramme .informatique li::after {
+    content: '';
+    position: absolute;
+    top: 50%; /* Ajuste pour connecter correctement */
+    left: -50px; /* Décalage pour éviter l'ajout de traits verticaux */
+    width: 50px; /* Définir la largeur appropriée pour un trait horizontal */
+    border-top: 2px solid #ccc; /* Utilise une bordure en haut pour créer un trait horizontal */
+    border-left: none; /* Assure qu'il n'y a pas de bordure verticale */
+}
+
+.conseil {
+    position:absolute;
+    top: 40%; /* Positionne la boîte au sommet */
+    left: 50%; /* Positionne la boîte à gauche */
+    border: 2px solid #ccc;
+    border-style: dashed;
+    padding: 10px 20px;
+    display: flex; /* Utilisation de Flexbox pour aligner le contenu */
+    flex-direction: column; /* Aligne les éléments en colonne */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.5s;
+    width: 250px;
+    height: 210px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre portée */
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    transform: translate(-210%, -50%);
+}
+
+.conseil p {
+    margin: 5px 0; /* Espacement entre les lignes */
+}
+
+.conseil .role {
+    font-weight: bold;
+    color: white;
+    font-size: 14px; /* Taille de la police pour le rôle */
+}
+
+.conseil .name,
+.conseil .namemembres {
+    font-weight: normal;
+    color: white;
+    font-size: 14px;
+    display: flex; /* Utilise Flexbox pour aligner les éléments en ligne */
+    align-items: center; /* Aligne verticalement les éléments */
+    margin: 0; /* Supprime les marges par défaut */
+    padding: 0; /* Supprime les espacements internes */
+    display: block; /* Affiche chaque valeur sur une nouvelle ligne */
+    margin-top: 5px;
+}
+
+.conseil .name .label,
+.conseil .namemembres .label {
+    margin-right: 30px; /* Décalage de 30px entre l'étiquette et la valeur */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+}
+
+.conseil .name .value,
+.conseil .namemembres .value {
+    flex: 1; /* Laisse la valeur occuper l'espace restant */
+    text-align: left; /* Aligne le texte à gauche */
+}
+
+.conseil .namemembres {
+    color: rgb(176, 175, 175); /* Couleur du texte pour le nom de l'assistant */
+}
+
+.conseil .name, 
+.boite .namemembres {
+    position: relative; /* Assure que les éléments sont positionnés correctement */
+}
+
+.conseil .name .value,
+.conseil .namemembres .value {
+    position: absolute; /* Positionne les valeurs de manière absolue par rapport au conteneur */
+    left: 120px; /* Décalage du texte de 30px */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+}
+
+.conseil:hover,
+.organigramme .informatique .boite:hover, 
+.organigramme .boite:hover {
+    background-color: blue;
+    /*cursor: pointer;  Réactiver le curseur pointer */
+}
+
+/******************************************************** BECOMEEXPERT ********************************************************/
+
+.container-becomeexpert {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu horizontalement */
+    text-align: center; /* Centre le texte à l'intérieur des éléments */
+    color: white; /* Changez la couleur du texte selon le besoin */
+    font-family: Georgia;
+    padding-top: 150px; /* Espace au-dessus du conteneur */
+    margin: 0 auto; /* Centre le conteneur horizontalement dans la page */
+    font-size: 20px;
+}
+
+.apply-button {
+    display: inline-block; /* Permet au bouton de se comporter comme un bloc tout en restant dans le flux de texte */
+    padding: 15px 30px; /* Ajoute de l'espace autour du texte du bouton */
+    margin-top: 20px; /* Espace au-dessus du bouton */
+    background-color: #45a049; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte du bouton */
+    font-size: 18px; /* Taille de la police du bouton */
+    text-decoration: none; /* Supprime le soulignement du lien */
+    border-radius: 5px; /* Bords arrondis */
+    border: 2px solid #45a049; /* Bordure du bouton */
+    transition: background-color 0.3s, border-color 0.3s; /* Transition douce pour les effets de survol */
+}
+
+.apply-button:hover {
+    background-color: #15a51a; /* Couleur de fond au survol */
+    border-color: white; /* Couleur de la bordure au survol */
+}
+
+.faq-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+details {
+    margin-bottom: 10px;
+    border: 1px solid #dddddd70;
+    border-radius: 5px;
+}
+
+/* Masquer le triangle par défaut */
+summary {
+    list-style: none; /* Enlève le triangle par défaut */
+    position: relative; /* Nécessaire pour l'alignement du chevron */
+    background-color: rgba(255, 255, 255, 0.1); /* Blanc avec 10% d'opacité */
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+summary::marker {
+    display: none; /* Masque le triangle par défaut */
+}
+
+/* Ajouter un chevron à droite (large et plat) */
+summary::after {
+    content: '▼'; /* Chevron large et plat */
+    position: absolute;
+    right: 15px; /* Distance par rapport à la droite */
+    top: 50%; /* Centre verticalement */
+    transform: translateY(-50%); /* Centrer parfaitement */
+    font-size: 16px; /* Taille plus grande pour que le chevron soit bien visible */
+    transition: transform 0.3s; /* Transition douce pour la rotation */
+}
+
+/* Faire pivoter le chevron lorsqu'il est ouvert */
+details[open] summary::after {
+    transform: translateY(-50%) rotate(180deg); /* Faire pivoter la flèche à 180 degrés vers le haut */
+}
+
+/* Changement de couleur au survol */
+summary:hover {
+    background-color: green;
+}
+
+/* Style des réponses */
+.faq-answer {
+    padding: 15px;
+    padding-left: 40px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    background-color: rgba(255, 255, 255, 0.1); /* Blanc avec 10% d'opacité */
+    color: whitesmoke;
+    font-size: 15px;
+}
+
+details {
+    margin-bottom: 10px;
+    border: 1px solid #dddddd70;
+    border-radius: 5px;
+}
+
+
+/******************************************************** PARTNERS ********************************************************/
+.partenaire {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.partenaire-link {
+    display: flex;
+    text-decoration: none;
+    color: white;
+}
+
+.partenaire-logo {
+    width: 220px;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid whitesmoke;
+    border-radius: 10px 0 0 10px;
+}
+
+.partenaire-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.description {
+    margin-left: 0px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0 10px 10px 0;
+    width: 700px;
+    border: 2px solid whitesmoke;
+}
+
+.description:hover {
+    background-color: rgba(255, 255, 255, 0.19);
+}
+
+.description h3 {
+    margin: 0 0 10px 0; /* Marge du titre */
+}
+
+.description p {
+    margin: 0; /* Marge du texte */
+}
+
+/******************************************************** ALL PROFESSIONS ********************************************************/
+
+.container-profession {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Centre le contenu horizontalement */
+    text-align: left; /* Centre le texte à l'intérieur des éléments */
+    color: white; /* Changez la couleur du texte selon le besoin */
+    font-family: Georgia;
+    padding-top: 150px; /* Espace au-dessus du conteneur */
+    margin: 0 auto; /* Centre le conteneur horizontalement dans la page */
+    font-size: 20px;
+}
+
+/******************************************************** TABLEAU (CONTACT, CALENDAR, ...) ********************************************************/
+
+.container-tableau-contact {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Aligne les éléments verticalement */
+    align-items: center; /* Centre le contenu horizontalement */
+}
+
+.title-container-contact {
+    width: 100%; /* Assure que le titre occupe toute la largeur disponible */
+    text-align: left; /* Aligne le titre à gauche */
+    margin-bottom: 50px; /* Espace entre le titre et le tableau */
+}
+
+.table-container {
+    width: 95%; 
+    display: flex;
+    justify-content: center; 
+}
+
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 120px;
+    margin-bottom: 10px;
+}
+
+.table-prof {
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    color: white;
+}
+
+th {
+    background-color: #4f5252;
+}
+
+.checkbox-cell {
+    text-align: center; /* Centre horizontalement */
+    vertical-align: middle; /* Centre verticalement */
+}
+
+.center-content {
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+    height: 100%; /* Assure que l'alignement vertical fonctionne bien */
+}
+
+#email-link {
+    color: white; /* Texte blanc pour les liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+#email-link:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
+
+/******************************************************** IN PROGRESS ********************************************************/
+
+.in_progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.inprogress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+.inprogress-container h2 {
+    font-size: 3rem; /* Taille du texte */
+    color: white;
+}
+
+/******************************************************** PRIVACY POLICY - LEGAL NOTICE ********************************************************/
+
+.privacypolicy {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    color: white;
+    padding-top: 60px;
+    padding-left: 30px;
+}
+
+.privacypolicy-container h2 {
+    font-size: 2rem;
+}
+
+.privacypolicy-container h3 {
+    font-size: 20px;
+}
+
+.privacypolicy-container p {
+    font-size: 16px;
+}
+
+.privacypolicy-container a {
+    color: inherit; 
+}
+
+.small-italic-text {
+    font-style: italic; /* Rend le texte en italique */
+    font-size: 0.8rem;  /* Réduit la taille de la police (ajuste selon les besoins) */
+}
+
+/******************************************************** FOOTER ********************************************************/
+footer {
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+/********************/
+/* footergrid */
+/********************/
+.footergrid {
+    /*border: dotted;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes réparti au mieux, à la largeur de l'écran */
+    grid-template-rows: 22px 28px; /* 2 lignes */
+    gap: 0px; /* espaces entre les éléments */
+}
+
+.linkmailto {
+    color: white;
+    text-decoration: underline;
+}
+
+.socialnetwork {
+    /*border: dotted;*/
+    /* --- */
+    display: flex;
+    justify-content: center; /* centre hoarizontalement dans la case */
+    align-items: center; /* en vertical au centre de la case */
+    /* --- */
+    grid-column-start: 2; /* 2 = millieu de la grille */
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+    .socialnetwork img {
+        max-width: 200px;
+        margin-right: 10px;      
+        padding-top: 10px;
+        width: 30px;
+        height: auto;
+        opacity: 0.9;
+    }
+
+.legalnotice a {
+    /* border: dotted; */
+    /* --- */
+    display: flex;
+    justify-content: start; /* tout à gauche dans la case */
+    align-items: end; /* tout en bas dans la case */
+    /* --- */
+    grid-column-start: 1; /* 1 = début de la grille */
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    line-height: 70%; /* Réduit l'interligne
+    /* --- */
+    padding-left: 10px;
+    padding-top: 10px;
+    color: lightgray;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.contact a {
+    /*border: dotted;*/
+    /* --- */
+    display: flex;
+    justify-content: end; /* tout à droite dans la case */
+    align-items: start; /* tout en bas dans la case */
+    /* --- */
+    grid-column-start: 3; /* 3 = fin de la grille */
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /* --- */
+    padding-right: 10px;
+    padding-top: 10px;
+    color: lightgray;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.copyright {
+    /* border: dotted; */
+    /* --- */
+    display: flex;
+    justify-content: end; /* tout à droite dans la case */
+    /* --- */
+    grid-column-start: 3; /* 3 = fin de la grille */
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    /* --- */
+    padding-top: 0px;
+    padding-right: 10px;
+    color: gray;
+    font-size: 11px;
+}
+
+/* Pour effet JS */
+.news,
+.programmation,
+.support,
+.our_team,
+.our_partners,
+.fao,
+.dnc,
+.events,
+.development,
+.formation,
+.about_us,
+.training_company,
+.job,
+.cao,
+.simulation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease, transform 2s ease;
+}
+
+    .news.visible,
+    .events.visible,
+    .development.visible,
+    .programmation.visible,
+    .formation.visible,
+    .support.visible,
+    .about_us.visible,
+    .our_team.visible,
+    .training_company.visible,
+    .our_partners.visible,
+    .job.visible,
+    .cao.visible,
+    .fao.visible,
+    .simulation.visible,
+    .dnc.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/******************************************************** GESTION DIMENSION ECRAN ********************************************************/
+
+@media (max-width: 768px) {
+
+    .footer, .news-section {
+        display: none;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 seule colonne */
+    }
+
+    .logo img {
+        height: 40px;
+        width: auto; /* S'ajuste automatiquement en fonction de la hauteur */
+        clip-path: polygon(0 0, 20% 0, 20% 100%, 0 100%);
+    }
+
+    .features {
+        flex-direction: column; /*Passe en colonnes lorsque la largeur est inférieure à 768px*/
+        align-items: center; /*Centre les éléments */
+        width: 80%;
+        bottom: -300px;
+    }
+
+    .circle {
+        padding-bottom: 20px; /*Réduire l'espacement entre les éléments */
+        max-width: none; /*Annuler la largeur maximale*/
+    }
+
+        .circle a {
+            text-align: center; /* Positionne le texte sous l'image au centre */
+        }
+
+        .circle p {
+            display:none;
+        }
+
+        .circle img {
+            width: 260px; /* doit être idem que max-width dans .feature */
+            height: 150px;
+        }
+
+    .colonne1,
+    .colonne2 {
+        grid-column: span 2; /* Les éléments prennent deux colonnes */
+        position: relative;
+    }
+
+    .grid_for_picto_additionalModules-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        grid-gap: 0px; /* Espace entre les images */
+    }
+
+    .gridpartners-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+        grid-gap: 10px; /* Espace entre les images */
+    }
+
+    .language_selector {
+        display: none;
+    }
+
+    .hero {
+        height: 130vh; /* permet de pousser le pied de page contre le bas dans la page accueil qui n'est pas assez haute */
+    }
+
+    .hero h2 {
+        padding-top: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .hero p {
+        display:none;
+    }
+
+    .h1 {
+        max-width: 100%;
+        white-space: nowrap; /* Empêche le texte de passer à la ligne */
+        overflow: hidden; /* Masque le texte qui dépasse */
+        text-overflow: ellipsis; /* Affiche des points de suspension (...) pour indiquer qu'il y a plus de texte */
+    }
+
+    .event-details {
+        width: 100%;
+        height: 170px;
+    }
+
+    .grid_for_picto_training-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .tableau_mentionslegales {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .footergrid {
+        position: sticky;
+        background-color: black;
+    }
+
+    .newsletter {
+        display: none;
+    }
+
+    .legalnotice a {
+        justify-content: start;
+        padding-left: 5px;
+        padding-top: 10px;
+        font-size: 8px;
+        grid-column-start: 1; /* 3 = fin de la grille */
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+
+    .copyright {
+        text-align: start;
+        font-size: 8px;
+        grid-column-start: 1; /* 3 = fin de la grille */
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        padding-left: 5px;
+    }
+
+    #background-video2 {
+        border-left: 50px solid rgba(0, 0, 0, 0.9); /* Décale sur la droite et adouci la bordure de vidéo à gauche */
+    }
+
+    .contactgrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 350px 350px 350px 350px 350px 350px 350px 350px 350px;
+    }
+
+    .socialnetwork_contact a {
+        max-width: 100%;
+        width: 100%;
+    }
+
+
+    /* MENU DE NAVIGATION */
+    .menu {
+        display: none;
+    }
+
+        .menu.active {
+            display: block;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: black; /* Couleur du fond du menu déroulant */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ombre légère */
+            z-index: 10;
+            text-align: start;
+        }
+
+            .menu.active ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                flex-direction: column; /* Aligner les éléments en colonne */
+            }
+
+            .menu.active li {
+                margin: 10px 0;
+                position: relative; /* Ajout de position relative pour les sous-menus */
+            }
+
+            .menu.active a {
+                padding: 10px 20px;
+                font-size: 18px;
+                color: white; /* Couleur du texte */
+                text-decoration: none;
+            }
+
+            .menu.active .has-submenu:after {
+                content: '\25B6'; /* Ajout d'une flèche pour indiquer le sous-menu */
+                position: absolute;
+                top: 50%;
+                left: 30%;
+                transform: translateY(-50%);
+            }
+
+            .menu.active .sous-menu {
+                position: absolute;
+                top: 0;
+                display: none;
+                list-style: none;
+                padding: 0;
+                min-width: 200px; /* Largeur minimale des sous-menus */
+            }
+
+            .menu.active .has-submenu:hover .sous-menu {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 40%;
+            }
+
+            .menu.active .sous-menu li {
+                margin: 0;
+                text-align: start;
+            }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+        z-index: 20;
+    }
+
+        .burger-menu div {
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin: 6px;
+            margin-right: 20px;
+            transition: 0.4s;
+        }
+
+        .burger-menu.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 10px);
+        }
+
+        .burger-menu.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -10px);
+        }
+}

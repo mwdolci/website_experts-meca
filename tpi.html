@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collège d'experts professions mécanique Berne francophone</title>
+    <link rel="stylesheet" href="MainStyle.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/be_mini.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <!-- En-tête que l'on doit retrouver sur toutes les pages du site web -->
+        <header class="entete">
+            <div class="bannier"> </div>
+            <div class="logo">
+                <a href="home.html">
+                    <img src="images/be.png" alt="BE" title="BE" />
+                </a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="has-submenu">
+                        <a href="college.html">Collège</a>
+                        <ul class="sous-menu">
+                            <li><a href="about.html">A propos</a></li>
+                            <li><a href="orgchart.html">Organigramme</a></li>
+                            <li><a href="calendar.html">Calendrier annuel</a></li>
+                            <li><a href="becomeexpert.html">Devenir expert</a></li>
+                            <li><a href="partners.html">Nos partenaires</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="professions.html">Professions</a>
+                        <ul class="sous-menu">
+                            <li><a href="polymec.html">Polymécanicien</a></li>
+                            <li><a href="mecaprod.html">Mécanicien de production</a></li>
+                            <li><a href="praticien.html">Praticien en mécanique</a></li>
+                            <li><a href="micromec.html">Micromécanicien</a></li>
+                            <li><a href="dessinateur.html">Dessinateur constructeur</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a class="activemenu" href="examens.html">Examens</a>
+                        <ul class="sous-menu">
+                            <li><a href="tpi.html">Travail pratique individuel (TPI)</a></li>
+                            <li><a href="partiels.html">Examens partiels (EP)</a></li>
+                            <li><a href="inprogress.html">Connaissances professionnelles (CP)</a></li>
+                            <li><a href="inprogress.html">Validation des acquis de l'expérience (VAE)</a></li>
+                            <li><a href="https://www.osp-jb.ch/" class="result" target="_blank">Résultats</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://www.pkorg.ch/fr" class="pkorg-link" target="_blank">&#9679; PkOrg</a></li>
+                </ul>
+            </nav>
+            <div class="burger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </header>
+
+        <!-- Partie principale de la page -->
+        <main>
+            <section>
+                <div id="gradient-background"></div>
+                <div class="circle-background1"></div>
+                <div class="sphere"></div>
+            </section>
+            <section class="pagetitle">
+                <div class="pagetitle-container">
+                    <h2>Travail pratique individuel</h2>
+                    <p></p>
+                </div>
+            </section>
+
+            <div class="container-profession">
+                <p>Le TPI blablabla
+                </p>
+            </div>
+            
+            <div>
+                <br>
+                <br>
+                <br>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Pied de page que l'on doit retrouver sur toutes les pages du site web -->
+    <footer class="footer">
+        <section>
+            <div class="footergrid">
+                <div class="socialnetwork">
+                    <a href="https://www.linkedin.com/in/coll%C3%A8ge-d-experts-m%C3%A9canique-berne-section-francophone-bb02b0329/" target="_blank">
+                        <img src="images/logo_linkedin.png" />
+                    </a>
+                    <!-- <a href="https://www.youtube.com/channel/" target="_blank">
+                        <img src="images/logo_youtube.png" />
+                    </a>
+                    <a href="https://www.facebook.com//" target="_blank">
+                        <img src="images/logo_facebook.png" />
+                    </a> -->
+                </div>
+
+                <div class="legalnotice">
+                    <a href="privacypolicy.html">Politique de confidentialité</a>
+                    <a href="legalnotice.html">Mentions légales</a>
+                </div>
+                <div class="contact">
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Collège experts Berne francophone - Site by M.Dolci</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!--<script src="script.js"></script>-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titre = document.querySelector('.hero h2');
+            titre.classList.add('active');
+    
+            setTimeout(function () {
+                const soustitre = document.querySelector('.hero p');
+                soustitre.classList.add('active');
+            }, 800);
+    
+            setTimeout(function () {
+                const features = document.querySelectorAll('.circle');
+                features.forEach(function (circle, index) {
+                    setTimeout(function () {
+                        circle.classList.add('active');
+                    }, index * 500); // Ajoute un délai de 500ms entre chaque élément
+                });
+            }, 1200);
+    
+            // Assurer que toutes les images soient masquées par défaut au chargement
+            filterImages();  // Filtrer les images au chargement
+            toggleActiveState();  // Mettre à jour l'état visuel des filtres
+        });
+    
+        // Fonction pour filtrer les images
+        function filterImages() {
+            const yearFilters = Array.from(document.querySelectorAll('.filter[data-filter^="20"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+            const professionFilters = Array.from(document.querySelectorAll('.filter[data-filter="PMC"], .filter[data-filter="MPC"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+            const categoryFilters = Array.from(document.querySelectorAll('.filter[data-filter="FR"], .filter[data-filter="TO"], .filter[data-filter="AS"], .filter[data-filter="PN"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+    
+            const images = document.querySelectorAll('.images img');
+    
+            // Si aucun filtre n'est sélectionné, masquer toutes les images
+            if (yearFilters.length === 0 && professionFilters.length === 0 && categoryFilters.length === 0) {
+                images.forEach(img => img.style.display = 'none');
+                return; // Fin de la fonction, rien n'est visible
+            }
+    
+            let anyVisible = false;
+    
+            images.forEach(img => {
+                const matchesYear = yearFilters.length === 0 || yearFilters.some(filter => img.classList.contains(filter));
+                const matchesProfession = professionFilters.length === 0 || professionFilters.some(filter => img.classList.contains(filter));
+                const matchesCategory = categoryFilters.length === 0 || categoryFilters.some(filter => img.classList.contains(filter));
+    
+                if (matchesYear && matchesProfession && matchesCategory) {
+                    img.style.display = 'block';
+                    anyVisible = true; // Indiquer qu'au moins une image est visible
+                } else {
+                    img.style.display = 'none';
+                }
+            });
+    
+            // Afficher un message si aucune image n'est visible
+            const existingMessage = document.querySelector('.images p.message');
+            if (!anyVisible) {
+                if (!existingMessage) {
+                    const message = document.createElement('p');
+                    message.textContent = "Aucune image ne correspond à vos filtres.";
+                    message.className = 'message';
+                    document.querySelector('.images').appendChild(message);
+                }
+            } else {
+                if (existingMessage) {
+                    existingMessage.remove(); // Supprimer le message si des images sont visibles
+                }
+            }
+        }
+    
+        function toggleActiveState() {
+            document.querySelectorAll('.dropdown-content label').forEach(label => {
+                const checkbox = label.querySelector('input[type="checkbox"]');
+                if (checkbox.checked) {
+                    label.classList.add('active');
+                } else {
+                    label.classList.remove('active');
+                }
+            });
+        }
+    
+        document.querySelectorAll('.filter').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                filterImages();
+                toggleActiveState();
+            });
+        });
+    </script>
+    
+</body>
+</html>

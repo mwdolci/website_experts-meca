@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collège d'experts professions mécanique Berne francophone</title>
+    <link rel="stylesheet" href="MainStyle.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/be_mini.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <!-- En-tête que l'on doit retrouver sur toutes les pages du site web -->
+        <header class="entete">
+            <div class="bannier"> </div>
+            <div class="logo">
+                <a href="home.html">
+                    <img src="images/be.png" alt="BE" title="BE" />
+                </a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="has-submenu">
+                        <a href="college.html">Collège</a>
+                        <ul class="sous-menu">
+                            <li><a href="about.html">A propos</a></li>
+                            <li><a href="orgchart.html">Organigramme</a></li>
+                            <li><a href="calendar.html">Calendrier annuel</a></li>
+                            <li><a href="becomeexpert.html">Devenir expert</a></li>
+                            <li><a href="partners.html">Nos partenaires</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="professions.html">Professions</a>
+                        <ul class="sous-menu">
+                            <li><a href="polymec.html">Polymécanicien</a></li>
+                            <li><a href="mecaprod.html">Mécanicien de production</a></li>
+                            <li><a href="praticien.html">Praticien en mécanique</a></li>
+                            <li><a href="micromec.html">Micromécanicien</a></li>
+                            <li><a href="dessinateur.html">Dessinateur constructeur</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a class="activemenu" href="examens.html">Examens</a>
+                        <ul class="sous-menu">
+                            <li><a href="tpi.html">Travail pratique individuel (TPI)</a></li>
+                            <li><a href="partiels.html">Examens partiels (EP)</a></li>
+                            <li><a href="cp.html">Connaissances professionnelles (CP)</a></li>
+                            <li><a href="vae.html">Validation des acquis de l'expérience (VAE)</a></li>
+                            <li><a href="https://www.osp-jb.ch/" class="result" target="_blank">Résultats</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://www.pkorg.ch/fr" class="pkorg-link" target="_blank">&#9679; PkOrg</a></li>
+                </ul>
+            </nav>
+            <div class="burger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </header>
+
+        <!-- Partie principale de la page -->
+        <main>
+            <section>
+                <div id="gradient-background"></div>
+                <div class="circle-background1"></div>
+                <div class="sphere"></div>
+            </section>
+            <section class="pagetitle">
+                <div class="pagetitle-container">
+                    <h2>Examens partiels</h2>
+                    <p></p>
+                </div>
+            </section>        
+                <div class="container-profession">
+                    <p>L'examen partiel a lieu au cours du second semestre de la deuxième année d'apprentissage et s'adresse aux apprentis polymécaniciens et mécaniciens de production. Cet examen pratique a pour objectif de valider l'acquisition des compétences de base. <br><br>
+                        Pour les polyémcaniciens il se compose de 4 rubriques:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Assemblage <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Tournage <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Fraisage <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Pneumatique <br><br>
+
+                        Pour les mécaniciens de production il se compose de 2 rubriques:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Assemblage <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Tournage ou Fraisage (à choix) <br>
+                        <br>
+                        <br>
+                        <br>
+
+                        Ci-dessous il est possible de télécharger les examens des années précédentes. Ils peuvent librement être utilisés par les apprentis pour s'entraîner.
+                        Les documents de bonnes pratiques seront également très utiles pour la préparation aux examens.<br><br>
+
+                    </p>
+                </div>
+
+            <div class="container-threeCombobox">  
+                <!-- Combobox 1 (Année) -->
+                <div class="combobox">
+                    <input type="checkbox" id="combo-box-toggle-1">
+                    <label for="combo-box-toggle-1">Choisir année(s)</label>
+                    <div class="dropdown-content">
+                        <label><input type="checkbox" class="filter" data-filter="2024"> 2024</label>
+                        <label><input type="checkbox" class="filter" data-filter="2023"> 2023</label>
+                        <label><input type="checkbox" class="filter" data-filter="2022"> 2022</label>
+                        <label><input type="checkbox" class="filter" data-filter="2021"> 2021</label>
+                        <label><input type="checkbox" class="filter" data-filter="2020"> 2020</label>
+                        <label><input type="checkbox" class="filter" data-filter="2019"> 2019</label>
+                        <label><input type="checkbox" class="filter" data-filter="2018"> 2018</label>
+                        <label><input type="checkbox" class="filter" data-filter="2017"> 2017</label>
+                        <label><input type="checkbox" class="filter" data-filter="2016"> 2016</label>
+                        <label><input type="checkbox" class="filter" data-filter="2015"> 2015</label>
+                        <label><input type="checkbox" class="filter" data-filter="2014"> 2014</label>
+                        <label><input type="checkbox" class="filter" data-filter="2013"> 2013</label>
+                        <label><input type="checkbox" class="filter" data-filter="2012"> 2012</label>
+                        <label><input type="checkbox" class="filter" data-filter="2011"> 2011</label>
+                        <label><input type="checkbox" class="filter" data-filter="2010"> 2010</label>
+                        <label><input type="checkbox" class="filter" data-filter="2009"> 2009</label>
+                        <label><input type="checkbox" class="filter" data-filter="2008"> 2008</label>
+                    </div>
+                </div>
+
+                <!-- Combobox 2 (Profession) -->
+                <div class="combobox">
+                    <input type="checkbox" id="combo-box-toggle-2">
+                    <label for="combo-box-toggle-2">Choisir profession(s)</label>
+                    <div class="dropdown-content">
+                        <label><input type="checkbox" class="filter" data-filter="PMC"> Polymécanicien</label>
+                        <label><input type="checkbox" class="filter" data-filter="MPC"> Mécanicien de prod.</label>
+                    </div>
+                </div>
+
+                <!-- Combobox 3 (Rubrique) -->
+                <div class="combobox">
+                    <input type="checkbox" id="combo-box-toggle-3">
+                    <label for="combo-box-toggle-3">Choisir rubrique(s)</label>
+                    <div class="dropdown-content">
+                        <label><input type="checkbox" class="filter" data-filter="FR"> Fraisage</label>
+                        <label><input type="checkbox" class="filter" data-filter="TO"> Tournage</label>
+                        <label><input type="checkbox" class="filter" data-filter="AS"> Assemblage</label>
+                        <label><input type="checkbox" class="filter" data-filter="PN"> Pneumatique</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Images (tes images personnelles) -->
+            <div class="images">
+                <a href="ExamensPartiels/2024_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2024.jpg" class="2024 PMC FR" alt="2024 PMC FR"></a>
+                <a href="ExamensPartiels/2024_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2024.jpg" class="2024 PMC TO" alt="2024 PMC TO"></a>
+                <a href="ExamensPartiels/2024_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2024.jpg" class="2024 PMC AS" alt="2024 PMC AS"></a>
+                <a href="ExamensPartiels/2024_PMC_PN.pdf" target="_blank" class="linkmailto"><img src="images/PMC_PN_2024.jpg" class="2024 PMC PN" alt="2024 PMC PN"></a>
+
+                <a href="ExamensPartiels/2023_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2023.jpg" class="2023 PMC FR" alt="2023 PMC FR"></a>
+                <a href="ExamensPartiels/2023_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2023.jpg" class="2023 PMC TO" alt="2023 PMC TO"></a>
+                <a href="ExamensPartiels/2023_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2023.jpg" class="2023 PMC AS" alt="2023 PMC AS"></a>
+                <a href="ExamensPartiels/2023_PMC_PN.pdf" target="_blank" class="linkmailto"><img src="images/PMC_PN_2023.jpg" class="2023 PMC PN" alt="2023 PMC PN"></a>
+
+                <a href="ExamensPartiels/2022_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2022.jpg" class="2022 PMC FR" alt="2022 PMC FR"></a>
+                <a href="ExamensPartiels/2022_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2022.jpg" class="2022 PMC TO" alt="2022 PMC TO"></a>
+                <a href="ExamensPartiels/2022_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2022.jpg" class="2022 PMC AS" alt="2022 PMC AS"></a>
+                <a href="ExamensPartiels/2022_PMC_PN.pdf" target="_blank" class="linkmailto"><img src="images/PMC_PN_2022.jpg" class="2022 PMC PN" alt="2022 PMC PN"></a>
+
+                <a href="ExamensPartiels/2021_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2021.jpg" class="2021 PMC FR" alt="2021 PMC FR"></a>
+                <a href="ExamensPartiels/2021_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2021.jpg" class="2021 PMC TO" alt="2021 PMC TO"></a>
+                <a href="ExamensPartiels/2021_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2021.jpg" class="2021 PMC AS" alt="2021 PMC AS"></a>
+
+                <a href="ExamensPartiels/2020_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2020.jpg" class="2020 PMC FR" alt="2020 PMC FR"></a>
+                <a href="ExamensPartiels/2020_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2020.jpg" class="2020 PMC TO" alt="2020 PMC TO"></a>
+                <a href="ExamensPartiels/2020_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2020.jpg" class="2020 PMC AS" alt="2020 PMC AS"></a>
+
+                <a href="ExamensPartiels/2019_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2019.jpg" class="2019 PMC FR" alt="2019 PMC FR"></a>
+                <a href="ExamensPartiels/2019_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2019.jpg" class="2019 PMC TO" alt="2019 PMC TO"></a>
+                <a href="ExamensPartiels/2019_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2019.jpg" class="2019 PMC AS" alt="2019 PMC AS"></a>
+
+                <a href="ExamensPartiels/2018_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2018.jpg" class="2018 PMC FR" alt="2018 PMC FR"></a>
+                <a href="ExamensPartiels/2018_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2018.jpg" class="2018 PMC TO" alt="2018 PMC TO"></a>
+                <a href="ExamensPartiels/2018_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2018.jpg" class="2018 PMC AS" alt="2018 PMC AS"></a>
+
+                <a href="ExamensPartiels/2017_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2017.jpg" class="2017 PMC FR" alt="2017 PMC FR"></a>
+                <a href="ExamensPartiels/2017_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2017.jpg" class="2017 PMC TO" alt="2017 PMC TO"></a>
+                <a href="ExamensPartiels/2017_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2017.jpg" class="2017 PMC AS" alt="2017 PMC AS"></a>
+
+                <a href="ExamensPartiels/2016_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2016.jpg" class="2016 PMC FR" alt="2016 PMC FR"></a>
+                <a href="ExamensPartiels/2016_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2016.jpg" class="2016 PMC TO" alt="2016 PMC TO"></a>
+                <a href="ExamensPartiels/2016_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2016.jpg" class="2016 PMC AS" alt="2016 PMC AS"></a>
+
+                <a href="ExamensPartiels/2015_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2015.jpg" class="2015 PMC FR" alt="2015 PMC FR"></a>
+                <a href="ExamensPartiels/2015_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2015.jpg" class="2015 PMC TO" alt="2015 PMC TO"></a>
+                <a href="ExamensPartiels/2015_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2015.jpg" class="2015 PMC AS" alt="2015 PMC AS"></a>
+
+                <a href="ExamensPartiels/2014_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2014.jpg" class="2014 PMC FR" alt="2014 PMC FR"></a>
+                <a href="ExamensPartiels/2014_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2014.jpg" class="2014 PMC TO" alt="2014 PMC TO"></a>
+                <a href="ExamensPartiels/2014_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2014.jpg" class="2014 PMC AS" alt="2014 PMC AS"></a>
+
+                <a href="ExamensPartiels/2013_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2013.jpg" class="2013 PMC FR" alt="2013 PMC FR"></a>
+                <a href="ExamensPartiels/2013_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2013.jpg" class="2013 PMC TO" alt="2013 PMC TO"></a>
+                <a href="ExamensPartiels/2013_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2013.jpg" class="2013 PMC AS" alt="2013 PMC AS"></a>
+
+                <a href="ExamensPartiels/2012_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2012.jpg" class="2012 PMC FR" alt="2012 PMC FR"></a>
+                <a href="ExamensPartiels/2012_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2012.jpg" class="2012 PMC TO" alt="2012 PMC TO"></a>
+                <a href="ExamensPartiels/2012_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2012.jpg" class="2012 PMC AS" alt="2012 PMC AS"></a>
+
+                <a href="ExamensPartiels/2011_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2011.jpg" class="2011 PMC FR" alt="2011 PMC FR"></a>
+                <a href="ExamensPartiels/2011_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2011.jpg" class="2011 PMC TO" alt="2011 PMC TO"></a>
+                <a href="ExamensPartiels/2011_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2011.jpg" class="2011 PMC AS" alt="2011 PMC AS"></a>
+
+                <a href="ExamensPartiels/2010_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2010.jpg" class="2010 PMC FR" alt="2010 PMC FR"></a>
+                <a href="ExamensPartiels/2010_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2010.jpg" class="2010 PMC TO" alt="2010 PMC TO"></a>
+                <a href="ExamensPartiels/2010_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2010.jpg" class="2010 PMC AS" alt="2010 PMC AS"></a>
+
+                <a href="ExamensPartiels/2009_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2009.jpg" class="2009 PMC FR" alt="2009 PMC FR"></a>
+                <a href="ExamensPartiels/2009_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2009.jpg" class="2009 PMC TO" alt="2009 PMC TO"></a>
+                <a href="ExamensPartiels/2009_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2009.jpg" class="2009 PMC AS" alt="2009 PMC AS"></a>
+
+                <a href="ExamensPartiels/2008_PMC_FR.pdf" target="_blank" class="linkmailto"><img src="images/PMC_FR_2008.jpg" class="2008 PMC FR" alt="2008 PMC FR"></a>
+                <a href="ExamensPartiels/2008_PMC_TO.pdf" target="_blank" class="linkmailto"><img src="images/PMC_TO_2008.jpg" class="2008 PMC TO" alt="2008 PMC TO"></a>
+                <a href="ExamensPartiels/2008_PMC_AS.pdf" target="_blank" class="linkmailto"><img src="images/PMC_AS_2008.jpg" class="2008 PMC AS" alt="2008 PMC AS"></a>
+
+                <a href="ExamensPartiels/2024_MPC_FR.pdf" target="_blank" class="linkmailto"><img src="images/MPC_FR_2024.jpg" class="2024 MPC FR" alt="2024 MPC FR"></a>
+                <a href="ExamensPartiels/2024_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2024.jpg" class="2024 MPC TO" alt="2024 MPC TO"></a>
+                <a href="ExamensPartiels/2024_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2024.jpg" class="2024 MPC AS" alt="2024 MPC AS"></a>
+
+                <a href="ExamensPartiels/2023_MPC_FR.pdf" target="_blank" class="linkmailto"><img src="images/MPC_FR_2023.jpg" class="2023 MPC FR" alt="2023 MPC FR"></a>
+                <a href="ExamensPartiels/2023_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2023.jpg" class="2023 MPC TO" alt="2023 MPC TO"></a>
+                <a href="ExamensPartiels/2023_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2023.jpg" class="2023 MPC AS" alt="2023 MPC AS"></a>
+
+                <a href="ExamensPartiels/2022_MPC_FR.pdf" target="_blank" class="linkmailto"><img src="images/MPC_FR_2022.jpg" class="2022 MPC FR" alt="2022 MPC FR"></a>
+                <a href="ExamensPartiels/2022_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2022.jpg" class="2022 MPC TO" alt="2022 MPC TO"></a>
+                <a href="ExamensPartiels/2022_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2022.jpg" class="2022 MPC AS" alt="2022 MPC AS"></a>
+
+                <a href="ExamensPartiels/2021_MPC_FR.pdf" target="_blank" class="linkmailto"><img src="images/MPC_FR_2021.jpg" class="2021 MPC FR" alt="2021 MPC FR"></a>
+                <a href="ExamensPartiels/2021_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2021.jpg" class="2021 MPC TO" alt="2021 MPC TO"></a>
+                <a href="ExamensPartiels/2021_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2021.jpg" class="2021 MPC AS" alt="2021 MPC AS"></a>
+
+                <a href="ExamensPartiels/2020_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2020.jpg" class="2020 MPC TO" alt="2020 MPC TO"></a>
+                <a href="ExamensPartiels/2020_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2020.jpg" class="2020 MPC AS" alt="2020 MPC AS"></a>
+
+                <a href="ExamensPartiels/2019_MPC_FR.pdf" target="_blank" class="linkmailto"><img src="images/MPC_FR_2019.jpg" class="2019 MPC FR" alt="2019 MPC FR"></a>
+                <a href="ExamensPartiels/2019_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2019.jpg" class="2019 MPC TO" alt="2019 MPC TO"></a>
+                <a href="ExamensPartiels/2019_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2019.jpg" class="2019 MPC AS" alt="2019 MPC AS"></a>
+
+                <a href="ExamensPartiels/2018_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2018.jpg" class="2018 MPC TO" alt="2018 MPC TO"></a>
+                <a href="ExamensPartiels/2018_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2018.jpg" class="2018 MPC AS" alt="2018 MPC AS"></a>
+
+                <a href="ExamensPartiels/2017_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2017.jpg" class="2017 MPC TO" alt="2017 MPC TO"></a>
+                <a href="ExamensPartiels/2017_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2017.jpg" class="2017 MPC AS" alt="2017 MPC AS"></a>
+
+                <a href="ExamensPartiels/2016_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2016.jpg" class="2016 MPC TO" alt="2016 MPC TO"></a>
+                <a href="ExamensPartiels/2016_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2016.jpg" class="2016 MPC AS" alt="2016 MPC AS"></a>
+
+                <a href="ExamensPartiels/2015_MPC_FR.pdf" target="_blank" class="linkmailto"><img src="images/MPC_FR_2015.jpg" class="2015 MPC FR" alt="2015 MPC FR"></a>
+                <a href="ExamensPartiels/2015_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2015.jpg" class="2015 MPC TO" alt="2015 MPC TO"></a>
+                <a href="ExamensPartiels/2015_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2015.jpg" class="2015 MPC AS" alt="2015 MPC AS"></a>
+
+                <a href="ExamensPartiels/2014_MPC_FR.pdf" target="_blank" class="linkmailto"><img src="images/MPC_FR_2014.jpg" class="2014 MPC FR" alt="2014 MPC FR"></a>
+                <a href="ExamensPartiels/2014_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2014.jpg" class="2014 MPC TO" alt="2014 MPC TO"></a>
+                <a href="ExamensPartiels/2014_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2014.jpg" class="2014 MPC AS" alt="2014 MPC AS"></a>
+
+                <a href="ExamensPartiels/2013_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2013.jpg" class="2013 MPC TO" alt="2013 MPC TO"></a>
+                <a href="ExamensPartiels/2013_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2013.jpg" class="2013 MPC AS" alt="2013 MPC AS"></a>
+
+                <a href="ExamensPartiels/2012_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2012.jpg" class="2012 MPC TO" alt="2012 MPC TO"></a>
+                <a href="ExamensPartiels/2012_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2012.jpg" class="2012 MPC AS" alt="2012 MPC AS"></a>
+
+                <a href="ExamensPartiels/2011_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2011.jpg" class="2011 MPC TO" alt="2011 MPC TO"></a>
+                <a href="ExamensPartiels/2011_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2011.jpg" class="2011 MPC AS" alt="2011 MPC AS"></a>
+
+                <a href="ExamensPartiels/2010_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2010.jpg" class="2010 MPC TO" alt="2010 MPC TO"></a>
+                <a href="ExamensPartiels/2010_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2010.jpg" class="2010 MPC AS" alt="2010 MPC AS"></a>
+
+                <a href="ExamensPartiels/2009_MPC_TO.pdf" target="_blank" class="linkmailto"><img src="images/MPC_TO_2009.jpg" class="2009 MPC TO" alt="2009 MPC TO"></a>
+                <a href="ExamensPartiels/2009_MPC_AS.pdf" target="_blank" class="linkmailto"><img src="images/MPC_AS_2009.jpg" class="2009 MPC AS" alt="2009 MPC AS"></a>
+            </div>
+            
+
+            <div>
+                <br>
+                <br>
+                <br>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Pied de page que l'on doit retrouver sur toutes les pages du site web -->
+    <footer class="footer">
+        <section>
+            <div class="footergrid">
+                <div class="socialnetwork">
+                    <a href="https://www.linkedin.com/in/coll%C3%A8ge-d-experts-m%C3%A9canique-berne-section-francophone-bb02b0329/" target="_blank">
+                        <img src="images/logo_linkedin.png" />
+                    </a>
+                    <!-- <a href="https://www.youtube.com/channel/" target="_blank">
+                        <img src="images/logo_youtube.png" />
+                    </a>
+                    <a href="https://www.facebook.com//" target="_blank">
+                        <img src="images/logo_facebook.png" />
+                    </a> -->
+                </div>
+
+                <div class="legalnotice">
+                    <a href="privacypolicy.html">Politique de confidentialité</a>
+                    <a href="legalnotice.html">Mentions légales</a>
+                </div>
+                <div class="contact">
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Collège experts Berne francophone - Site by M.Dolci</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!--<script src="script.js"></script>-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titre = document.querySelector('.hero h2');
+            titre.classList.add('active');
+    
+            setTimeout(function () {
+                const soustitre = document.querySelector('.hero p');
+                soustitre.classList.add('active');
+            }, 800);
+    
+            setTimeout(function () {
+                const features = document.querySelectorAll('.circle');
+                features.forEach(function (circle, index) {
+                    setTimeout(function () {
+                        circle.classList.add('active');
+                    }, index * 500); // Ajoute un délai de 500ms entre chaque élément
+                });
+            }, 1200);
+    
+            // Assurer que toutes les images soient masquées par défaut au chargement
+            filterImages();  // Filtrer les images au chargement
+            toggleActiveState();  // Mettre à jour l'état visuel des filtres
+        });
+    
+        // Fonction pour filtrer les images
+        function filterImages() {
+            const yearFilters = Array.from(document.querySelectorAll('.filter[data-filter^="20"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+            const professionFilters = Array.from(document.querySelectorAll('.filter[data-filter="PMC"], .filter[data-filter="MPC"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+            const categoryFilters = Array.from(document.querySelectorAll('.filter[data-filter="FR"], .filter[data-filter="TO"], .filter[data-filter="AS"], .filter[data-filter="PN"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+    
+            const images = document.querySelectorAll('.images img');
+    
+            // Si aucun filtre n'est sélectionné, masquer toutes les images
+            if (yearFilters.length === 0 && professionFilters.length === 0 && categoryFilters.length === 0) {
+                images.forEach(img => img.style.display = 'none');
+                return; // Fin de la fonction, rien n'est visible
+            }
+    
+            let anyVisible = false;
+    
+            images.forEach(img => {
+                const matchesYear = yearFilters.length === 0 || yearFilters.some(filter => img.classList.contains(filter));
+                const matchesProfession = professionFilters.length === 0 || professionFilters.some(filter => img.classList.contains(filter));
+                const matchesCategory = categoryFilters.length === 0 || categoryFilters.some(filter => img.classList.contains(filter));
+    
+                if (matchesYear && matchesProfession && matchesCategory) {
+                    img.style.display = 'block';
+                    anyVisible = true; // Indiquer qu'au moins une image est visible
+                } else {
+                    img.style.display = 'none';
+                }
+            });
+    
+            // Afficher un message si aucune image n'est visible
+            const existingMessage = document.querySelector('.images p.message');
+            if (!anyVisible) {
+                if (!existingMessage) {
+                    const message = document.createElement('p');
+                    message.textContent = "Aucune image ne correspond à vos filtres.";
+                    message.className = 'message';
+                    document.querySelector('.images').appendChild(message);
+                }
+            } else {
+                if (existingMessage) {
+                    existingMessage.remove(); // Supprimer le message si des images sont visibles
+                }
+            }
+        }
+    
+        function toggleActiveState() {
+            document.querySelectorAll('.dropdown-content label').forEach(label => {
+                const checkbox = label.querySelector('input[type="checkbox"]');
+                if (checkbox.checked) {
+                    label.classList.add('active');
+                } else {
+                    label.classList.remove('active');
+                }
+            });
+        }
+    
+        document.querySelectorAll('.filter').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                filterImages();
+                toggleActiveState();
+            });
+        });
+    </script>
+    
+</body>
+</html>
