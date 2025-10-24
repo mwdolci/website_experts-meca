@@ -1,17 +1,8 @@
 ﻿body {
     font-family: Arial, sans-serif;
     background-color: #1B2025;
-    /*background-color: black;*/
     margin: 0;
     padding: 0;
-}
-
-.parallax {
-    background-color: black;
-    background-image: url('images/black_background_2.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 main {
@@ -25,16 +16,8 @@ main {
     flex-direction: column;
 }
 
-/* section avec le fond entièrement noir */
-.formation,
-.development,
-.about_us,
-.training_company,
-.job,
-.fao,
-.dnc,
-.events {
-    background-color: black;
+.rotate-message {
+    display: none;
 }
 
 /******************************************************** ENTETE ********************************************************/
@@ -1671,12 +1654,12 @@ footer {
 }
 
     .socialnetwork img {
-        max-width: 200px;
-        margin-right: 10px;      
-        padding-top: 10px;
         width: 30px;
         height: auto;
         opacity: 0.9;
+        display: block;
+        margin: 0;      
+        padding: 0;     
     }
 
 .legalnotice a {
@@ -1994,5 +1977,40 @@ footer {
     }
     .burger-menu.active div:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -10px);
+    }
+}
+
+/* 📱 Quand l’écran est petit et en mode portrait */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    /* Cache tout le contenu sauf la flèche UNIQUEMENT si body.rotate-page */
+    body.rotate-page > *:not(.rotate-message) {
+        display: none !important;
+    }
+
+    /* Affiche une grande flèche animée */
+    .rotate-message {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        background: radial-gradient(circle at top left, rgba(95, 108, 124, 0.7) , rgba(0, 0, 0, 0.7) 70%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    }
+
+    /* Flèche stylisée et animée */
+    .rotate-message::before {
+        content: "↻"; /* flèche de rotation */
+        font-size: 8rem; /* taille géante */
+        color: white;
+        animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(120deg); }
     }
 }
