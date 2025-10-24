@@ -1278,7 +1278,7 @@ button {
 }
 
 .conseil p {
-    margin: 5px 0; /* Espacement entre les lignes */
+    margin: 0;
 }
 
 .conseil .role {
@@ -1289,27 +1289,30 @@ button {
 
 .conseil .name,
 .conseil .namemembres {
+    position: relative;
+}
+
+.conseil .label {
     font-weight: normal;
-    color: white;
-    font-size: 14px;
-    display: flex; /* Utilise Flexbox pour aligner les éléments en ligne */
-    align-items: center; /* Aligne verticalement les éléments */
-    margin: 0; /* Supprime les marges par défaut */
-    padding: 0; /* Supprime les espacements internes */
-    display: block; /* Affiche chaque valeur sur une nouvelle ligne */
-    margin-top: 5px;
+    margin-right: 10px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.conseil .value {
+    position: static;
+    font-weight: normal;
+    text-align: left;
+    margin-left: 0; /* si tu veux garder le décalage */
+
+    white-space: nowrap;
 }
 
 .conseil .name .label,
 .conseil .namemembres .label {
     margin-right: 30px; /* Décalage de 30px entre l'étiquette et la valeur */
     white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
-}
-
-.conseil .name .value,
-.conseil .namemembres .value {
-    flex: 1; /* Laisse la valeur occuper l'espace restant */
-    text-align: left; /* Aligne le texte à gauche */
+    font-size: 14px;
 }
 
 .conseil .namemembres {
@@ -1324,8 +1327,9 @@ button {
 .conseil .name .value,
 .conseil .namemembres .value {
     position: absolute; /* Positionne les valeurs de manière absolue par rapport au conteneur */
-    left: 120px; /* Décalage du texte de 30px */
+    left: 100px; /* Décalage du texte de 30px */
     white-space: nowrap; /* Empêche le texte de passer à la ligne suivante */
+    font-size: 14px;
 }
 
 .conseil:hover,
