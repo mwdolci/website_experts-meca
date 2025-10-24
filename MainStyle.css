@@ -347,7 +347,7 @@ main {
     }
     
     .pagetitle-container  {
-        width:100%;
+        width: calc(100% - 40px);
         height: 120px;
         position: absolute;
         top: 60px;
