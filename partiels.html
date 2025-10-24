@@ -291,12 +291,6 @@
                     <a href="https://www.linkedin.com/in/coll%C3%A8ge-d-experts-m%C3%A9canique-berne-section-francophone-bb02b0329/" target="_blank">
                         <img src="images/logo_linkedin.png" />
                     </a>
-                    <!-- <a href="https://www.youtube.com/channel/" target="_blank">
-                        <img src="images/logo_youtube.png" />
-                    </a>
-                    <a href="https://www.facebook.com//" target="_blank">
-                        <img src="images/logo_facebook.png" />
-                    </a> -->
                 </div>
 
                 <div class="legalnotice">
@@ -312,31 +306,8 @@
             </div>
         </section>
     </footer>
-    <!--<script src="script.js"></script>-->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const titre = document.querySelector('.hero h2');
-            titre.classList.add('active');
-    
-            setTimeout(function () {
-                const soustitre = document.querySelector('.hero p');
-                soustitre.classList.add('active');
-            }, 800);
-    
-            setTimeout(function () {
-                const features = document.querySelectorAll('.circle');
-                features.forEach(function (circle, index) {
-                    setTimeout(function () {
-                        circle.classList.add('active');
-                    }, index * 500); // Ajoute un délai de 500ms entre chaque élément
-                });
-            }, 1200);
-    
-            // Assurer que toutes les images soient masquées par défaut au chargement
-            filterImages();  // Filtrer les images au chargement
-            toggleActiveState();  // Mettre à jour l'état visuel des filtres
-        });
-    
+    <script src="script.js"></script>
+    <script>    
         // Fonction pour filtrer les images
         function filterImages() {
             const yearFilters = Array.from(document.querySelectorAll('.filter[data-filter^="20"]:checked')).map(cb => cb.getAttribute('data-filter') || '');

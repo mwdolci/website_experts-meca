@@ -140,21 +140,6 @@ main {
     width: max-content;
 }
 
-.language_selector {
-    position: absolute;
-    font-size: 9px;
-    color: gray;
-    top: 5px;
-    right: 10px;
-    z-index: 100;
-}
-
-.language_link {
-    text-decoration: none;
-    color: white; /* Couleur du texte des liens */
-    margin: 0 5px; /* Espacement entre les liens */
-}
-
 .menu a.pkorg-link {
     color: grey;
     font-weight: bold;
@@ -854,6 +839,13 @@ main {
         transform: scale(1.4); /* L'image sera agrandie à 140% de sa taille d'origine au survol */
         cursor: pointer;
     }
+
+    .circle img {
+        width: 60px; /* Taille de base sur grand écran */
+        height: auto;
+        object-fit: contain;
+        transition: width 0.3s ease;
+        }
 	
     #gradient-background {
         position: fixed;
@@ -917,12 +909,13 @@ main {
     text-decoration: none;
 }
 
+/* Bouton pour changer news */
 button {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
     border: none;
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
 }
@@ -930,28 +923,7 @@ button {
     button:hover {
         background-color: #45a049;
     }
-
-.video_container_globe {
-    position: relative;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-}
-
-#background_video_globe {
-    position: fixed;
-    opacity: 0.3;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-}
+    
 
 /******************************************************** COLLEGE - PROFESSION - EXAMENS ********************************************************/
 .grid-container {
@@ -1759,52 +1731,57 @@ footer {
     font-size: 11px;
 }
 
-/* Pour effet JS */
-.news,
-.programmation,
-.support,
-.our_team,
-.our_partners,
-.fao,
-.dnc,
-.events,
-.development,
-.formation,
-.about_us,
-.training_company,
-.job,
-.cao,
-.simulation {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 2s ease, transform 2s ease;
+/* Empêche le menu de dépasser horizontalement */
+.menu.active {
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-    .news.visible,
-    .events.visible,
-    .development.visible,
-    .programmation.visible,
-    .formation.visible,
-    .support.visible,
-    .about_us.visible,
-    .our_team.visible,
-    .training_company.visible,
-    .our_partners.visible,
-    .job.visible,
-    .cao.visible,
-    .fao.visible,
-    .simulation.visible,
-    .dnc.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Sous-menus adaptés au mobile */
+.menu.active .has-submenu:hover .sous-menu {
+  display: block;
+  position: relative;
+  top: auto;
+  left: 0;
+}
+
+* {
+  outline: 1px solid rgba(157, 255, 0, 0.2); /* debug visuel : montre les débordements */
+}
 
 /******************************************************** GESTION DIMENSION ECRAN ********************************************************/
 
 @media (max-width: 768px) {
 
+    /* Supprime pied de page et news */
     .footer, .news-section {
         display: none;
+    }
+
+    .title-container {
+        width: 90%; /* largeur relative à l’écran */
+        max-width: 100%; /* jamais dépasser la largeur du viewport */
+        height: auto; /* s’adapte au contenu */
+        position: relative; /* plus de débordement avec absolute */
+        top: 20px;
+        left: 0;
+        clip-path: none; /* pour éviter le débordement */
+        padding: 20px 10px;
+        margin: 0 auto;    /* centre horizontalement */
+    }
+
+    .title-container h2 {
+        font-size: 2rem; /* réduit le texte sur petit écran */
+        line-height: 1.3;
+        text-align: center;
+    }
+
+    .title-container .sub-title {
+        font-size: 2rem;
+    }
+
+    .sub-title {
+        padding-left: 0px; /* Gestion du décalage du texte */
     }
 
     .grid-container {
@@ -1813,34 +1790,23 @@ footer {
 
     .logo img {
         height: 40px;
-        width: auto; /* S'ajuste automatiquement en fonction de la hauteur */
-        clip-path: polygon(0 0, 20% 0, 20% 100%, 0 100%);
+        width: auto;
+        clip-path: none; /* pas de découpe sur mobile */
     }
 
     .features {
-        flex-direction: column; /*Passe en colonnes lorsque la largeur est inférieure à 768px*/
-        align-items: center; /*Centre les éléments */
-        width: 80%;
-        bottom: -300px;
+        display: flex;
+        flex-direction: column; /* colonnes sur mobile */
+        align-items: center;    /* centre horizontalement */
+        width: 80%;             /* largeur réduite */
+        position: relative;     /* suit le flux normal de la page */
+        margin-top: 30px;       /* espace entre le titre et les cercles */
+        gap: 40px;              /* espace vertical entre les cercles */
     }
 
     .circle {
-        padding-bottom: 20px; /*Réduire l'espacement entre les éléments */
-        max-width: none; /*Annuler la largeur maximale*/
+        margin-bottom: 40px; /* espace entre les cercles */
     }
-
-        .circle a {
-            text-align: center; /* Positionne le texte sous l'image au centre */
-        }
-
-        .circle p {
-            display:none;
-        }
-
-        .circle img {
-            width: 260px; /* doit être idem que max-width dans .feature */
-            height: 150px;
-        }
 
     .colonne1,
     .colonne2 {
@@ -1860,12 +1826,10 @@ footer {
         grid-gap: 10px; /* Espace entre les images */
     }
 
-    .language_selector {
-        display: none;
-    }
-
     .hero {
-        height: 130vh; /* permet de pousser le pied de page contre le bas dans la page accueil qui n'est pas assez haute */
+        height: auto;      /* s’adapte au contenu */
+        min-height: 20vh;  
+        padding: 20px 10px;
     }
 
     .hero h2 {
@@ -1901,15 +1865,6 @@ footer {
         margin: 0 auto;
     }
 
-    .footergrid {
-        position: sticky;
-        background-color: black;
-    }
-
-    .newsletter {
-        display: none;
-    }
-
     .legalnotice a {
         justify-content: start;
         padding-left: 5px;
@@ -1941,76 +1896,52 @@ footer {
         grid-template-rows: 350px 350px 350px 350px 350px 350px 350px 350px 350px;
     }
 
-    .socialnetwork_contact a {
-        max-width: 100%;
-        width: 100%;
-    }
-
 
     /* MENU DE NAVIGATION */
     .menu {
         display: none;
     }
 
-        .menu.active {
-            display: block;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            background-color: black; /* Couleur du fond du menu déroulant */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Ombre légère */
-            z-index: 10;
-            text-align: start;
-        }
+    .menu.active {
+        display: block;
+        position: fixed;        /* fixé par rapport à l’écran */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;          /* occupe toute la hauteur de l’écran */
+        background-color: rgba(0,0,0,0.9); /* fond noir semi-transparent */
+        z-index: 10;
+        text-align: start;
+        overflow-y: auto;       /* pour faire défiler si le contenu dépasse */
+        padding-top: 60px;      /* espace sous la barre burger */
+    }
 
-            .menu.active ul {
-                list-style: none;
-                padding: 0;
-                display: flex;
-                flex-direction: column; /* Aligner les éléments en colonne */
-            }
+    .menu.active ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* Alignement en colonne */
+    }
 
-            .menu.active li {
-                margin: 10px 0;
-                position: relative; /* Ajout de position relative pour les sous-menus */
-            }
+    .menu.active li {
+        margin: 10px 0;
+        position: relative; /* ok pour premier niveau */
+    }
 
-            .menu.active a {
-                padding: 10px 20px;
-                font-size: 18px;
-                color: white; /* Couleur du texte */
-                text-decoration: none;
-            }
+    .menu.active a {
+        padding: 30px 20px;
+        font-size: 26px;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
 
-            .menu.active .has-submenu:after {
-                content: '\25B6'; /* Ajout d'une flèche pour indiquer le sous-menu */
-                position: absolute;
-                top: 50%;
-                left: 30%;
-                transform: translateY(-50%);
-            }
-
-            .menu.active .sous-menu {
-                position: absolute;
-                top: 0;
-                display: none;
-                list-style: none;
-                padding: 0;
-                min-width: 200px; /* Largeur minimale des sous-menus */
-            }
-
-            .menu.active .has-submenu:hover .sous-menu {
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 40%;
-            }
-
-            .menu.active .sous-menu li {
-                margin: 0;
-                text-align: start;
-            }
+    /* Suppression  des sous-menus */
+    .menu.active .has-submenu:after,
+    .menu.active .sous-menu,
+    .menu.active .has-submenu:hover .sous-menu {
+        display: none !important;
+    }
 
     .burger-menu {
         display: block;
@@ -2018,24 +1949,22 @@ footer {
         z-index: 20;
     }
 
-        .burger-menu div {
-            width: 35px;
-            height: 5px;
-            background-color: white;
-            margin: 6px;
-            margin-right: 20px;
-            transition: 0.4s;
-        }
+    .burger-menu div {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        margin: 6px;
+        margin-right: 20px;
+        transition: 0.4s;
+    }
 
-        .burger-menu.active div:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 10px);
-        }
-
-        .burger-menu.active div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger-menu.active div:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -10px);
-        }
+    .burger-menu.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 10px);
+    }
+    .burger-menu.active div:nth-child(2) {
+        opacity: 0;
+    }
+    .burger-menu.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -10px);
+    }
 }
