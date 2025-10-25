@@ -1355,7 +1355,8 @@ button {
     border-color: white; /* Couleur de la bordure au survol */
 }
 
-.faq-container {
+.faq-container,
+.corner-container {
     width: 80%;
     margin: 0 auto;
     padding: 20px;

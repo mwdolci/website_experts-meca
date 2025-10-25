@@ -31,3 +31,66 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+// Fonction pour filtrer les images
+        function filterImages() {
+            const yearFilters = Array.from(document.querySelectorAll('.filter[data-filter^="20"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+            const professionFilters = Array.from(document.querySelectorAll('.filter[data-filter="PMC"], .filter[data-filter="MPC"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+            const categoryFilters = Array.from(document.querySelectorAll('.filter[data-filter="FR"], .filter[data-filter="TO"], .filter[data-filter="AS"], .filter[data-filter="PN"]:checked')).map(cb => cb.getAttribute('data-filter') || '');
+    
+            const images = document.querySelectorAll('.images img');
+    
+            // Si aucun filtre n'est sélectionné, masquer toutes les images
+            if (yearFilters.length === 0 && professionFilters.length === 0 && categoryFilters.length === 0) {
+                images.forEach(img => img.style.display = 'none');
+                return; // Fin de la fonction, rien n'est visible
+            }
+    
+            let anyVisible = false;
+    
+            images.forEach(img => {
+                const matchesYear = yearFilters.length === 0 || yearFilters.some(filter => img.classList.contains(filter));
+                const matchesProfession = professionFilters.length === 0 || professionFilters.some(filter => img.classList.contains(filter));
+                const matchesCategory = categoryFilters.length === 0 || categoryFilters.some(filter => img.classList.contains(filter));
+    
+                if (matchesYear && matchesProfession && matchesCategory) {
+                    img.style.display = 'block';
+                    anyVisible = true; // Indiquer qu'au moins une image est visible
+                } else {
+                    img.style.display = 'none';
+                }
+            });
+    
+            // Afficher un message si aucune image n'est visible
+            const existingMessage = document.querySelector('.images p.message');
+            if (!anyVisible) {
+                if (!existingMessage) {
+                    const message = document.createElement('p');
+                    message.textContent = "Aucune image ne correspond à vos filtres.";
+                    message.className = 'message';
+                    document.querySelector('.images').appendChild(message);
+                }
+            } else {
+                if (existingMessage) {
+                    existingMessage.remove(); // Supprimer le message si des images sont visibles
+                }
+            }
+        }
+    
+        function toggleActiveState() {
+            document.querySelectorAll('.dropdown-content label').forEach(label => {
+                const checkbox = label.querySelector('input[type="checkbox"]');
+                if (checkbox.checked) {
+                    label.classList.add('active');
+                } else {
+                    label.classList.remove('active');
+                }
+            });
+        }
+    
+        document.querySelectorAll('.filter').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                filterImages();
+                toggleActiveState();
+            });
+        });
