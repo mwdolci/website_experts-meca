@@ -291,9 +291,9 @@ main {
 /* --- */
 
 .divWithScroll {
-    width: 100%; /* Définissez la largeur de votre div */
-    height: 450px; /* Définissez la hauteur de votre div */
-    overflow: auto; /* Cette propriété active la barre de défilement */
+    width: 100%; /* Largeur div */
+    height: 450px; /* Hauteur div */
+    overflow: auto; /* Active la barre de défilement */
 }
 
 /* Design de la scrollbar */
@@ -1418,6 +1418,14 @@ summary:hover {
     color: whitesmoke;
     font-size: 15px;
 }
+
+/* Réduction de l'icône pour correspondre à la taille du texte */
+    .faq-answer .inline-icon {
+        height: 1em;             /* même taille que le texte */
+        width: auto;             /* conserve les proportions */
+        vertical-align: middle;  /* aligne avec le texte */
+        margin-right: 0.3em;     /* petit espace entre icône et texte */
+    }
 
 details {
     margin-bottom: 10px;
