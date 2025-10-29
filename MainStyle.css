@@ -636,6 +636,10 @@ main {
         flex-wrap: wrap;
     }
 
+.smartphone-link {
+    display: none;
+}
+
 /* --- */
 
 /******************************************************** MAIN ACCUEIL ********************************************************/
@@ -1752,6 +1756,10 @@ footer {
     /* Supprime pied de page et news */
     .footer, .news-section {
         display: none;
+    }
+
+    .smartphone-link {
+        display: block;
     }
 
     /* Page container prend toute la hauteur */
