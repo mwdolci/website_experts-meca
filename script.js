@@ -101,3 +101,14 @@ document.querySelectorAll('.corner-container details').forEach(details => {
     });
 });
 
+// Sélectionne toutes les boîtes
+const boites = document.querySelectorAll('.boite');
+
+// Pour chacune, ajoute un clic qui redirige
+boites.forEach(boite => {
+    boite.style.cursor = 'pointer'; // Montre que c'est cliquable
+    boite.addEventListener('click', () => {
+        window.location.href = 'contact.html';
+    });
+});
+

@@ -2033,6 +2033,11 @@ footer {
         text-align: center;
     }
 
+    .privacypolicy-container{
+        padding: 10px;
+        margin: 10px;
+    }
+
     /* Calendar Table */
     /* Cache les colonnes 6 à 9 du tableau */
     table th:nth-child(n+6),
