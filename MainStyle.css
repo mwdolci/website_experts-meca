@@ -1035,7 +1035,6 @@ button {
 
 .mission-title {    
     font-size: 60px;
-    
     margin-bottom: 0px;
 }
 
@@ -1049,6 +1048,10 @@ button {
     font-size: 20px;
     max-width: 500px;
     margin-bottom: 50px;
+}
+
+.mission-texte strong {
+    color: #45a049;
 }
 
 /******************************************************** ORG CHART ********************************************************/
@@ -1751,11 +1754,54 @@ footer {
 
 /******************************************************** GESTION DIMENSION ECRAN ********************************************************/
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
 
-    /* Supprime pied de page et news */
-    .footer, .news-section {
+    /* Supprime contact du pied de page et news */
+    .contact,
+    .news-section {
         display: none;
+    }
+
+    /* Pied de page */
+    .footergrid {
+        display: grid;
+        grid-template-columns: 8fr 1fr;
+        grid-template-rows: 40px 10px;  /* deux lignes */
+        gap: 0;
+        align-items: start;
+        background-color: black;
+        min-height: 70px;             /* hauteur minimale pour englober les deux lignes */
+        padding: 10px;
+    }
+
+    .legalnotice {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0px;
+        padding-left: 0;
+        margin-left: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .copyright {
+        grid-column: 1;
+        grid-row: 2;   /* nouvelle ligne sous legalnotice */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-left: 10px;
+    }
+
+    .socialnetwork {
+        grid-column: 2;
+        grid-row: 1 ;
+        display: flex;
+        justify-content: flex-end;
+        align-items:flex-start           /* verticalement en haut */
     }
 
     .smartphone-link {
@@ -1764,8 +1810,39 @@ footer {
 
     /* Page container prend toute la hauteur */
     .page-container {
-        min-height: auto;
-        height: auto;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* hauteur minimale de la fenêtre */
+    }
+
+    /* Titre de page centré */
+    .pagetitle{
+        margin-bottom: 0;
+        padding-bottom: 60px;
+    }
+
+    .pagetitle-container {
+        position: relative; /* pour ne plus dépendre de left/top */
+        width: 100%;
+        left: 0;      
+        top: 70px;             
+        text-align: center;
+    }
+
+    .pagetitle-container h2,
+    .pagetitle-container p {
+        margin: 0;
+        padding: 0 2rem 0 2rem;
+        text-align: center;
+    }
+
+    /* Partenaires*/
+    .description {
+        display: none;
+    }
+
+    .partenaire-logo {
+        border-radius: 10px;
     }
 
     main {
@@ -1893,12 +1970,12 @@ footer {
         margin: 0 auto;
     }
 
-    .legalnotice a {
+    /* .legalnotice a {
         justify-content: start;
         padding-left: 5px;
         padding-top: 10px;
         font-size: 8px;
-        grid-column-start: 1; /* 3 = fin de la grille */
+        grid-column-start: 1;
         grid-column-end: 3;
         grid-row-start: 1;
         grid-row-end: 3;
@@ -1907,12 +1984,12 @@ footer {
     .copyright {
         text-align: start;
         font-size: 8px;
-        grid-column-start: 1; /* 3 = fin de la grille */
+        grid-column-start: 1;
         grid-column-end: 2;
         grid-row-start: 2;
         grid-row-end: 4;
         padding-left: 5px;
-    }
+    } */
 
     #background-video2 {
         border-left: 50px solid rgba(0, 0, 0, 0.9); /* Décale sur la droite et adouci la bordure de vidéo à gauche */
@@ -1924,6 +2001,79 @@ footer {
         grid-template-rows: 350px 350px 350px 350px 350px 350px 350px 350px 350px;
     }
 
+    /* ABOUT US - MISSION VISION VALUES */
+    .counter-container {
+        flex-direction: column; /* les cercles passent un en dessous de l’autre */
+        gap: 2rem;              /* espace vertical entre les cercles */
+        height: auto;           /* pour éviter un trop grand espace vertical */
+        padding: 5rem 0 2rem;        /* un peu de marge en haut/bas */
+    }
+
+    .circle-counter {
+        width: 250px;  /* plus petit pour mobile */
+        height: 250px;
+    }
+
+    .mission-texte{
+        align-content: center;
+        text-align: center;
+        padding: 0;
+        margin: 0 2rem 0 2rem;
+        max-width: 100%;
+    }
+
+    .mission-title {
+        align-content: center;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .mission,
+    .vision,
+    .valeurs {
+        align-items: center;
+        text-align: center;
+        margin: 0;
+        padding: 0
+    }
+
+    /* Professions */
+    .container-profession {
+        position: relative;
+        padding-top: 0;
+        text-align: center;
+    }
+
+    /* Calendar Table */
+    /* Cache les colonnes 6 à 9 du tableau */
+    table th:nth-child(n+6),
+    table td:nth-child(n+6) {
+        display: none;
+    }
+
+    .container-tableau-contact {
+        padding-top: 0;
+        margin-top: 0;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%; /* s’adapte à l’écran */
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    /* BOUTONS GENERIQUES */
+    .button-container {
+        flex-direction: column;  /* les boutons passent en colonne */
+        gap: 1.5rem;             /* espace vertical entre eux */
+        margin-top: 2rem;
+    }
+
+    .generic_button {
+        width: 70%;              /* boutons plus larges et centrés */
+        text-align: center;
+    }
 
     /* MENU DE NAVIGATION */
     .menu {
