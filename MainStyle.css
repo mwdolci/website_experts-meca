@@ -1757,9 +1757,10 @@ footer {
   left: 0;
 }
 
-* {
-  outline: 1px solid rgba(157, 255, 0, 0.2); /* debug visuel : montre les débordements */
-}
+/* debug visuel : montre les débordements */
+/* * {
+  outline: 1px solid rgba(157, 255, 0, 0.2); 
+} */
 
 /******************************************************** GESTION DIMENSION ECRAN ********************************************************/
 
@@ -1979,27 +1980,6 @@ footer {
         margin: 0 auto;
     }
 
-    /* .legalnotice a {
-        justify-content: start;
-        padding-left: 5px;
-        padding-top: 10px;
-        font-size: 8px;
-        grid-column-start: 1;
-        grid-column-end: 3;
-        grid-row-start: 1;
-        grid-row-end: 3;
-    }
-
-    .copyright {
-        text-align: start;
-        font-size: 8px;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 2;
-        grid-row-end: 4;
-        padding-left: 5px;
-    } */
-
     #background-video2 {
         border-left: 50px solid rgba(0, 0, 0, 0.9); /* Décale sur la droite et adouci la bordure de vidéo à gauche */
     }
@@ -2188,5 +2168,43 @@ footer {
     @keyframes rotate {
         from { transform: rotate(0deg); }
         to   { transform: rotate(120deg); }
+    }
+}
+
+@media print {
+    /* Masquage des éléments inutiles */
+    header, nav, .burger-menu, .footer, .corner-container .combobox, .generic_button{
+        display: none ;
+    }
+
+    /* Suppression de tous les arrière-plans */
+    * {
+        background: none ;
+        background-color: transparent ;
+        box-shadow: none ;
+    }
+
+    /* Adaptation du contenu principal pour l’impression */
+    main, .grid-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Styliser les images pour l’impression */
+    .images img {
+        max-width: 100%;
+        height: auto;
+        page-break-inside: avoid;
+    }
+
+    /* Style texte et titres */
+    h1, h2, h3, h4, p {
+        color: black;
+    }
+
+    /* Ajout des marges pour éviter que le contenu soit collé aux bords */
+    body {
+        margin: 10mm;
     }
 }
