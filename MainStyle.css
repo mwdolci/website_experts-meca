@@ -532,14 +532,15 @@ main {
 
     .container-threeCombobox {
         display: flex;
-        justify-content: center;
+        justify-content: left;
+        padding: 5px;
         gap: 20px;
     }
 
     .combobox {
         position: relative;
         display: inline-block;
-        font-family: 'Arial', sans-serif;
+        font-family: 'Arial', sans-serif;;
     }
     
     .combobox input[type="checkbox"] {
@@ -547,9 +548,9 @@ main {
     }
     
     .combobox label {
-        background-color: #4caf50;
+        background-color: grey;
         padding: 10px 20px;
-        border-radius: 5px;
+        border-radius: 2px;
         color: black;
         cursor: pointer;
         transition: background-color 0.3s;
@@ -576,6 +577,14 @@ main {
     
     .combobox input:checked ~ .dropdown-content {
         display: block;
+    }
+
+    /* Message du JavaScript si pas de résultat au filtrage */
+    .images p.message {
+        color: white;
+        font-size: 16px;
+        margin-top: 10px; 
+        text-align: center;
     }
     
     .dropdown-content label {
