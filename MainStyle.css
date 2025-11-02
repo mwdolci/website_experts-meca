@@ -1811,7 +1811,14 @@ footer {
         grid-row: 1 ;
         display: flex;
         justify-content: flex-end;
-        align-items:flex-start           /* verticalement en haut */
+        align-items: flex-start;           /* verticalement en haut */
+        padding-right: 10px;
+        padding-top: 5px;
+    }
+
+    .socialnetwork img {
+        width: 40px;
+        height: auto;    
     }
 
     .smartphone-link {
@@ -2141,7 +2148,7 @@ footer {
     }
 }
 
-/* 📱 Quand l’écran est petit et en mode portrait */
+/* Quand l’écran est petit et en mode portrait */
 @media screen and (max-width: 768px) and (orientation: portrait) {
     /* Cache tout le contenu sauf la flèche UNIQUEMENT si body.rotate-page */
     body.rotate-page > *:not(.rotate-message) {
@@ -2164,15 +2171,15 @@ footer {
 
     /* Flèche stylisée et animée */
     .rotate-message::before {
-        content: "↻"; /* flèche de rotation */
+        content: url('images/mobile_rotate.png'); /* image de rotation */
         font-size: 8rem; /* taille géante */
         color: white;
         animation: rotate 2s linear infinite;
     }
 
     @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(120deg); }
+        from { transform: rotate(225deg); }
+        to   { transform: rotate(130deg); }
     }
 }
 
