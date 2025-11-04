@@ -878,6 +878,12 @@ main {
     background-clip: content-box;
 }
 
+/* rend la bordure à gauche invisible */
+#background-video {
+  -webkit-mask-image: linear-gradient(to right, transparent, black);
+  mask-image: linear-gradient(to right, transparent, black);
+}
+
 .linktoweb {
     color: white;
     text-decoration: underline;
