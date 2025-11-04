@@ -2086,6 +2086,28 @@ footer {
         text-align: center;
     }
 
+    /* Organigramme */
+    .total-orgchart-container {
+        min-width: 1500px;
+        min-height: 500px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch; 
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        
+        padding-top: 10px;
+        padding-bottom: 100px;
+        height: 100vh;
+    }
+
+    .conseil {
+        position: absolute;
+        top: 80%;     /* distance depuis le haut de la page */
+        left: 30%;    /* distance depuis la gauche */
+        transform: translate(-50%, -50%); /* centre l'élément par rapport à son point de référence */
+    }
+
     /* MENU DE NAVIGATION */
     .menu {
         display: none;
@@ -2166,7 +2188,7 @@ footer {
 }
 
 /* Quand l’écran est petit et en mode portrait */
-@media screen and (max-width: 768px) and (orientation: portrait) {
+@media screen and (max-width: 1200px) and (orientation: portrait) {
     /* Cache tout le contenu sauf la flèche UNIQUEMENT si body.rotate-page */
     body.rotate-page > *:not(.rotate-message) {
         display: none !important;
