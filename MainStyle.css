@@ -2088,6 +2088,7 @@ footer {
 
     /* Organigramme */
     .total-orgchart-container {
+        position: relative;
         min-width: 1500px;
         min-height: 500px;
         overflow: auto;
@@ -2095,7 +2096,6 @@ footer {
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        
         padding-top: 10px;
         padding-bottom: 100px;
         height: 100vh;
@@ -2103,9 +2103,13 @@ footer {
 
     .conseil {
         position: absolute;
-        top: 80%;     /* distance depuis le haut de la page */
-        left: 30%;    /* distance depuis la gauche */
+        top: 25%;     /* distance depuis le haut de la page */
+        left: 20%;    /* distance depuis la gauche */
         transform: translate(-50%, -50%); /* centre l'élément par rapport à son point de référence */
+    }
+
+    .page-container {
+        overflow:auto; /* permet le défilement horizontal */
     }
 
     /* MENU DE NAVIGATION */
