@@ -986,12 +986,12 @@ button {
     align-items: center;
     text-align: center;
     gap: 10%;
-    height: 100px;  
+    height: 100vh;  
 }
 
 .circle-counter {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     background-color: transparent;
     position: relative;
