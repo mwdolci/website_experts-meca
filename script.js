@@ -1,36 +1,56 @@
+// Attendre que toute la page soit chargée avant d'exécuter le script
 document.addEventListener('DOMContentLoaded', function() {
-        const titre = document.querySelector('.hero h2');
+    
+    // =============================
+    // Animation du titre principal (section .hero)
+    // =============================
+    const titre = document.querySelector('.hero h2');
+    if (titre) { // vérifie que .hero h2 existe
         titre.classList.add('active');
         setTimeout(function () {
             const soustitre = document.querySelector('.hero p');
-            soustitre.classList.add('active');
+            if (soustitre) {
+                soustitre.classList.add('active');
+            }
         }, 800);
+    }
 
-        // Ajout de l'effet estompé à la section news
-        setTimeout(function() {
-            const newsContainer = document.querySelector('.news-container');
-            newsContainer.classList.add('active');
-        }, 500); // Délai après lequel l'effet doit s'appliquer (ajustable)
-
-        setTimeout(function () {
-            const features = document.querySelectorAll('.circle');
-            features.forEach(function (circle, index) {
-                setTimeout(function () {
-                    circle.classList.add('active');
-                }, index * 500); // Ajoute un délai de 400ms entre chaque élément
-            });
-        }, 1200);
-
-        const burger = document.querySelector('.burger-menu');
-        const menu = document.querySelector('.menu');
-
-        if (burger && menu) {
-            burger.addEventListener('click', () => {
-                burger.classList.toggle('active');
-                menu.classList.toggle('active');
-            });
+    // =============================
+    // Animation de la section News
+    // =============================
+    setTimeout(function() {
+        const newsContainer = document.querySelector('.news-container');
+        if (newsContainer) {
+            newsContainer.classList.add('active'); // Applique l'effet estompé / transition
         }
-    });
+    }, 500); // Délai avant l'apparition de la news
+
+    // =============================
+    // Animation des cercles “features” (Collège / Professions / Examens)
+    // =============================
+    setTimeout(function () {
+        const features = document.querySelectorAll('.circle');
+        features.forEach(function (circle, index) {
+            setTimeout(function () {
+                circle.classList.add('active'); // Active l'animation du cercle
+            }, index * 500); // Décalage de 500ms entre chaque cercle
+        });
+    }, 1200); // Délai avant de commencer l'animation des cercles
+
+    // =============================
+    // Gestion du menu burger
+    // =============================
+    const burger = document.querySelector('.burger-menu');  // Bouton burger
+    const menu = document.querySelector('.menu');           // Menu à afficher/masquer
+
+    if (burger && menu) {
+        // Toggle = si la classe existe, elle est retirée ; si elle n'existe pas, elle est ajoutée
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('active');  // Transforme le burger en croix
+            menu.classList.toggle('active');    // Affiche ou masque le menu mobile
+        });
+    }
+});
 
 // Fonction pour filtrer les images d'un container donné (un <details>)
 function filterImages(container) {

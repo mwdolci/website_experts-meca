@@ -2124,6 +2124,13 @@ footer {
         text-align: center;
     }
 
+    /* Ajoute le trait aussi sous le menu actif */
+    .activemenu {
+        border-bottom: 2px solid;
+        border-image: linear-gradient(to right, #0000002c, #45a049, #0000002c) 1;
+        border-image-slice: 1;
+    }
+
     /* Suppression  des sous-menus */
     .menu.active .has-submenu:after,
     .menu.active .sous-menu,
