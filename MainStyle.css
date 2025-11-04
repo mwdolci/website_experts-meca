@@ -986,7 +986,7 @@ button {
     align-items: center;
     text-align: center;
     gap: 10%;
-    height: 100vh;  
+    height: 100px;  
 }
 
 .circle-counter {
@@ -2003,6 +2003,8 @@ footer {
         gap: 2rem;              /* espace vertical entre les cercles */
         height: auto;           /* pour éviter un trop grand espace vertical */
         padding: 5rem 0 2rem;        /* un peu de marge en haut/bas */
+        width: 100%;
+        max-width: 100%;
     }
 
     .circle-counter {
@@ -2015,13 +2017,16 @@ footer {
         text-align: center;
         padding: 0;
         margin: 0 2rem 0 2rem;
+        width: 80%;
         max-width: 100%;
     }
 
     .mission-title {
         align-content: center;
         padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        max-width: 100%;
     }
 
     .mission,
@@ -2030,7 +2035,11 @@ footer {
         align-items: center;
         text-align: center;
         margin: 0;
-        padding: 0
+        padding: 0;
+        margin-right: 0;
+        padding-right: 0;
+        width: 100%;
+        max-width: 100%;
     }
 
     /* Professions */

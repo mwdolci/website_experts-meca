@@ -21,5 +21,5 @@ Le projet est amené à évoluer, notamment avec l’intégration future de comp
 - Développer un site responsive et accessible
 
 ## 📄 Licence
-Ce projet est protégé par le droit d’auteur.
+Ce projet est protégé par le droit d’auteur.  
 Toute reproduction, distribution ou utilisation non autorisée est interdite.
