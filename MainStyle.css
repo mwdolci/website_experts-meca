@@ -986,7 +986,8 @@ button {
     align-items: center;
     text-align: center;
     gap: 10%;
-    height: 100vh;  
+    margin-top: 80px;
+    height: 500px;  
 }
 
 .circle-counter {
@@ -1781,7 +1782,7 @@ footer {
         align-items: start;
         background-color: black;
         min-height: 70px;             /* hauteur minimale pour englober les deux lignes */
-        padding: 10px;
+        padding: 20px;
     }
 
     .legalnotice {
@@ -1835,7 +1836,7 @@ footer {
     /* Titre de page centré */
     .pagetitle{
         margin-bottom: 0;
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
 
     .pagetitle-container {
@@ -2002,7 +2003,8 @@ footer {
         flex-direction: column; /* les cercles passent un en dessous de l’autre */
         gap: 2rem;              /* espace vertical entre les cercles */
         height: auto;           /* pour éviter un trop grand espace vertical */
-        padding: 5rem 0 2rem;        /* un peu de marge en haut/bas */
+        padding: 0 0 2rem;        /* un peu de marge en haut/bas */
+        margin-top: 0;
         width: 100%;
         max-width: 100%;
     }
