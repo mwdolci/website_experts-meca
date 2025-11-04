@@ -2043,6 +2043,7 @@ footer {
     }
 
     /* Professions */
+    .container-becomeexpert,
     .container-profession {
         position: relative;
         padding-top: 0;
