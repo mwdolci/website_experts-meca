@@ -1760,9 +1760,10 @@ footer {
 
 @media (max-width: 1200px) {
 
-    /* Supprime contact du pied de page et news */
+    /* Supprime les éléments inutiles */
     .contact,
-    .news-section {
+    .news-section,
+    body.page-navigation footer.footer {
         display: none;
     }
 
