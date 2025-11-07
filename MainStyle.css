@@ -1148,6 +1148,10 @@ button {
     color: white;
 }
 
+.boite{
+    z-index: 20;
+}
+
 .boite p {
     margin: 5px 0; /* Espacement entre les lignes */
 }
@@ -1224,6 +1228,7 @@ button {
     display: flex;
     justify-content: center;
     height: 80px;
+    z-index: 10; 
 }
 
 /* Ligne de connexion horizontale pour la boîte "informatique" */
@@ -1268,6 +1273,7 @@ button {
     font-weight: bold;
     color: white;
     transform: translate(-210%, -50%);
+    z-index: 10;
 }
 
 .conseil p {
@@ -1328,8 +1334,8 @@ button {
 .conseil:hover,
 .organigramme .informatique .boite:hover, 
 .organigramme .boite:hover {
-    background-color: blue;
-    /*cursor: pointer;  Réactiver le curseur pointer */
+    background: linear-gradient(to bottom, #45a049, rgba(0, 0, 0, 0.15));
+    cursor: pointer;
 }
 
 /******************************************************** BECOMEEXPERT ********************************************************/
