@@ -900,18 +900,22 @@ main {
 
 /* Bouton pour changer news */
 button {
-    background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    background-color: #4caf50; /* Couleur de base */
 }
 
-    button:hover {
-        background-color: #45a049;
-    }
+.btn-prev:hover {
+    background: linear-gradient(to right, #45a049, rgba(0, 0, 0, 0));
+}
+
+.btn-next:hover {
+    background: linear-gradient(to left, #45a049, rgba(0, 0, 0, 0));
+}
     
 
 /******************************************************** COLLEGE - PROFESSION - EXAMENS ********************************************************/
@@ -1033,7 +1037,6 @@ button {
     margin-right: 10%; /* Décale tout le bloc à gauche de 10% */
     margin: 0;
     padding: 0;
-
 }
 
 .mission-title {    
@@ -1049,7 +1052,7 @@ button {
 
 .mission-texte {
     font-size: 20px;
-    max-width: 500px;
+    max-width: 900px;
     margin-bottom: 50px;
 }
 
@@ -1388,7 +1391,7 @@ details {
 summary {
     list-style: none; /* Enlève le triangle par défaut */
     position: relative; /* Nécessaire pour l'alignement du chevron */
-    background-color: rgba(255, 255, 255, 0.1); /* Blanc avec 10% d'opacité */
+    background: linear-gradient(to right, #45a049, rgba(0, 0, 0, 0.15));
     color: white;
     padding: 15px;
     cursor: pointer;
