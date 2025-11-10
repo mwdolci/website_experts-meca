@@ -1866,6 +1866,10 @@ footer {
         border-radius: 10px;
     }
 
+    .partenaire-logo img {
+    border-radius: 10px;
+    }
+
     main {
         flex: none;             /* pas de flex qui contraint la hauteur */
         height: auto;           /* s’adapte au contenu */
