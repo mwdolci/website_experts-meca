@@ -1760,6 +1760,10 @@ footer {
   left: 0;
 }
 
+.chatbot-container {
+  position: fixed; /* Evite de faire remonter le footer sur chrome */
+}
+
 /* debug visuel : montre les débordements */
 /* * {
   outline: 1px solid rgba(157, 255, 0, 0.2); 
@@ -2129,7 +2133,7 @@ footer {
         left: 0;
         width: 100%;
         height: 100vh;          /* occupe toute la hauteur de l’écran */
-        background-color: rgba(0,0,0,0.9); /* fond noir semi-transparent */
+        background-color: rgba(0,0,0,0.95); /* fond noir semi-transparent */
         z-index: 10;
         text-align: start;
         overflow-y: auto;       /* pour faire défiler si le contenu dépasse */
