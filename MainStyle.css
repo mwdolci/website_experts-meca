@@ -862,6 +862,15 @@ main {
     overflow: hidden;
 }
 
+.logo-backgroud {
+    position: fixed;
+    bottom: -30px;
+    right: -120px;
+    z-index: -1;
+    scale: 30%;
+    opacity: 0.2;
+}
+
 #background-video {
     position: fixed;
     opacity: 0.3;
