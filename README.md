@@ -13,7 +13,7 @@ Version 1.0 — Fonctionnelle ✅
 Le projet est amené à évoluer, notamment avec l’intégration future de composants JavaScript avancés et de modules PHP pour renforcer l’interactivité et la gestion des données.
 
 ### 🌐 Démo en ligne
-🚀 Visualisation provisoire: https://mwdolci.github.io/website_experts-meca/
+🚀 Visualisation provisoire: https://mwdolci.github.io/website_experts-meca/  
 🚀 Emplacement définitif: https://experts-meca.ch/
 
 ### 🧠 Objectifs pédagogiques
