@@ -132,3 +132,99 @@ boites.forEach(boite => {
     });
 });
 
+// Pour afficher les news en page d'accueil
+const news = [
+    {
+    date: "News: 18/01/2026",
+    title: "La séance d'info candidats/formateurs aura lieu le 17 février 2026 au CIP de Tramelan.",
+    linkText: "Lien Teams",
+    linkUrl: "https://teams.microsoft.com/meet/39718987491696?p=sFzIEvjlbOrINoeIZN"
+    },
+    {
+    date: "News: 24/09/2025",
+    title: "Le calendrier 2026 est désormais en ligne",
+    linkText: "En savoir plus",
+    linkUrl: "calendar.html"
+    }
+];
+
+let currentIndex = 0;
+let autoSlide;
+
+// éléments DOM
+const dateEl = document.getElementById("news-date");
+const titleEl = document.getElementById("news-title");
+const linkEl = document.getElementById("news-link");
+const nextBtn = document.getElementById("next-news");
+const prevBtn = document.getElementById("prev-news");
+const newsItem = document.querySelector(".news-item");
+
+// --- fonction fade JS-only ---
+function fade(element, from, to, duration, callback) {
+  const start = performance.now();
+
+  function animate(time) {
+    const progress = Math.min((time - start) / duration, 1);
+    element.style.opacity = from + (to - from) * progress;
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else if (callback) {
+      callback();
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+// --- affiche la news avec fondu ---
+function showNews(index) {
+  fade(newsItem, 1, 0, 300, () => {
+    // mise à jour du contenu
+    dateEl.textContent = news[index].date;
+    titleEl.textContent = news[index].title;
+    linkEl.textContent = news[index].linkText;
+    linkEl.href = news[index].linkUrl;
+
+    // fade in
+    fade(newsItem, 0, 1, 300);
+  });
+}
+
+// --- navigation ---
+function nextNews() {
+  currentIndex = (currentIndex + 1) % news.length;
+  showNews(currentIndex);
+}
+
+function prevNews() {
+  currentIndex = (currentIndex - 1 + news.length) % news.length;
+  showNews(currentIndex);
+}
+
+// --- auto-rotation ---
+function startAutoSlide() {
+  autoSlide = setInterval(nextNews, 4000);
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlide);
+  startAutoSlide();
+}
+
+// --- événements boutons ---
+nextBtn.addEventListener("click", () => {
+  nextNews();
+  resetAutoSlide();
+});
+
+prevBtn.addEventListener("click", () => {
+  prevNews();
+  resetAutoSlide();
+});
+
+// --- initialisation ---
+newsItem.style.opacity = 1; // pour éviter un flash
+showNews(currentIndex);
+startAutoSlide();
+
