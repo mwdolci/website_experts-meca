@@ -1,5 +1,20 @@
 // Attendre que toute la page soit chargée avant d'exécuter le script
 document.addEventListener('DOMContentLoaded', function() {
+
+    // =============================
+    // Gestion de la bannière cookies
+    // =============================
+    const banner = document.getElementById("cookie-banner");
+    const btn = document.getElementById("cookie-ok");
+
+    if (localStorage.getItem("cookiesAccepted")) {
+        banner.style.display = "none";
+    }
+
+    btn.addEventListener("click", function () {
+        localStorage.setItem("cookiesAccepted", "true");
+        banner.style.display = "none";
+    });
     
     // =============================
     // Animation du titre principal (section .hero)
