@@ -153,7 +153,7 @@ const news = [
     date: "News: 18/01/2026",
     title: "La séance d'info candidats/formateurs aura lieu le 17 février 2026 au CIP de Tramelan.",
     linkText: "Lien Teams",
-    linkUrl: "https://teams.microsoft.com/meet/39718987491696?p=sFzIEvjlbOrINoeIZN"
+    linkUrl: "https://teams.microsoft.com/meet/3976176588835?p=QTZOMhqzwTJoY17Z9e"
     },
     {
     date: "News: 24/09/2025",
