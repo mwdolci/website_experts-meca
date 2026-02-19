@@ -150,10 +150,10 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
     {
-    date: "News: 19/02/2026",
-    title: "La séance pour experts \"Start session d'examens\" peut être suivie en ligne",
-    linkText: "Lien Teams",
-    linkUrl: "https://teams.microsoft.com/meet/33542844773877?p=EbmiCsM2fFKgceaKVM"
+    date: "News: 24/09/2025",
+    title: "Le calendrier 2026 est désormais en ligne",
+    linkText: "En savoir plus",
+    linkUrl: "calendar.html"
     },
     {
     date: "News: 18/02/2026",
@@ -162,10 +162,10 @@ const news = [
     linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/f7893d41-26b1-40f6-8c63-816d642bcfc8"
     },
     {
-    date: "News: 24/09/2025",
-    title: "Le calendrier 2026 est désormais en ligne",
-    linkText: "En savoir plus",
-    linkUrl: "calendar.html"
+    date: "News: 19/02/2026",
+    title: "La séance pour experts \"Start session d'examens\" peut être suivie en ligne",
+    linkText: "Lien Teams",
+    linkUrl: "https://teams.microsoft.com/meet/33542844773877?p=EbmiCsM2fFKgceaKVM"
     }
 ];
 
