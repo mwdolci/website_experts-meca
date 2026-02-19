@@ -179,6 +179,36 @@ const linkEl = document.getElementById("news-link");
 const nextBtn = document.getElementById("next-news");
 const prevBtn = document.getElementById("prev-news");
 const newsItem = document.querySelector(".news-item");
+const dotsContainer = document.getElementById("news-dots");
+
+// --- création des points ---
+function renderDots() {
+  if (!dotsContainer) return;
+
+  dotsContainer.innerHTML = "";
+  news.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "news-dot" + (i === currentIndex ? " active" : "");
+    dot.setAttribute("aria-label", `Aller à la news ${i + 1}`);
+
+    dot.addEventListener("click", () => {
+      currentIndex = i;
+      showNews(currentIndex);
+      resetAutoSlide();
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+}
+
+function updateDots() {
+  if (!dotsContainer) return;
+
+  dotsContainer.querySelectorAll(".news-dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentIndex);
+  });
+}
 
 // --- fonction fade JS-only ---
 function fade(element, from, to, duration, callback) {
@@ -201,13 +231,15 @@ function fade(element, from, to, duration, callback) {
 // --- affiche la news avec fondu ---
 function showNews(index) {
   fade(newsItem, 1, 0, 300, () => {
+	currentIndex = index;   // assure la synchro
+	updateDots();  
+	
     // mise à jour du contenu
     dateEl.textContent = news[index].date;
     titleEl.textContent = news[index].title;
     linkEl.textContent = news[index].linkText;
     linkEl.href = news[index].linkUrl;
 
-    // fade in
     fade(newsItem, 0, 1, 300);
   });
 }
@@ -246,6 +278,7 @@ prevBtn.addEventListener("click", () => {
 
 // --- initialisation ---
 newsItem.style.opacity = 1; // pour éviter un flash
+renderDots();      // crée les points
 showNews(currentIndex);
 startAutoSlide();
 

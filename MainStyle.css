@@ -747,8 +747,9 @@ main {
 }
 
 .news-container {
-    width: 600px;
-    height: 100px;
+    position: relative;
+	width: 600px;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -795,6 +796,35 @@ main {
 #news-link:hover {
     color: #45a049;
     font-size: 1.2em;
+}
+
+.news-dots{
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.news-dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.45);
+  border:1px solid rgba(255,255,255,0.5);
+  cursor:pointer;
+  padding:0;
+}
+
+.news-dot.active{
+  background:rgba(255,255,255,0.95);
+  transform:scale(1.2);
+}
+
+.news-dot:focus{
+  outline:none;
 }
 
 .features {
