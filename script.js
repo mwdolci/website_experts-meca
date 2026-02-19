@@ -150,10 +150,16 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
     {
-    date: "News: 18/01/2026",
-    title: "La séance d'info candidats/formateurs aura lieu le 17 février 2026 au CIP de Tramelan.",
+    date: "News: 19/02/2026",
+    title: "La séance pour experts \"Start session d'examens\" peut être suivie en ligne",
     linkText: "Lien Teams",
-    linkUrl: "https://teams.microsoft.com/meet/3976176588835?p=QTZOMhqzwTJoY17Z9e"
+    linkUrl: "https://teams.microsoft.com/meet/33542844773877?p=EbmiCsM2fFKgceaKVM"
+    },
+    {
+    date: "News: 18/02/2026",
+    title: "La présentation de la séance d'informations candidats/FEE du 17 février 2026 peut désormais être téléchargée",
+    linkText: "Présentation séance info",
+    linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/f7893d41-26b1-40f6-8c63-816d642bcfc8"
     },
     {
     date: "News: 24/09/2025",
