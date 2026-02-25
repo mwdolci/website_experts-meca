@@ -1840,6 +1840,11 @@ footer {
     body.page-navigation footer.footer {
         display: none;
     }
+	
+	/* Grid à l'intérieur d'une faq */
+	.grid-faq-duration-tpi{
+		grid-template-columns: 1fr;
+	}
 
     /* Pied de page */
     .footergrid {
