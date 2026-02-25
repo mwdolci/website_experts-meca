@@ -163,9 +163,9 @@ const news = [
     },
     {
     date: "News: 19/02/2026",
-    title: "La séance pour experts \"Start session d'examens\" peut être suivie en ligne",
+    title: "La séance pour experts \"Start session d'examens\" du 25 février 2026 peut être suivie en ligne",
     linkText: "Lien Teams",
-    linkUrl: "https://teams.microsoft.com/meet/33542844773877?p=EbmiCsM2fFKgceaKVM"
+    linkUrl: "https://teams.microsoft.com/meet/34333854819918?p=2O4IJ4T0jgQgLRm70W"
     }
 ];
 
