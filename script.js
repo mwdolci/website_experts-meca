@@ -149,11 +149,22 @@ boites.forEach(boite => {
 
 // Pour afficher les news en page d'accueil
 const news = [
+    
     {
-    date: "News: 24/09/2025",
-    title: "Le calendrier 2026 est désormais en ligne",
-    linkText: "En savoir plus",
-    linkUrl: "calendar.html"
+    date: "News: 02/02/2026",
+    title: "Session d'examens 2026 ouverte, plein succès à tou(te)s les candidat(e)s !!",
+    },
+    {
+    date: "News: 27/02/2026",
+    title: "Nous nous appuyons désormais sur la plateforme PKorg pour garantir un suivi optimal des TPI",
+    linkText: "Tutoriels video PKorg",
+    linkUrl: "tpi.html"
+    },
+    {
+    date: "News: 26/02/2026",
+    title: "La présentation de la séance pour experts \"Start session d'examens\" du 25 février 2026 peut désormais être téléchargée",
+    linkText: "Présentation séance Start session",
+    linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/92af4d4b-2cd3-420a-99ea-3a846dca6549"
     },
     {
     date: "News: 18/02/2026",
@@ -162,10 +173,10 @@ const news = [
     linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/f7893d41-26b1-40f6-8c63-816d642bcfc8"
     },
     {
-    date: "News: 26/02/2026",
-    title: "La présentation de la séance pour experts \"Start session d'examens\" du 25 février 2026 peut désormais être téléchargée",
-    linkText: "Présentation séance Start session",
-    linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/92af4d4b-2cd3-420a-99ea-3a846dca6549"
+    date: "News: 24/09/2025",
+    title: "Le calendrier 2026 est désormais en ligne",
+    linkText: "En savoir plus",
+    linkUrl: "calendar.html"
     }
 ];
 
