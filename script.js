@@ -151,7 +151,7 @@ boites.forEach(boite => {
 const news = [
     
     {
-    date: "News: 02/02/2026",
+    date: "News: 02/03/2026",
     title: "Session d'examens 2026 ouverte, plein succès à tou(te)s les candidat(e)s !!",
     },
     {
