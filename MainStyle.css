@@ -163,6 +163,12 @@ main {
   gap: 6px 20px;
 }
 
+.conditions-image {
+  width: 600px;
+  max-width: 100%;
+  height: auto;
+}
+
 .button-container {
     display: flex;
     justify-content: center; /* Centre les éléments horizontalement */
