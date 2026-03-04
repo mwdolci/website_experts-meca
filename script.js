@@ -149,7 +149,12 @@ boites.forEach(boite => {
 
 // Pour afficher les news en page d'accueil
 const news = [
-    
+    {
+    date: "News: 04/03/2026",
+    title: "Découvrez la nouvelle page 'News' pour suivre l'actualité du Collège d'experts mécanique !",
+    linkText: "News",
+    linkUrl: "news.html"
+    },
     {
     date: "News: 02/03/2026",
     title: "Session d'examens 2026 ouverte, plein succès à tou(te)s les candidat(e)s !!",
@@ -171,12 +176,6 @@ const news = [
     title: "La présentation de la séance d'informations candidats/FEE du 17 février 2026 peut désormais être téléchargée",
     linkText: "Présentation séance info",
     linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/f7893d41-26b1-40f6-8c63-816d642bcfc8"
-    },
-    {
-    date: "News: 24/09/2025",
-    title: "Le calendrier 2026 est désormais en ligne",
-    linkText: "En savoir plus",
-    linkUrl: "calendar.html"
     }
 ];
 
