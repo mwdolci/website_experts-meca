@@ -157,9 +157,15 @@ main {
     margin-left: 10px;
 }
 
-.grid-faq-duration-tpi{
+.grid-faq-duration-tpi {
   display: grid;
   grid-template-columns: 250px 300px auto;
+  gap: 6px 20px;
+}
+
+.grid-faq-steps-vae {
+  display: grid;
+  grid-template-columns: 250px auto;
   gap: 6px 20px;
 }
 
@@ -186,6 +192,9 @@ main {
     cursor: pointer;
     font-size: 24px;
     text-decoration: none;
+    min-width: 120px; 
+    display: inline-block;
+    text-align: center;
 }
 
     .generic_button:hover {
@@ -1885,6 +1894,11 @@ footer {
 } */
 
 /******************************************************** GESTION DIMENSION ECRAN ********************************************************/
+@media (max-height: 700px) {
+    .news-section {
+        display: none;
+    }
+}
 
 @media (max-width: 1200px) {
 
@@ -1896,6 +1910,7 @@ footer {
     }
 	
 	/* Grid à l'intérieur d'une faq */
+    .grid-faq-steps-vae,
 	.grid-faq-duration-tpi{
 		grid-template-columns: 1fr;
 	}
