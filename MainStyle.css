@@ -1465,17 +1465,18 @@ details {
 
 /* Masquer le triangle par défaut */
 summary {
-    list-style: none; /* Enlève le triangle par défaut */
-    position: relative; /* Nécessaire pour l'alignement du chevron */
+    list-style: none;
+    display: flex;                 
+    justify-content: space-between;
+    align-items: flex-start;       
+    gap: 10px;
+
     background: linear-gradient(to right, #45a049, rgba(0, 0, 0, 0.15));
     color: white;
     padding: 15px;
     cursor: pointer;
     font-size: 18px;
-    border: none;
     border-radius: 5px;
-    outline: none;
-    transition: background-color 0.3s;
 }
 
 summary::marker {
@@ -1484,18 +1485,15 @@ summary::marker {
 
 /* Ajouter un chevron à droite (large et plat) */
 summary::after {
-    content: '▼'; /* Chevron large et plat */
-    position: absolute;
-    right: 15px; /* Distance par rapport à la droite */
-    top: 50%; /* Centre verticalement */
-    transform: translateY(-50%); /* Centrer parfaitement */
-    font-size: 16px; /* Taille plus grande pour que le chevron soit bien visible */
-    transition: transform 0.3s; /* Transition douce pour la rotation */
+    content: '▼';
+    font-size: 16px;
+    transition: transform 0.3s;
+    flex-shrink: 0; /* empêche la flèche de se compresser */
 }
 
 /* Faire pivoter le chevron lorsqu'il est ouvert */
 details[open] summary::after {
-    transform: translateY(-50%) rotate(180deg); /* Faire pivoter la flèche à 180 degrés vers le haut */
+    transform: rotate(180deg); /* Faire pivoter la flèche à 180 degrés vers le haut */
 }
 
 /* Changement de couleur au survol */
