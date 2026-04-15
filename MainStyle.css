@@ -1625,14 +1625,14 @@ details {
 
 .news_page-image{
     grid-area: image;
-    width: 450px;
+    width: 500px;
     height: auto;
     object-fit: cover;
 }
 
 .news_page-image iframe {
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     height: 350px;
     border: none;
 }
