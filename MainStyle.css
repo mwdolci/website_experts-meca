@@ -1894,7 +1894,33 @@ footer {
 /******************************************************** GESTION DIMENSION ECRAN ********************************************************/
 @media (max-height: 700px) {
     .news-section {
-        display: none;
+		top: 220px;;
+    }
+}
+
+@media (max-height: 680px) {
+    .news-section {
+		font-size: 14px;
+		top: 220px;
+    }
+
+	.news-container {
+		height: 120px;
+	}
+	
+	.circle {
+		width: 150px;
+		height: 125px;
+	}
+	
+	.circle h3 {
+		display: none;
+	}
+}
+
+@media (max-height: 600px) {
+    .news-section {
+		display: none;
     }
 }
 
