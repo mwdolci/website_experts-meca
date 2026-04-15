@@ -150,6 +150,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
     {
+    date: "News: 15/04/2026",
+    title: "Suivez-nous sur LinkedIn pour ne rien manquer de l'actualité du Collège d'experts mécanique !",
+    linkText: "LinkedIn",
+    linkUrl: "https://www.linkedin.com/in/coll%C3%A8ge-d-experts-m%C3%A9canique-berne-section-francophone-bb02b0329/"
+    },
+    {
     date: "News: 04/03/2026",
     title: "Découvrez la nouvelle page 'News' pour suivre l'actualité du Collège d'experts mécanique !",
     linkText: "News",
@@ -170,12 +176,6 @@ const news = [
     title: "La présentation de la séance pour experts \"Start session d'examens\" du 25 février 2026 peut désormais être téléchargée",
     linkText: "Présentation séance Start session",
     linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/92af4d4b-2cd3-420a-99ea-3a846dca6549"
-    },
-    {
-    date: "News: 18/02/2026",
-    title: "La présentation de la séance d'informations candidats/FEE du 17 février 2026 peut désormais être téléchargée",
-    linkText: "Présentation séance info",
-    linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/f7893d41-26b1-40f6-8c63-816d642bcfc8"
     }
 ];
 
