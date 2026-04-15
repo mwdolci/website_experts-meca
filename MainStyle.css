@@ -2017,6 +2017,11 @@ footer {
         height:auto;
     }
 
+    .news_page-image iframe {
+        width: 100%;
+        max-width: 100%;
+    }
+
     /* Page container prend toute la hauteur */
     .page-container {
         display: flex;
