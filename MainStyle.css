@@ -1630,6 +1630,13 @@ details {
     object-fit: cover;
 }
 
+.news_page-image iframe {
+    width: 100%;
+    max-width: 450px;
+    height: 350px;
+    border: none;
+}
+
 /******************************************************** ALL PROFESSIONS ********************************************************/
 
 .container-profession {
