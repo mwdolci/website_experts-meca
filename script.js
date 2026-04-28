@@ -149,6 +149,12 @@ boites.forEach(boite => {
 
 // Pour afficher les news en page d'accueil
 const news = [
+	{
+	  date: "News: 28/04/2026",
+	  title: "FUTUREMEM : réforme de nos métiers dès août 2026",
+	  linkText: "En savoir plus",
+	  linkUrl: "news.html#futurmem"
+	},
     {
     date: "News: 15/04/2026",
     title: "Suivez-nous sur LinkedIn pour ne rien manquer de l'actualité du Collège d'experts mécanique !",
@@ -170,12 +176,6 @@ const news = [
     title: "Nous nous appuyons désormais sur la plateforme PKorg pour garantir un suivi optimal des TPI",
     linkText: "Tutoriels video PKorg",
     linkUrl: "tpi.html"
-    },
-    {
-    date: "News: 26/02/2026",
-    title: "La présentation de la séance pour experts \"Start session d'examens\" du 25 février 2026 peut désormais être téléchargée",
-    linkText: "Présentation séance Start session",
-    linkUrl: "https://kdrive.infomaniak.com/app/share/1859723/92af4d4b-2cd3-420a-99ea-3a846dca6549"
     }
 ];
 
