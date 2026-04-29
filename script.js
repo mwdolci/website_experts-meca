@@ -65,6 +65,59 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.classList.toggle('active');    // Affiche ou masque le menu mobile
         });
     }
+	
+	// =============================
+    // Gestion du calendrier
+    // =============================
+	const rows = document.querySelectorAll("table tbody tr");
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const months = {
+        janvier: 0,
+        février: 1,
+        fevrier: 1,
+        mars: 2,
+        avril: 3,
+        mai: 4,
+        juin: 5,
+        juillet: 6,
+        août: 7,
+        aout: 7,
+        septembre: 8,
+        octobre: 9,
+        novembre: 10,
+        décembre: 11,
+        decembre: 11
+    };
+
+    rows.forEach(row => {
+        const firstCell = row.querySelector("td");
+        if (!firstCell) return;
+
+        const text = firstCell.textContent.trim().toLowerCase();
+
+        // Ignore les lignes comme "A définir"
+        if (text.includes("a définir")) return;
+
+        // utilise la dernière date trouvée
+		const matches = [...text.matchAll(/(\d{1,2})\s+([a-zéûôîà]+)\s+(\d{4})/gi)];
+		if (!matches.length) return;
+
+		const match = matches[matches.length - 1];
+
+        const day = parseInt(match[1], 10);
+        const month = months[match[2]];
+        const year = parseInt(match[3], 10);
+
+        if (month === undefined) return;
+
+        const eventDate = new Date(year, month, day);
+
+        if (eventDate < today) {
+            row.classList.add("past-event");
+        }
+    });
 });
 
 // Fonction pour filtrer les images d'un container donné (un <details>)
@@ -291,4 +344,3 @@ newsItem.style.opacity = 1; // pour éviter un flash
 renderDots();      // crée les points
 showNews(currentIndex);
 startAutoSlide();
-

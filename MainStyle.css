@@ -1716,6 +1716,22 @@ th {
     text-decoration: underline; /* Ajoute un soulignement au survol */
 }
 
+/* Lignes des événements passés */
+tr.past-event {
+    color: #999;
+    opacity: 0.20;
+}
+
+tr.past-event a {
+    color: #999;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+tr.past-event .checkbox-cell {
+    color: #999;
+}
+
 /******************************************************** IN PROGRESS ********************************************************/
 
 .in_progress {
