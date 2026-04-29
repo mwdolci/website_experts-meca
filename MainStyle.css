@@ -1732,6 +1732,10 @@ tr.past-event .checkbox-cell {
     color: #999;
 }
 
+th.active-filter {
+    background-color: #999;
+}
+
 /******************************************************** IN PROGRESS ********************************************************/
 
 .in_progress {

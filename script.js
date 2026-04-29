@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gestion du calendrier
     // =============================
 	const rows = document.querySelectorAll("table tbody tr");
+    const headers = document.querySelectorAll("table thead th");
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -91,33 +93,85 @@ document.addEventListener('DOMContentLoaded', function() {
         decembre: 11
     };
 
-    rows.forEach(row => {
-        const firstCell = row.querySelector("td");
-        if (!firstCell) return;
+    // =========================
+    // GRISAGE DATES PASSÉES
+    // =========================
+    function updatePastEvents() {
 
-        const text = firstCell.textContent.trim().toLowerCase();
+        rows.forEach(row => {
 
-        // Ignore les lignes comme "A définir"
-        if (text.includes("a définir")) return;
+            const firstCell = row.querySelector("td");
+            if (!firstCell) return;
 
-        // utilise la dernière date trouvée
-		const matches = [...text.matchAll(/(\d{1,2})\s+([a-zéûôîà]+)\s+(\d{4})/gi)];
-		if (!matches.length) return;
+            const text = firstCell.textContent.toLowerCase();
 
-		const match = matches[matches.length - 1];
+            if (text.includes("a définir")) return;
 
-        const day = parseInt(match[1], 10);
-        const month = months[match[2]];
-        const year = parseInt(match[3], 10);
+            const matches = [...text.matchAll(/(\d{1,2})\s+([a-zéûôîà]+)\s+(\d{4})/gi)];
+            if (!matches.length) return;
 
-        if (month === undefined) return;
+            const last = matches[matches.length - 1];
 
-        const eventDate = new Date(year, month, day);
+            const day = parseInt(last[1], 10);
+            const month = months[last[2]];
+            const year = parseInt(last[3], 10);
 
-        if (eventDate < today) {
-            row.classList.add("past-event");
-        }
+            if (month === undefined) return;
+
+            const eventDate = new Date(year, month, day);
+
+            if (eventDate < today) {
+                row.classList.add("past-event");
+            }
+        });
+    }
+
+    updatePastEvents();
+
+    // =========================
+    // FILTRE COLONNES
+    // =========================
+    headers.forEach((th, index) => {
+
+        // ignore Date / Jour / Heure / Objet / Lieu
+        if (index < 5) return;
+
+        th.style.cursor = "pointer";
+
+        th.addEventListener("click", () => {
+
+            const active = th.classList.contains("active-filter");
+
+            headers.forEach(h => h.classList.remove("active-filter"));
+            rows.forEach(r => r.style.display = "");
+
+            if (active) return;
+
+            th.classList.add("active-filter");
+
+            rows.forEach(row => {
+                const cell = row.children[index];
+                if (!cell || !cell.textContent.includes("●")) {
+                    row.style.display = "none";
+                }
+            });
+        });
     });
+	
+	document.addEventListener("click", (e) => {
+
+    // si on clique dans le tableau → on ne reset pas
+    const table = document.querySelector("table");
+    if (table && table.contains(e.target)) return;
+
+    // reset filtres colonnes
+    document.querySelectorAll(".active-filter")
+        .forEach(el => el.classList.remove("active-filter"));
+
+    // réaffiche toutes les lignes
+    document.querySelectorAll("table tbody tr")
+        .forEach(row => row.style.display = "");
+	});
 });
 
 // Fonction pour filtrer les images d'un container donné (un <details>)
