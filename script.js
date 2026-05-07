@@ -172,6 +172,39 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll("table tbody tr")
         .forEach(row => row.style.display = "");
 	});
+	
+	// =========================
+    // DEFILEMENT DES CHIFFRES DANS LA PAGE ABOUT
+    // =========================
+	const counters = document.querySelectorAll(".number");
+
+    counters.forEach(counter => {
+
+        const target = +counter.getAttribute("data-target");
+        let current = 0;
+
+        // vitesse de l'animation
+        const increment = target / 100;
+
+        const updateCounter = () => {
+
+            if (current < target) {
+
+                current += increment;
+
+                // arrondi
+                counter.innerText = "+ " + Math.ceil(current);
+
+                requestAnimationFrame(updateCounter);
+
+            } else {
+
+                counter.innerText = "+ " + target;
+            }
+        };
+
+        updateCounter();
+    });
 });
 
 // Fonction pour filtrer les images d'un container donné (un <details>)
