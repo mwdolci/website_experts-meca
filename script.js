@@ -290,6 +290,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+	  date: "News: 10/06/2026",
+	  title: "Examens partiel PMC en cours. Plein succès à tou(te)s les candidat(e)s !",
+	  linkText: "En savoir plus",
+	  linkUrl: "news.html#partialpmc"
+	},
+	{
 	  date: "News: 28/04/2026",
 	  title: "FUTUREMEM : réforme de nos métiers dès août 2026",
 	  linkText: "En savoir plus",
@@ -310,12 +316,6 @@ const news = [
     {
     date: "News: 02/03/2026",
     title: "Session d'examens 2026 ouverte, plein succès à tou(te)s les candidat(e)s !!",
-    },
-    {
-    date: "News: 27/02/2026",
-    title: "Nous nous appuyons désormais sur la plateforme PKorg pour garantir un suivi optimal des TPI",
-    linkText: "Tutoriels video PKorg",
-    linkUrl: "tpi.html"
     }
 ];
 
