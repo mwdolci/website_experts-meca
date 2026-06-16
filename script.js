@@ -290,6 +290,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+	date: "News: 15/06/2026",
+	title: "Les examens de connaissances professionnelles approchent !",
+	linkText: "Retrouvez dès à présent les directives d'examens CP",
+	linkUrl: "cp.html"
+    },
+	{
 	  date: "News: 10/06/2026",
 	  title: "Examens partiel PMC en cours. Plein succès à tou(te)s les candidat(e)s !",
 	  linkText: "En savoir plus",
@@ -312,10 +318,6 @@ const news = [
     title: "Découvrez la nouvelle page 'News' pour suivre l'actualité du Collège d'experts mécanique !",
     linkText: "News",
     linkUrl: "news.html"
-    },
-    {
-    date: "News: 02/03/2026",
-    title: "Session d'examens 2026 ouverte, plein succès à tou(te)s les candidat(e)s !!",
     }
 ];
 
