@@ -290,6 +290,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+	date: "News: 17/06/2026",
+	title: "Les examens de connaissances professionnelles battent leur plein. Dès cette année format numérique pour tous !",
+	linkText: "En savoir plus",
+	linkUrl: "news.html#cpnum"
+    },
+	{
 	date: "News: 15/06/2026",
 	title: "Les examens de connaissances professionnelles approchent !",
 	linkText: "Retrouvez dès à présent les directives d'examens CP",
@@ -312,12 +318,6 @@ const news = [
     title: "Suivez-nous sur LinkedIn pour ne rien manquer de l'actualité du Collège d'experts mécanique !",
     linkText: "LinkedIn",
     linkUrl: "https://www.linkedin.com/in/coll%C3%A8ge-d-experts-m%C3%A9canique-berne-section-francophone-bb02b0329/"
-    },
-    {
-    date: "News: 04/03/2026",
-    title: "Découvrez la nouvelle page 'News' pour suivre l'actualité du Collège d'experts mécanique !",
-    linkText: "News",
-    linkUrl: "news.html"
     }
 ];
 
