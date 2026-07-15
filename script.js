@@ -290,6 +290,10 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+	date: "News: 15/07/2026",
+	title: "Le Collège d'experts félicite chaleureusement tous les candidats ayant obtenu leur CFC ! Nous vous souhaitons un excellent été, et nous nous réjouissons de vous retrouver nombreux à la rentrée."
+    },
+	{
 	date: "News: 17/06/2026",
 	title: "Les examens de connaissances professionnelles battent leur plein. Dès cette année format numérique pour tous !",
 	linkText: "En savoir plus",
@@ -312,13 +316,7 @@ const news = [
 	  title: "FUTUREMEM : réforme de nos métiers dès août 2026",
 	  linkText: "En savoir plus",
 	  linkUrl: "news.html#futurmem"
-	},
-    {
-    date: "News: 15/04/2026",
-    title: "Suivez-nous sur LinkedIn pour ne rien manquer de l'actualité du Collège d'experts mécanique !",
-    linkText: "LinkedIn",
-    linkUrl: "https://www.linkedin.com/in/coll%C3%A8ge-d-experts-m%C3%A9canique-berne-section-francophone-bb02b0329/"
-    }
+	}
 ];
 
 let currentIndex = 0;
