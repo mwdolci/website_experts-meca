@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJGHKWFMK4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VJGHKWFMK4');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Marco Dolci">
+    <meta name="description" content="Découvrez les entreprises formatrices de la région qui forment régulièrement des apprentis dans les professions de la mécanique suivies par le Collège d'experts mécanique Berne francophone.">
+    <meta name="robots" content="index, follow">
+    <title>Collège d'experts - Entreprises formatrices</title>
+
+    <link rel="stylesheet" href="MainStyle.css?v=4.0.5">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/be_mini.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- Leaflet / OpenStreetMap : aucune clé API nécessaire -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <style>
+        /* ==========================================================
+           ENTREPRISES FORMATRICES - Styles spécifiques à cette page
+           ========================================================== */
+
+        .training-page {
+            width: min(1400px, calc(100% - 60px));
+            margin: 190px auto 70px;
+            color: white;
+            font-family: Georgia, serif;
+        }
+
+        .training-intro {
+            max-width: 1000px;
+            margin-bottom: 28px;
+            font-size: 18px;
+            line-height: 1.65;
+            color: #e7e7e7;
+        }
+
+        .training-intro strong {
+            color: #fff;
+        }
+
+        .training-note {
+            margin: 20px 0 34px;
+            padding: 16px 18px;
+            border-left: 4px solid #45a049;
+            border-radius: 0 8px 8px 0;
+            background: rgba(255, 255, 255, 0.06);
+            color: #dcdcdc;
+            font-family: Arial, sans-serif;
+            line-height: 1.55;
+        }
+
+        .training-note a {
+            color: #63c968;
+        }
+
+        .training-layout {
+            display: grid;
+            grid-template-columns: minmax(330px, 0.85fr) minmax(520px, 1.55fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .training-panel,
+        .map-panel {
+            background: rgba(255, 255, 255, 0.055);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+            backdrop-filter: blur(8px);
+        }
+
+        .training-panel {
+            padding: 20px;
+        }
+
+        .map-panel {
+            position: sticky;
+            top: 85px;
+            padding: 14px;
+        }
+
+        .section-title {
+            margin: 0 0 16px;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .section-title i {
+            color: #45a049;
+            margin-right: 8px;
+        }
+
+        .training-filters {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .training-filters input,
+        .training-filters select {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 11px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: #272d33;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .training-filters input:focus,
+        .training-filters select:focus {
+            border-color: #45a049;
+            box-shadow: 0 0 0 2px rgba(69, 160, 73, 0.18);
+        }
+
+        .training-count {
+            margin: 4px 0 14px;
+            color: #aeb5ba;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .company-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 570px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .company-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .company-list::-webkit-scrollbar-thumb {
+            background: rgba(69, 160, 73, 0.65);
+            border-radius: 10px;
+        }
+
+        .company-card {
+            padding: 15px 16px;
+            border-radius: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.17);
+            cursor: pointer;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .company-card:hover,
+        .company-card.active {
+            transform: translateY(-1px);
+            border-color: rgba(69, 160, 73, 0.7);
+            background: rgba(69, 160, 73, 0.09);
+        }
+
+        .company-card h3 {
+            margin: 0 0 5px;
+            font-size: 19px;
+            font-weight: normal;
+        }
+
+        .company-location {
+            margin-bottom: 10px;
+            color: #bfc5c9;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .company-location i {
+            width: 16px;
+            color: #45a049;
+        }
+
+        .profession-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .profession-tag {
+            display: inline-block;
+            padding: 5px 8px;
+            border-radius: 14px;
+            background: rgba(69, 160, 73, 0.17);
+            color: #dff4e0;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .company-link {
+            display: inline-block;
+            margin-top: 11px;
+            color: #63c968;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .company-link:hover {
+            text-decoration: underline;
+        }
+
+        #training-map {
+            width: 100%;
+            height: 620px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .map-help {
+            margin: 11px 4px 2px;
+            color: #aeb5ba;
+            font: 13px/1.45 Arial, sans-serif;
+        }
+
+        .leaflet-popup-content-wrapper,
+        .leaflet-popup-tip {
+            background: #22282d;
+            color: white;
+        }
+
+        .leaflet-popup-content {
+            min-width: 220px;
+            font-family: Arial, sans-serif;
+            line-height: 1.45;
+        }
+
+        .leaflet-popup-content strong {
+            font-size: 15px;
+        }
+
+        .leaflet-popup-content a {
+            color: #63c968;
+        }
+
+        .empty-result {
+            padding: 25px 15px;
+            text-align: center;
+            color: #bec3c7;
+            font-family: Arial, sans-serif;
+        }
+
+        @media (max-width: 1000px) {
+            .training-page {
+                width: min(94%, 900px);
+                margin-top: 175px;
+            }
+
+            .training-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .map-panel {
+                position: static;
+                order: -1;
+            }
+
+            #training-map {
+                height: 450px;
+            }
+
+            .company-list {
+                max-height: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .training-page {
+                width: calc(100% - 28px);
+                margin-top: 160px;
+            }
+
+            .training-intro {
+                font-size: 16px;
+            }
+
+            .training-panel,
+            .map-panel {
+                padding: 12px;
+            }
+
+            #training-map {
+                height: 360px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="page-container">
+
+    <!-- En-tête -->
+    <header class="entete">
+        <div class="bannier"></div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.svg" alt="BE" title="BE" />
+            </a>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li class="has-submenu">
+                    <a href="college.html">Collège</a>
+                    <ul class="sous-menu">
+                        <li><a href="about.html">A propos</a></li>
+                        <li><a href="orgchart.html">Organigramme</a></li>
+                        <li><a href="calendar.html">Calendrier annuel</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="becomeexpert.html">Devenir expert</a></li>
+                        <li><a href="partners.html">Nos partenaires</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a class="activemenu" href="professions.html">Professions</a>
+                    <ul class="sous-menu">
+                        <li><a href="polymec.html">Polymécanicien</a></li>
+                        <li><a href="mecaprod.html">Mécanicien de production</a></li>
+                        <li><a href="praticien.html">Praticien en mécanique</a></li>
+                        <li><a href="micromec.html">Micromécanicien</a></li>
+                        <li><a href="dessinateur.html">Dessinateur constructeur</a></li>
+                        <li><a href="entreprises-formatrices.html">Entreprises formatrices</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="examens.html">Examens</a>
+                    <ul class="sous-menu">
+                        <li><a href="tpi.html">Travail pratique individuel (TPI)</a></li>
+                        <li><a href="partiels.html">Examens partiels (EP)</a></li>
+                        <li><a href="cp.html">Connaissances professionnelles (CP)</a></li>
+                        <li><a href="vae.html">Validation des acquis de l'expérience (VAE)</a></li>
+                        <li><a href="https://www.osp-jb.ch/" class="result" target="_blank">Résultats</a></li>
+                    </ul>
+                </li>
+
+                <li class="smartphone-link"><a href="contact.html">Contacts</a></li>
+                <li><a href="https://www.pkorg.ch/fr" class="pkorg-link" target="_blank">&#9679; PkOrg</a></li>
+            </ul>
+        </nav>
+
+        <div class="burger-menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <div id="gradient-background"></div>
+            <div class="circle-background1"></div>
+        </div>
+
+        <div class="pagetitle">
+            <div class="pagetitle-container">
+                <h2>Entreprises formatrices</h2>
+            </div>
+        </div>
+
+        <section class="training-page">
+            <p class="training-intro">
+                De nombreuses entreprises de notre région s'engagent activement dans la formation de la relève
+                dans les métiers de la mécanique. Retrouvez ici une sélection d'entreprises qui forment régulièrement
+                des apprenti(e)s dans les professions suivies par notre Collège d'experts, dans la région Benre francophone et environs.
+            </p>
+
+            <div class="training-layout">
+                <div class="training-panel">
+                    <h2 class="section-title"><i class="fa-solid fa-industry"></i> Entreprises</h2>
+
+                    <div class="training-filters">
+                        <input id="company-search" type="search" placeholder="Rechercher une entreprise ou une localité..." aria-label="Rechercher une entreprise">
+
+                        <select id="profession-filter" aria-label="Filtrer par profession">
+                            <option value="">Toutes les professions</option>
+                            <option value="Polymécanicien">Polymécanicien</option>
+                            <option value="Mécanicien de production">Mécanicien de production</option>
+                            <option value="Praticien en mécanique">Praticien en mécanique</option>
+                            <option value="Micromécanicien">Micromécanicien</option>
+                            <option value="Dessinateur constructeur">Dessinateur constructeur</option>
+                        </select>
+
+                        <select id="region-filter" aria-label="Filtrer par région">
+                            <option value="">Toutes les régions</option>
+                            <option value="Jura bernois">Jura bernois</option>
+                            <option value="Bienne / Seeland">Bienne/Seeland</option>
+                            <option value="Jura">Jura</option>
+                            <option value="Neuchâtel">Neuchâtel</option>
+							<option value="Vaud">Vaud</option>
+                        </select>
+                    </div>
+
+                    <div id="training-count" class="training-count"></div>
+                    <div id="company-list" class="company-list"></div>
+                </div>
+
+                <div class="map-panel">
+                    <h2 class="section-title"><i class="fa-solid fa-location-dot"></i> Carte des entreprises</h2>
+                    <div id="training-map" aria-label="Carte des entreprises formatrices"></div>
+                    <p class="map-help">
+                        Cliquez sur un marqueur pour afficher les informations de l'entreprise. Les filtres de la liste
+                        mettent automatiquement la carte à jour.
+                    </p>
+                </div>
+            </div>
+			
+			<div class="training-note">
+                <strong>À savoir :</strong> cette liste est fournie à titre informatif et ne signifie pas que les
+                entreprises mentionnées disposent actuellement d'une place d'apprentissage vacante.
+                Pour consulter les places disponibles, référez-vous également à
+                <a href="https://www.orientation.ch/dyn/show/2930" target="_blank" rel="noopener noreferrer">orientation.ch</a>.
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <section>
+            <div class="footergrid">
+                <div class="socialnetwork">
+                    <a href="https://www.linkedin.com/in/coll%C3%A8ge-d-experts-m%C3%A9canique-berne-section-francophone-bb02b0329/" target="_blank">
+                        <img src="images/logo_linkedin.png" alt="Profil LinkedIn du Collège d'experts mécanique Berne" />
+                    </a>
+                </div>
+                <div class="legalnotice">
+                    <a href="privacypolicy.html">Politique de confidentialité</a>
+                    <a href="legalnotice.html">Mentions légales</a>
+                </div>
+                <div class="contact">
+                    <a href="contact.html">Contacts</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2026 Collège experts mécanique Berne francophone - Site by M.Dolci</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner">
+        Ce site utilise des cookies à des fins de mesure d'audience via Google Analytics.
+        <button id="cookie-ok">OK</button>
+    </div>
+</div>
+
+<!-- Script général du site -->
+<script src="script.js?v=4.0.0"></script>
+
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+    /* ==========================================================
+       DONNÉES DES ENTREPRISES
+       ========================================================== */
+    const trainingCompanies = [
+		{
+			name: "Affolter Group SA",
+			city: "Malleray",
+			region: "Jura bernois",
+			lat: 47.2389,
+			lng: 7.2669,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.affoltergroup.ch/formation/"
+		},
+		{
+			name: "Azuréa Microtechnique SA",
+			city: "Bévilard",
+			region: "Jura bernois",
+			lat: 47.2370,
+			lng: 7.2819,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://azurea.ch/carriere/#formations"
+		},
+		{
+			name: "Azurea Technologie Horlogere SA",
+			city: "Moutier",
+			region: "Jura",
+			lat: 47.2775,
+			lng: 7.3678,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://azurea.ch/carriere/#formations"
+		},
+		{
+			name: "Bien-Air Dental SA",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 47.1515,
+			lng: 7.2753,
+			professions: ["Polymécanicien"],
+			website: "https://dental.bienair.com/"
+		},
+		{
+			name: "Boillat Décolletage SA",
+			city: "Lovresse",
+			region: "Jura bernois",
+			lat: 47.2419,
+			lng: 7.2393,
+			professions: ["Mécanicien de production"],
+			website: "https://boillat.ch/fr/"
+		},
+		{
+			name: "CAAJ",
+			city: "La Chaux-de-Fonds",
+			region: "Neuchâtel",
+			lat: 47.0859,
+			lng: 6.8020,
+			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique", "Dessinateur constructeur"],
+			website: "https://caaj.ch/nos-formations/"
+		},
+		{
+			name: "CAAJ",
+			city: "Moutier",
+			region: "Jura",
+			lat: 47.2708,
+			lng: 7.3616,
+			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique"],
+			website: "https://caaj-moutier.ch/"
+		},
+		{
+			name: "Capsa",
+			city: "La Neuveville",
+			region: "Jura bernois",
+			lat: 47.0633,
+			lng: 7.0850,
+			professions: ["Mécanicien de production"],
+			website: "https://www.capsa.ch/"
+		},
+		{
+			name: "ceff INDUSTRIE",
+			city: "Saint-Imier",
+			region: "Jura bernois",
+			lat: 47.1502,
+			lng: 6.9927,
+			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique", "Dessinateur constructeur"],
+			website: "https://www.ceff.ch/industrie"
+		},
+		{
+			name: "Cendres+Métaux SA",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 47.1508,
+			lng: 7.2640,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.cmsa.ch/fr/a-propos/carrieres/apprentissages/"
+		},
+		{
+			name: "CFP Biel-Bienne",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 47.1295,
+			lng: 7.2440,
+			professions: ["Polymécanicien", "Dessinateur constructeur"],
+			website: "https://bbz-cfp.ch/fr"
+		},
+		{
+			name: "CHH Microtechnique SA",
+			city: "Le Brassus",
+			region: "Vaud",
+			lat: 46.5847,
+			lng: 6.2148,
+			professions: ["Micromécanicien"],
+			website: "https://chh-microtechnique.ch/carriere/cfc-micromecanicien-decolletage/"
+		},
+		{
+			name: "CIP",
+			city: "Tramelan",
+			region: "Jura bernois",
+			lat: 47.2182,
+			lng: 7.1043,
+			professions: ["Mécanicien de production", "Praticien en mécanique"],
+			website: "https://www.cip-technologie.ch/files/615/nouveaux%20documents/DEPLIANT_mecanicien_production.pdf"
+		},
+		{
+			name: "Codec SA",
+			city: "Dombresson",
+			region: "Neuchâtel",
+			lat: 47.0731,
+			lng: 6.9556,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://codecsa.ch/carriere/apprentissage-entreprise-formatrice/"
+		},
+		{
+			name: "DC Swiss SA",
+			city: "Malleray",
+			region: "Jura bernois",
+			lat: 47.2379,
+			lng: 7.2746,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.dcswiss.com/dc-swiss-employeur/"
+		},
+		{
+			name: "DIXI Services SA",
+			city: "Le Locle",
+			region: "Neuchâtel",
+			lat: 47.0527,
+			lng: 6.7398,
+			professions: ["Mécanicien de production"],
+			website: "https://dixi.ch/"
+		},
+		{
+			name: "Dubois & Dépraz SA",
+			city: "Le Lieu",
+			region: "Vaud",
+			lat: 46.6494,
+			lng: 6.2879,
+			professions: [""],
+			website: "https://www.dubois-depraz.ch/"
+		},
+		{
+			name: "Ebauches Micromécanique Precitrame SA",
+			city: "Tramelan",
+			region: "Jura bernois",
+			lat: 47.2252,
+			lng: 7.1067,
+			professions: ["Polymécanicien", "Mécanicien de production", "Dessinateur constructeur"],
+			website: "https://empsa.ch/apprentissages/"
+		},
+		{
+			name: "Emile Affolter SA",
+			city: "Moutier",
+			region: "Jura",
+			lat: 47.2664,
+			lng: 7.3614,
+			professions: [""],
+			website: "https://emileaffolter.ch/"
+		},
+		{
+			name: "Essor Rossé & Affolter SA",
+			city: "Court",
+			region: "Jura bernois",
+			lat: 47.2407,
+			lng: 7.3343,
+			professions: [""],
+			website: "https://www.essor.ch/"
+		},
+		{
+			name: "ETA SA",
+			city: "Boncourt",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "ETA SA Manufacture Horlogère Suisse",
+			city: "Grenchen",
+			region: "Soleure",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Filière de formation POLYMECANICIEN",
+			city: "Malleray",
+			region: "Jura bernois",
+			lat: 47.2389,
+			lng: 7.2663,
+			professions: ["Polymécanicien"],
+			website: "https://filiere-polymecanicien.ch/"
+		},
+		{
+			name: "G. & Y. Leuenberger SA",
+			city: "Eschert",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Gérald Badan SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Gimmel Rouages SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Goldec SA",
+			city: "La Chaux-de-Fonds",
+			region: "Neuchâtel",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Helios Precision SA",
+			city: "Court",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "HL Technology SA",
+			city: "La Chaux-de-Fonds",
+			region: "Neuchâtel",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Incabloc SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Iseotec",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "J.-D. Botteron SA",
+			city: "Nods",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Jabil Switzerland Manufacturing GmbH",
+			city: "Le Locle",
+			region: "Neuchâtel",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Jean Baertschi SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Lauener & Cie SA",
+			city: "Boudry",
+			region: "Neuchâtel",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Lécureux SA",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "login formation professionnelle SA",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Manufacture des Montres Rolex SA",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "#"
+		},
+		{
+			name: "Marcel Aubert SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Mediliant SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Medos International Sàrl",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Meyrat SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Monnin SA",
+			city: "Sonceboz-Sombeval",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Montanari SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "MPS Micro Precision Systems SA",
+			city: "Court",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "MPS Micro Precision Systems SA",
+			city: "Bonfol",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Nivarox-Far SA",
+			city: "Le Locle",
+			region: "Neuchâtel",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Orif",
+			city: "Delémont",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Pierval SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Polydec SA",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Posalux SA",
+			city: "Bienne",
+			region: "Bienne/Seeland",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Precisteel Sàrl",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Precitrame Machines SA",
+			city: "Tramelan",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Rémy Montavon SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Réseau d’entreprises formatrices neuchâteloises",
+			city: "",
+			region: "Neuchâtel",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Robert & Schneider SA",
+			city: "Crémines",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien", "Dessinateur constructeur"],
+			website: "#"
+		},
+		{
+			name: "Roger Maeder SA",
+			city: "Court",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Schäublin SA",
+			city: "Delémont",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien", "Micromécanicien"],
+			website: "#"
+		},
+		{
+			name: "Schmid Machines SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Sonceboz SA",
+			city: "Sonceboz-Sombeval",
+			region: "Jura Bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Stiftung Battenberg",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Straumann Villeret SA",
+			city: "Villeret",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "#"
+		},
+		{
+			name: "Swissmec SA",
+			city: "Moutier",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Swissmechanic Training AG/SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Swiza SA Manufacture",
+			city: "Delémont",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Sylvac SA",
+			city: "Malleray",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Tavadec SA",
+			city: "Tavannes",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Tectri SA",
+			city: "Court",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Tornos SA",
+			city: "Moutier",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "#"
+		},
+		{
+			name: "Ultra Décolletage SA",
+			city: "Court",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Universo SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Vardeco SA",
+			city: "",
+			region: "",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "VOH SA",
+			city: "Courtelary",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Widec SA",
+			city: "Moutier",
+			region: "Jura",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+				{
+			name: "Zesar.ch SA",
+			city: "Tavannes",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		},
+		{
+			name: "Zwahlen SA",
+			city: "Court",
+			region: "Jura bernois",
+			lat: 0,
+			lng: 0,
+			professions: ["Polymécanicien"],
+			website: "#"
+		}
+	];
+
+    const map = L.map('training-map', {
+        scrollWheelZoom: false
+    }).setView([47.22, 7.25], 9);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const markerLayer = L.layerGroup().addTo(map);
+    const markers = new Map();
+
+    const listElement = document.getElementById('company-list');
+    const searchElement = document.getElementById('company-search');
+    const professionElement = document.getElementById('profession-filter');
+    const regionElement = document.getElementById('region-filter');
+    const countElement = document.getElementById('training-count');
+
+    function safeExternalLink(url) {
+        return url && url !== '#'
+            ? `<a href="${url}" target="_blank" rel="noopener noreferrer">Site de l'entreprise</a>`
+            : '';
+    }
+
+    function popupContent(company) {
+        return `
+            <strong>${company.name}</strong><br>
+            ${company.city} · ${company.region}<br><br>
+            ${company.professions.join('<br>')}<br><br>
+            ${safeExternalLink(company.website)}
+        `;
+    }
+
+    function highlightCard(companyName) {
+        document.querySelectorAll('.company-card').forEach(card => {
+            card.classList.toggle('active', card.dataset.company === companyName);
+        });
+    }
+
+    function focusCompany(company) {
+        const marker = markers.get(company.name);
+        if (!marker) return;
+
+        map.setView([company.lat, company.lng], 13, { animate: true });
+        marker.openPopup();
+        highlightCard(company.name);
+    }
+
+    function createCard(company) {
+        const card = document.createElement('article');
+        card.className = 'company-card';
+        card.dataset.company = company.name;
+
+        const tags = company.professions
+            .map(profession => `<span class="profession-tag">${profession}</span>`)
+            .join('');
+
+        const website = company.website && company.website !== '#'
+            ? `<a class="company-link" href="${company.website}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Site de l'entreprise
+               </a>`
+            : '';
+
+        card.innerHTML = `
+            <h3>${company.name}</h3>
+            <div class="company-location">
+                <i class="fa-solid fa-location-dot"></i>${company.city} · ${company.region}
+            </div>
+            <div class="profession-tags">${tags}</div>
+            ${website}
+        `;
+
+        card.addEventListener('click', () => focusCompany(company));
+        return card;
+    }
+
+    function updateDisplay() {
+        const search = searchElement.value.trim().toLowerCase();
+        const profession = professionElement.value;
+        const region = regionElement.value;
+
+        const filtered = trainingCompanies.filter(company => {
+            const matchesSearch = !search ||
+                company.name.toLowerCase().includes(search) ||
+                company.city.toLowerCase().includes(search) ||
+                company.region.toLowerCase().includes(search);
+
+            const matchesProfession = !profession || company.professions.includes(profession);
+            const matchesRegion = !region || company.region === region;
+
+            return matchesSearch && matchesProfession && matchesRegion;
+        });
+
+        listElement.innerHTML = '';
+        markerLayer.clearLayers();
+        markers.clear();
+
+        countElement.textContent = `${filtered.length} entreprise${filtered.length > 1 ? 's' : ''} affichée${filtered.length > 1 ? 's' : ''}`;
+
+        if (filtered.length === 0) {
+            listElement.innerHTML = '<div class="empty-result">Aucune entreprise ne correspond à votre recherche.</div>';
+            return;
+        }
+
+        const bounds = [];
+
+        filtered.forEach(company => {
+            listElement.appendChild(createCard(company));
+
+            const marker = L.marker([company.lat, company.lng])
+                .bindPopup(popupContent(company))
+                .addTo(markerLayer);
+
+            marker.on('click', () => highlightCard(company.name));
+            markers.set(company.name, marker);
+            bounds.push([company.lat, company.lng]);
+        });
+
+        if (bounds.length === 1) {
+            map.setView(bounds[0], 12);
+        } else {
+            map.fitBounds(bounds, { padding: [30, 30], maxZoom: 11 });
+        }
+    }
+
+    searchElement.addEventListener('input', updateDisplay);
+    professionElement.addEventListener('change', updateDisplay);
+    regionElement.addEventListener('change', updateDisplay);
+
+    updateDisplay();
+
+    /* Corrige la taille de la carte après certains changements de layout */
+    window.addEventListener('load', () => setTimeout(() => map.invalidateSize(), 150));
+</script>
+
+</body>
+</html>
