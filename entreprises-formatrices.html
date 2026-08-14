@@ -38,7 +38,7 @@
         }
 
         .training-intro {
-            max-width: 1000px;
+            max-width: none;
             margin-bottom: 28px;
             font-size: 18px;
             line-height: 1.65;
@@ -255,6 +255,37 @@
             font-family: Arial, sans-serif;
         }
 
+		.map-legend {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 18px;
+			margin: 12px 4px 5px;
+			font: 13px Arial, sans-serif;
+			color: #d5d9dc;
+		}
+
+		.map-legend > span {
+			display: flex;
+			align-items: center;
+			gap: 7px;
+		}
+
+		.legend-marker {
+			width: 11px;
+			height: 11px;
+			border-radius: 50%;
+			display: inline-block;
+			border: 2px solid white;
+		}
+
+		.legend-marker.blue {
+			background: #3388ff;
+		}
+
+		.legend-marker.grey {
+			background: #8f969c;
+		}
+
         @media (max-width: 1000px) {
             .training-page {
                 width: min(94%, 900px);
@@ -378,7 +409,7 @@
             <p class="training-intro">
                 De nombreuses entreprises de notre région s'engagent activement dans la formation de la relève
                 dans les métiers de la mécanique. Retrouvez ici une sélection d'entreprises qui forment régulièrement
-                des apprenti(e)s dans les professions suivies par notre Collège d'experts, dans la région Benre francophone et environs.
+                des apprenti(e)s francophones dans les professions suivies par notre Collège d'experts, dans la région Benre francophone et environs.
             </p>
 
             <div class="training-layout">
@@ -404,6 +435,7 @@
                             <option value="Jura">Jura</option>
                             <option value="Neuchâtel">Neuchâtel</option>
 							<option value="Vaud">Vaud</option>
+							<option value="Soleure">Soleure</option>
                         </select>
                     </div>
 
@@ -414,17 +446,29 @@
                 <div class="map-panel">
                     <h2 class="section-title"><i class="fa-solid fa-location-dot"></i> Carte des entreprises</h2>
                     <div id="training-map" aria-label="Carte des entreprises formatrices"></div>
-                    <p class="map-help">
-                        Cliquez sur un marqueur pour afficher les informations de l'entreprise. Les filtres de la liste
-                        mettent automatiquement la carte à jour.
-                    </p>
+                    <div class="map-legend">
+						<span>
+							<span class="legend-marker blue"></span>
+							Entreprise suivie par notre Collège d'experts
+						</span>
+
+						<span>
+							<span class="legend-marker grey"></span>
+							Autre entreprise formatrice
+						</span>
+					</div>
+
+					<p class="map-help">
+						Cliquez sur un marqueur pour afficher les informations de l'entreprise. Les filtres de la liste
+						mettent automatiquement la carte à jour.
+					</p>
                 </div>
             </div>
 			
 			<div class="training-note">
                 <strong>À savoir :</strong> cette liste est fournie à titre informatif et ne signifie pas que les
                 entreprises mentionnées disposent actuellement d'une place d'apprentissage vacante.
-                Pour consulter les places disponibles, référez-vous également à
+                Pour consulter les places disponibles, référez-vous également à leur site web ou à
                 <a href="https://www.orientation.ch/dyn/show/2930" target="_blank" rel="noopener noreferrer">orientation.ch</a>.
             </div>
         </section>
@@ -477,7 +521,18 @@
 			lat: 47.2389,
 			lng: 7.2669,
 			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "https://www.affoltergroup.ch/formation/"
+			website: "https://www.affoltergroup.ch/formation/",
+			supervised: true
+		},
+		{
+			name: "Ateliers Bush SA",
+			city: "Chevenez",
+			region: "Jura",
+			lat: 47.394497907995614,
+			lng: 7.005836184697436,
+			professions: ["Mécanicien de production"],
+			website: "https://www.buschvacuum.com/ch/fr/",
+			supervised: false
 		},
 		{
 			name: "Azuréa Microtechnique SA",
@@ -486,7 +541,8 @@
 			lat: 47.2370,
 			lng: 7.2819,
 			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "https://azurea.ch/carriere/#formations"
+			website: "https://azurea.ch/carriere/#formations",
+			supervised: true
 		},
 		{
 			name: "Azurea Technologie Horlogere SA",
@@ -495,7 +551,8 @@
 			lat: 47.2775,
 			lng: 7.3678,
 			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "https://azurea.ch/carriere/#formations"
+			website: "https://azurea.ch/carriere/#formations",
+			supervised: true
 		},
 		{
 			name: "Bien-Air Dental SA",
@@ -504,7 +561,8 @@
 			lat: 47.1515,
 			lng: 7.2753,
 			professions: ["Polymécanicien"],
-			website: "https://dental.bienair.com/"
+			website: "https://dental.bienair.com/",
+			supervised: true
 		},
 		{
 			name: "Boillat Décolletage SA",
@@ -513,34 +571,38 @@
 			lat: 47.2419,
 			lng: 7.2393,
 			professions: ["Mécanicien de production"],
-			website: "https://boillat.ch/fr/"
+			website: "https://boillat.ch/fr/",
+			supervised: true
 		},
 		{
-			name: "CAAJ",
+			name: "CAAJ - La Chaux-de-Fonds",
 			city: "La Chaux-de-Fonds",
 			region: "Neuchâtel",
 			lat: 47.0859,
 			lng: 6.8020,
 			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique", "Dessinateur constructeur"],
-			website: "https://caaj.ch/nos-formations/"
+			website: "https://caaj.ch/nos-formations/",
+			supervised: true
 		},
 		{
-			name: "CAAJ",
+			name: "CAAJ - Moutier",
 			city: "Moutier",
 			region: "Jura",
 			lat: 47.2708,
 			lng: 7.3616,
 			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique"],
-			website: "https://caaj-moutier.ch/"
+			website: "https://caaj-moutier.ch/",
+			supervised: true
 		},
 		{
 			name: "Capsa",
 			city: "La Neuveville",
-			region: "Jura bernois",
+			region: "Bienne / Seeland",
 			lat: 47.0633,
 			lng: 7.0850,
 			professions: ["Mécanicien de production"],
-			website: "https://www.capsa.ch/"
+			website: "https://www.capsa.ch/",
+			supervised: true
 		},
 		{
 			name: "ceff INDUSTRIE",
@@ -549,7 +611,8 @@
 			lat: 47.1502,
 			lng: 6.9927,
 			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique", "Dessinateur constructeur"],
-			website: "https://www.ceff.ch/industrie"
+			website: "https://www.ceff.ch/industrie",
+			supervised: true
 		},
 		{
 			name: "Cendres+Métaux SA",
@@ -558,7 +621,8 @@
 			lat: 47.1508,
 			lng: 7.2640,
 			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "https://www.cmsa.ch/fr/a-propos/carrieres/apprentissages/"
+			website: "https://www.cmsa.ch/fr/a-propos/carrieres/apprentissages/",
+			supervised: true
 		},
 		{
 			name: "CFP Biel-Bienne",
@@ -567,7 +631,8 @@
 			lat: 47.1295,
 			lng: 7.2440,
 			professions: ["Polymécanicien", "Dessinateur constructeur"],
-			website: "https://bbz-cfp.ch/fr"
+			website: "https://bbz-cfp.ch/fr",
+			supervised: true
 		},
 		{
 			name: "CHH Microtechnique SA",
@@ -576,7 +641,8 @@
 			lat: 46.5847,
 			lng: 6.2148,
 			professions: ["Micromécanicien"],
-			website: "https://chh-microtechnique.ch/carriere/cfc-micromecanicien-decolletage/"
+			website: "https://chh-microtechnique.ch/carriere/cfc-micromecanicien-decolletage/",
+			supervised: true
 		},
 		{
 			name: "CIP",
@@ -585,7 +651,8 @@
 			lat: 47.2182,
 			lng: 7.1043,
 			professions: ["Mécanicien de production", "Praticien en mécanique"],
-			website: "https://www.cip-technologie.ch/files/615/nouveaux%20documents/DEPLIANT_mecanicien_production.pdf"
+			website: "https://www.cip-technologie.ch/files/615/nouveaux%20documents/DEPLIANT_mecanicien_production.pdf",
+			supervised: true
 		},
 		{
 			name: "Codec SA",
@@ -594,7 +661,8 @@
 			lat: 47.0731,
 			lng: 6.9556,
 			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "https://codecsa.ch/carriere/apprentissage-entreprise-formatrice/"
+			website: "https://codecsa.ch/carriere/apprentissage-entreprise-formatrice/",
+			supervised: true
 		},
 		{
 			name: "DC Swiss SA",
@@ -603,7 +671,8 @@
 			lat: 47.2379,
 			lng: 7.2746,
 			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "https://www.dcswiss.com/dc-swiss-employeur/"
+			website: "https://www.dcswiss.com/dc-swiss-employeur/",
+			supervised: true
 		},
 		{
 			name: "DIXI Services SA",
@@ -612,7 +681,8 @@
 			lat: 47.0527,
 			lng: 6.7398,
 			professions: ["Mécanicien de production"],
-			website: "https://dixi.ch/"
+			website: "https://dixi.ch/",
+			supervised: true
 		},
 		{
 			name: "Dubois & Dépraz SA",
@@ -621,16 +691,18 @@
 			lat: 46.6494,
 			lng: 6.2879,
 			professions: [""],
-			website: "https://www.dubois-depraz.ch/"
+			website: "https://www.dubois-depraz.ch/",
+			supervised: true
 		},
 		{
-			name: "Ebauches Micromécanique Precitrame SA",
+			name: "EMP Ebauches Micromécanique Precitrame SA",
 			city: "Tramelan",
 			region: "Jura bernois",
 			lat: 47.2252,
 			lng: 7.1067,
 			professions: ["Polymécanicien", "Mécanicien de production", "Dessinateur constructeur"],
-			website: "https://empsa.ch/apprentissages/"
+			website: "https://empsa.ch/apprentissages/",
+			supervised: true
 		},
 		{
 			name: "Emile Affolter SA",
@@ -639,7 +711,8 @@
 			lat: 47.2664,
 			lng: 7.3614,
 			professions: [""],
-			website: "https://emileaffolter.ch/"
+			website: "https://emileaffolter.ch/",
+			supervised: true
 		},
 		{
 			name: "Essor Rossé & Affolter SA",
@@ -648,25 +721,38 @@
 			lat: 47.2407,
 			lng: 7.3343,
 			professions: [""],
-			website: "https://www.essor.ch/"
+			website: "https://www.essor.ch/",
+			supervised: true
 		},
 		{
-			name: "ETA SA",
+			name: "ETA SA - Boncourt",
 			city: "Boncourt",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.4896,
+			lng: 6.9926,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.eta.ch/fr/carriere-apprentissage/offres-apprentissage",
+			supervised: true
+		},
+		{
+			name: "ETA SA - Moutier",
+			city: "Moutier",
+			region: "Jura",
+			lat: 47.2812,
+			lng: 7.3776,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.eta.ch/fr/carriere-apprentissage/offres-apprentissage",
+			supervised: true
 		},
 		{
 			name: "ETA SA Manufacture Horlogère Suisse",
 			city: "Grenchen",
 			region: "Soleure",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.1946,
+			lng: 7.3969,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.eta.ch/fr/carriere-apprentissage/offres-apprentissage",
+			supervised: true
 		},
 		{
 			name: "Filière de formation POLYMECANICIEN",
@@ -675,489 +761,635 @@
 			lat: 47.2389,
 			lng: 7.2663,
 			professions: ["Polymécanicien"],
-			website: "https://filiere-polymecanicien.ch/"
+			website: "https://filiere-polymecanicien.ch/",
+			supervised: true
 		},
 		{
 			name: "G. & Y. Leuenberger SA",
 			city: "Eschert",
-			region: "Jura",
-			lat: 0,
-			lng: 0,
+			region: "Jura bernois",
+			lat: 47.2770,
+			lng: 7.3958,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://leuenbergersa.com/",
+			supervised: true
 		},
 		{
 			name: "Gérald Badan SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Moutier",
+			region: "Jura",
+			lat: 47.2729,
+			lng: 7.3616,
+			professions: [""],
+			website: "https://www.badansa.ch/fr/",
+			supervised: true
 		},
 		{
 			name: "Gimmel Rouages SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Villiers",
+			region: "Neuchâtel",
+			lat: 47.0734,
+			lng: 6.9690,
+			professions: [""],
+			website: "https://www.gimmelrouages.ch/",
+			supervised: true
 		},
 		{
 			name: "Goldec SA",
 			city: "La Chaux-de-Fonds",
 			region: "Neuchâtel",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.0958,
+			lng: 6.8423,
+			professions: ["Mécanicien de production"],
+			website: "https://www.goldec.ch/emploi-formation#formation",
+			supervised: true
 		},
 		{
 			name: "Helios Precision SA",
 			city: "Court",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.2422,
+			lng: 7.3553,
+			professions: ["Mécanicien de production"],
+			website: "https://www.helios-ac.ch/",
+			supervised: true
 		},
 		{
 			name: "HL Technology SA",
 			city: "La Chaux-de-Fonds",
 			region: "Neuchâtel",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.0947,
+			lng: 6.8141,
+			professions: [""],
+			website: "https://www.hl-technology.ch/fr/",
+			supervised: true
 		},
 		{
 			name: "Incabloc SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "La Chaux-de-Fonds",
+			region: "Neuchâtel",
+			lat: 47.0900,
+			lng: 6.8212,
+			professions: [""],
+			website: "https://www.incabloc.ch/",
+			supervised: true
 		},
 		{
 			name: "Iseotec",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Le Locle",
+			region: "Neuchâtel",
+			lat: 47.0530,
+			lng: 6.7391,
+			professions: ["Praticien en mécanique"],
+			website: "https://iseotec.ch/",
+			supervised: true
 		},
 		{
 			name: "J.-D. Botteron SA",
 			city: "Nods",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.1106,
+			lng: 7.0767,
+			professions: [""],
+			website: "https://jdbotteronsa.ch/",
+			supervised: true
 		},
 		{
 			name: "Jabil Switzerland Manufacturing GmbH",
 			city: "Le Locle",
 			region: "Neuchâtel",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.0483,
+			lng: 6.74325,
+			professions: [""],
+			website: "https://careers.jabil.com/",
+			supervised: true
 		},
 		{
 			name: "Jean Baertschi SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
+			city: "Crémines",
+			region: "Jura bernois",
+			lat: 47.2812,
+			lng: 7.4433,
+			professions: ["Mécanicien de production"],
+			website: "https://www.jeanbaertschisa.ch/index.php/fr/entreprise-fr#entreprise-formation",
+			supervised: true
+		},
+		{
+			name: "José Gerber SA",
+			city: "Malleray",
+			region: "Jura bernois",
+			lat: 47.2385,
+			lng: 7.2654,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://filiere-polymecanicien.ch/",
+			supervised: true
 		},
 		{
 			name: "Lauener & Cie SA",
 			city: "Boudry",
 			region: "Neuchâtel",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 46.9450,
+			lng: 6.8295,
+			professions: [""],
+			website: "https://www.cmsa.ch/fr/",
+			supervised: true
 		},
 		{
 			name: "Lécureux SA",
 			city: "Bienne",
 			region: "Bienne / Seeland",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.1376,
+			lng: 7.2569,
+			professions: [""],
+			website: "https://www.lecureux.ch/",
+			supervised: true
 		},
 		{
-			name: "login formation professionnelle SA",
-			city: "Bienne",
-			region: "Bienne / Seeland",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			name: "Login formation professionnelle SA",
+			city: "Yverdon-les-Bains",
+			region: "Vaud",
+			lat: 46.78384120519533, 
+			lng: 6.639414703815727,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.login.org/fr",
+			supervised: true
 		},
 		{
 			name: "Manufacture des Montres Rolex SA",
 			city: "Bienne",
 			region: "Bienne / Seeland",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "#"
+			lat: 47.1615,
+			lng: 7.2896,
+			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique", "Dessinateur constructeur"],
+			website: "https://www.carrieres-rolex.com/content/Apprentissages-et-stages-2026/",
+			supervised: true
+		},
+		{
+			name: "Manufacture horlogère valfleurier",
+			city: "Buttes",
+			region: "Neuchâtel",
+			lat: 46.890123649724714,
+			lng: 6.55998879606889,
+			professions: ["Mécanicien de production"],
+			website: "https://careers.richemont.com/fr/offres-demploi/",
+			supervised: false
 		},
 		{
 			name: "Marcel Aubert SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Ipsach",
+			region: "Bienne / Seeland",
+			lat: 47.1107,
+			lng: 7.2265,
+			professions: [""],
+			website: "https://www.marcel-aubert-sa.ch/",
+			supervised: true
 		},
 		{
 			name: "Mediliant SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Le Locle",
+			region: "Neuchâtel",
+			lat: 47.0635,
+			lng: 6.7602,
+			professions: [""],
+			website: "https://spitrexorthopedics.com/",
+			supervised: true
 		},
 		{
 			name: "Medos International Sàrl",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
+			city: "Le Locle",
+			region: "Neuchâtel",
+			lat: 47.0474,
+			lng: 6.7434,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://www.jnj.com/CH/fr/apres-ecole",
+			supervised: true
 		},
 		{
 			name: "Meyrat SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 47.1627,
+			lng: 7.2906,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://www.meyrat.com/",
+			supervised: true
+		},
+		{
+			name: "Mikron Switzerland AG",
+			city: "Boudry",
+			region: "Neuchâtel",
+			lat: 46.954867885546896,
+			lng: 6.845997873018385,
+			professions: ["Polymécanicien"],
+			website: "https://www.mikron.com/en",
+			supervised: false
 		},
 		{
 			name: "Monnin SA",
 			city: "Sonceboz-Sombeval",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.1969,
+			lng: 7.1841,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.monnin.ch/formation/",
+			supervised: true
 		},
 		{
 			name: "Montanari SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Saint-Imier",
+			region: "Jura bernois",
+			lat: 47.1462,
+			lng: 6.9848,
+			professions: [""],
+			website: "https://montanari-sa.ch/",
+			supervised: true
 		},
 		{
-			name: "MPS Micro Precision Systems SA",
+			name: "MPS Micro Precision Systems SA - Court",
 			city: "Court",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.2437,
+			lng: 7.3492,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.mpsag.com/fr/carriere/apprentissage",
+			supervised: true
 		},
 		{
-			name: "MPS Micro Precision Systems SA",
+			name: "MPS Micro Precision Systems SA - Bienne",
+			city: "Bienne",
+			region: "Bienne / Seeland",
+			lat: 47.1531,
+			lng: 7.2802,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.mpsag.com/fr/carriere/apprentissage",
+			supervised: true
+		},
+		{
+			name: "MPS Micro Precision Systems SA - Bonfol",
 			city: "Bonfol",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
+			lat: 47.4767,
+			lng: 7.1482,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.mpsag.com/fr/carriere/apprentissage",
+			supervised: true
+		},
+		{
+			name: "MW Programmation SA",
+			city: "Malleray",
+			region: "Jura bernois",
+			lat: 47.2387,
+			lng: 7.2751,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://filiere-polymecanicien.ch/",
+			supervised: true
+		},
+		{
+			name: "Nexans Suisse SA",
+			city: "Cortaillod",
+			region: "Neuchâtel",
+			lat: 46.946440804105194,
+			lng: 6.854920858716045,
+			professions: ["Dessinateur constructeur"],
+			website: "https://www.nexans.ch/fr/",
+			supervised: false
 		},
 		{
 			name: "Nivarox-Far SA",
-			city: "Le Locle",
+			city: "Fontaines",
 			region: "Neuchâtel",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.0435,
+			lng: 6.8971,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://www.nivarox.com/carrieres/",
+			supervised: true
 		},
 		{
 			name: "Orif",
 			city: "Delémont",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.3563,
+			lng: 7.3398,
+			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique"],
+			website: "https://www.orif.ch/fr/sites-orif/jura/orif-delemont",
+			supervised: true
 		},
 		{
 			name: "Pierval SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Reconvilier",
+			region: "Jura bernois",
+			lat: 47.2312,
+			lng: 7.2191,
+			professions: ["Mécanicien de production"],
+			website: "#",
+			supervised: true
 		},
 		{
 			name: "Polydec SA",
 			city: "Bienne",
 			region: "Bienne / Seeland",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.1523,
+			lng: 7.2822,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://polydec.com/fr",
+			supervised: true
 		},
 		{
 			name: "Posalux SA",
 			city: "Bienne",
-			region: "Bienne/Seeland",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			region: "Bienne / Seeland",
+			lat: 47.1595,
+			lng: 7.2835,
+			professions: [""],
+			website: "https://www.posalux.com/fr/careers",
+			supervised: true
+		},
+		{
+			name: "Preci-dip SA",
+			city: "Delémont",
+			region: "Jura",
+			lat: 47.35169779000378,
+			lng: 7.340477407885171,
+			professions: ["Mécanicien de production"],
+			website: "https://precidip.com/",
+			supervised: false
 		},
 		{
 			name: "Precisteel Sàrl",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Brügg",
+			region: "Bienne / Seeland",
+			lat: 47.1229,
+			lng: 7.2666,
+			professions: [""],
+			website: "https://www.precisteel.ch/fr/",
+			supervised: true
 		},
 		{
 			name: "Precitrame Machines SA",
 			city: "Tramelan",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
+			lat: 47.2236,
+			lng: 7.1222,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://precitrame.com/apprentissage/",
+			supervised: true
 		},
 		{
 			name: "Rémy Montavon SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Boécourt",
+			region: "Jura",
+			lat: 47.35007,
+			lng: 7.21140,
+			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique", "Dessinateur constructeur"],
+			website: "https://apprentissage-tavon.ch/",
+			supervised: true
 		},
 		{
-			name: "Réseau d’entreprises formatrices neuchâteloises",
-			city: "",
+			name: "REN Réseau d'entreprises formatrices neuchâteloises",
+			city: "Neuchâtel",
 			region: "Neuchâtel",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 46.99466,
+			lng: 6.93296,
+			professions: [""],
+			website: "https://reneuchatel.ch/",
+			supervised: true
 		},
 		{
 			name: "Robert & Schneider SA",
 			city: "Crémines",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
+			lat: 47.28511,
+			lng: 7.43861,
 			professions: ["Polymécanicien", "Dessinateur constructeur"],
-			website: "#"
+			website: "https://www.robert-schneider.ch/fr/",
+			supervised: true
 		},
 		{
 			name: "Roger Maeder SA",
 			city: "Court",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.24386,
+			lng: 7.34592,
+			professions: ["Mécanicien de production"],
+			website: "https://www.maeder-decolletage.ch/",
+			supervised: true
+		},
+		{
+			name: "Rollomatic SA",
+			city: "Le Landeron",
+			region: "Neuchâtel",
+			lat: 47.0562702956975,
+			lng: 7.057533179618314,
+			professions: ["Polymécanicien", "Dessinateur constructeur"],
+			website: "https://www.rollomatic.ch/fr/carriere/",
+			supervised: false
 		},
 		{
 			name: "Schäublin SA",
 			city: "Delémont",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien", "Micromécanicien"],
-			website: "#"
+			lat: 47.36117,
+			lng: 7.34284,
+			professions: ["Polymécanicien", "Dessinateur constructeur"],
+			website: "https://www.schaublin.ch/",
+			supervised: true
+		},
+		{
+			name: "Schäublin Machines SA",
+			city: "Bévilard",
+			region: "Jura bernois",
+			lat: 47.2379,
+			lng: 7.2917,
+			professions: ["Polymécanicien"],
+			website: "https://www.smsa.ch/f/entreprise/formation",
+			supervised: true
 		},
 		{
 			name: "Schmid Machines SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Courtelary",
+			region: "Jura bernois",
+			lat: 47.18125,
+			lng: 7.08251,
+			professions: [""],
+			website: "https://www.schmid-machines.ch/",
+			supervised: true
 		},
 		{
 			name: "Sonceboz SA",
 			city: "Sonceboz-Sombeval",
-			region: "Jura Bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			region: "Jura bernois",
+			lat: 47.19320,
+			lng: 7.17707,
+			professions: [""],
+			website: "https://sonceboz.com/",
+			supervised: true
 		},
 		{
 			name: "Stiftung Battenberg",
 			city: "Bienne",
 			region: "Bienne / Seeland",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.14462,
+			lng: 7.25081,
+			professions: ["Mécanicien de production", "Praticien en mécanique"],
+			website: "https://www.battenberg.ch/fr",
+			supervised: true
 		},
 		{
 			name: "Straumann Villeret SA",
 			city: "Villeret",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
+			lat: 47.15430,
+			lng: 7.01328,
 			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "#"
+			website: "https://careers.straumann.com/global/en/villeret",
+			supervised: true
 		},
 		{
 			name: "Swissmec SA",
 			city: "Moutier",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.26979,
+			lng: 7.36436,
+			professions: [""],
+			website: "https://swissmec.ch/",
+			supervised: true
 		},
 		{
 			name: "Swissmechanic Training AG/SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Münchenbuchsee",
+			region: "Bienne / Seeland",
+			lat: 47.02730,
+			lng: 7.44225,
+			professions: ["Polymécanicien", "Mécanicien de production"],
+			website: "https://be.swissmechanic.ch/",
+			supervised: true
 		},
 		{
 			name: "Swiza SA Manufacture",
 			city: "Delémont",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.35517,
+			lng: 7.34377,
+			professions: [""],
+			website: "https://swiza.com/fr",
+			supervised: true
 		},
 		{
 			name: "Sylvac SA",
 			city: "Malleray",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
+			lat: 47.23818,
+			lng: 7.26419,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://www.sylvac.ch/fr/notre-entreprise/#formation",
+			supervised: true
 		},
 		{
 			name: "Tavadec SA",
 			city: "Tavannes",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.21978,
+			lng: 7.20319,
+			professions: ["Mécanicien de production", "Micromécanicien"],
+			website: "https://www.tavadec.ch/carri%C3%A8re",
+			supervised: true
 		},
 		{
 			name: "Tectri SA",
 			city: "Court",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
+			lat: 47.24094,
+			lng: 7.29514,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://tectri.ch/carrieres/",
+			supervised: true
 		},
 		{
 			name: "Tornos SA",
 			city: "Moutier",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien", "Mécanicien de production"],
-			website: "#"
+			lat: 47.27204,
+			lng: 7.36365,
+			professions: ["Polymécanicien", "Mécanicien de production", "Dessinateur constructeur"],
+			website: "https://www.tornos.com/fr/apprentissage",
+			supervised: true
 		},
 		{
 			name: "Ultra Décolletage SA",
 			city: "Court",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.24111,
+			lng: 7.34101,
+			professions: ["Mécanicien de production"],
+			website: "https://www.ultradec.ch/",
+			supervised: true
 		},
 		{
 			name: "Universo SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "La Chaux-de-Fonds",
+			region: "Neuchâtel",
+			lat: 47.08431,
+			lng: 6.80457,
+			professions: ["Polymécanicien", "Mécanicien de production", "Praticien en mécanique"],
+			website: "https://www.universo.ch/emploi/#apprentissages",
+			supervised: true
 		},
 		{
 			name: "Vardeco SA",
-			city: "",
-			region: "",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			city: "Develier",
+			region: "Jura",
+			lat: 47.36123,
+			lng: 7.30423,
+			professions: [""],
+			website: "https://vardeco.com/fr/",
+			supervised: true
 		},
 		{
 			name: "VOH SA",
 			city: "Courtelary",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.18080,
+			lng: 7.08282,
+			professions: [""],
+			website: "https://voh.ch/",
+			supervised: true
 		},
 		{
 			name: "Widec SA",
 			city: "Moutier",
 			region: "Jura",
-			lat: 0,
-			lng: 0,
+			lat: 47.27653,
+			lng: 7.36686,
 			professions: ["Polymécanicien"],
-			website: "#"
+			website: "https://widec.ch/",
+			supervised: true
 		},
-				{
+		{
 			name: "Zesar.ch SA",
 			city: "Tavannes",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.21437,
+			lng: 7.19569,
+			professions: ["Dessinateur constructeur"],
+			website: "https://zesar.ch/fr/entreprise/apprentissages/",
+			supervised: true
 		},
 		{
 			name: "Zwahlen SA",
 			city: "Court",
 			region: "Jura bernois",
-			lat: 0,
-			lng: 0,
-			professions: ["Polymécanicien"],
-			website: "#"
+			lat: 47.24336,
+			lng: 7.35144,
+			professions: ["Mécanicien de production"],
+			website: "https://www.ronda.ch/ronda-gruppe/weitere-standorte/zwahlen-court",
+			supervised: true
 		}
 	];
 
+
+
     const map = L.map('training-map', {
-        scrollWheelZoom: false
+        scrollWheelZoom: true
     }).setView([47.22, 7.25], 9);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1232,6 +1464,15 @@
         return card;
     }
 
+	const greyIcon = new L.Icon({
+		iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png',
+		shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+		iconSize: [25, 41],
+		iconAnchor: [12, 41],
+		popupAnchor: [1, -34],
+		shadowSize: [41, 41]
+	});
+
     function updateDisplay() {
         const search = searchElement.value.trim().toLowerCase();
         const profession = professionElement.value;
@@ -1265,13 +1506,17 @@
         filtered.forEach(company => {
             listElement.appendChild(createCard(company));
 
-            const marker = L.marker([company.lat, company.lng])
-                .bindPopup(popupContent(company))
-                .addTo(markerLayer);
+            const marker = company.supervised === false
+				? L.marker([company.lat, company.lng], { icon: greyIcon })
+				: L.marker([company.lat, company.lng]);
 
-            marker.on('click', () => highlightCard(company.name));
-            markers.set(company.name, marker);
-            bounds.push([company.lat, company.lng]);
+			marker
+				.bindPopup(popupContent(company))
+				.addTo(markerLayer);
+
+			markers.set(company.name, marker);
+
+			bounds.push([company.lat, company.lng]);
         });
 
         if (bounds.length === 1) {
