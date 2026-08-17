@@ -290,8 +290,10 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
-	date: "News: 15/07/2026",
-	title: "Le Collège d'experts félicite chaleureusement tous les candidats ayant obtenu leur CFC ! Nous vous souhaitons un excellent été, et nous nous réjouissons de vous retrouver nombreux à la rentrée."
+        date: "News: 17/08/2026",
+        title: "Retrouvez les entreprises formatrices de la région grâce à notre carte interactive !",
+        linkText: "Découvrir les entreprises formatrices",
+        linkUrl: "entreprises-formatrices.html"
     },
 	{
 	date: "News: 17/06/2026",
