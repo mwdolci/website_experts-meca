@@ -863,6 +863,11 @@ main {
     color: white;
 }
 
+.news-icon {
+    font-size: 60px;
+    color: white;
+}
+
 .circle {
     width: 200px;
     height: 150px;
@@ -919,6 +924,10 @@ main {
         background: radial-gradient(circle at top left, rgba(95, 108, 124, 0.7) , rgba(0, 0, 0, 0.7) 70%);
         z-index: -3; /* Derrière la vidéo */
     }
+	
+.circle-news {
+    display: none;
+}
 
 .video-container {
     position: relative;
@@ -991,6 +1000,47 @@ button {
 
 .btn-next:hover {
     background: linear-gradient(to left, #45a049, rgba(0, 0, 0, 0));
+}
+
+.news-icon-wrapper {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+.news-image {
+    display: block;
+}
+
+.news-dot-green {
+    position: absolute;
+    top: 0;
+    right: 0px;
+
+    width: 16px;
+    height: 16px;
+
+    background-color: #45a049;
+    border-radius: 50%;
+
+    z-index: 10;
+	animation: newsPulse 2s infinite ease-in-out;
+}
+
+.news-dot-green {
+    display: none;
+}
+
+@keyframes newsPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.35);
+        opacity: 1;
+    }
 }
     
 
@@ -1939,15 +1989,20 @@ footer {
 		width: 150px;
 		height: 125px;
 	}
-	
-	.circle h3 {
-		display: none;
-	}
+
 }
 
 @media (max-height: 600px) {
     .news-section {
 		display: none;
+    }
+	
+	.circle-news {
+		display: flex;
+	}
+	
+	.news-dot-green {
+        display: block;
     }
 }
 
@@ -2040,6 +2095,14 @@ footer {
     .news_page-image iframe {
         width: 100%;
         max-width: 100%;
+    }
+	
+	.circle-news {
+		display: flex;
+	}
+	
+	.news-dot-green {
+        display: block;
     }
 
     /* Page container prend toute la hauteur */
@@ -2441,6 +2504,23 @@ footer {
     @keyframes rotate {
         from { transform: rotate(225deg); }
         to   { transform: rotate(130deg); }
+    }
+}
+
+/* FORMAT TABLETTE : 2 BULLES PAR LIGNE */
+@media (min-width: 700px) and (max-width: 1200px) {
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(2, 180px);
+        justify-content: center;
+        align-items: center;
+        gap: 70px 120px;
+        width: 100%;
+    }
+
+    .circle {
+        margin-bottom: 30px;
     }
 }
 
