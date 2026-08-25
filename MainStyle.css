@@ -778,13 +778,11 @@ main {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Couleur et flou */
     /* Pour effet JS */
     opacity: 0; /* Commence invisible */
-    transform: translateX(20px); /* Légèrement décalé pour l'effet */
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition: opacity 5s ease, transform 0.7s ease;
 }
 
 .news-container.active {
     opacity: 1;
-    transform: translateX(0);
 }
 
 .news-item {
@@ -963,10 +961,21 @@ main {
     background-clip: content-box;
 }
 
-/* rend la bordure à gauche invisible */
+/* rend la bordure à gauche invisible et apparition progressive */
 #background-video {
   -webkit-mask-image: linear-gradient(to right, transparent, black);
   mask-image: linear-gradient(to right, transparent, black);
+  opacity: 0;
+  animation: videoFadeIn 7s ease forwards;
+}
+
+@keyframes videoFadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.3;
+	}
 }
 
 .linktoweb {
@@ -1020,11 +1029,11 @@ button {
     width: 16px;
     height: 16px;
 
-    background-color: #45a049;
+    background-color: white;
     border-radius: 50%;
 
     z-index: 10;
-	animation: newsPulse 2s infinite ease-in-out;
+	animation: newsPulse 1.5s infinite ease-in-out;
 }
 
 .news-dot-green {
@@ -1034,10 +1043,11 @@ button {
 @keyframes newsPulse {
     0%, 100% {
         transform: scale(1);
-        opacity: 1;
+        opacity: 0.8;
     }
 
     50% {
+		background-color: #45a049;
         transform: scale(1.35);
         opacity: 1;
     }
@@ -2007,7 +2017,7 @@ footer {
 }
 
 @media (max-width: 1200px) {
-
+	
     /* Supprime les éléments inutiles */
     .contact,
     .news-section,
