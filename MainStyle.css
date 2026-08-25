@@ -1999,7 +1999,14 @@ footer {
 		width: 150px;
 		height: 125px;
 	}
-
+	
+	.circle img {
+        transform: translateY(12px);
+    }
+	
+	.news-dot-green {
+        top: 12px;
+    }
 }
 
 @media (max-height: 600px) {
@@ -2532,6 +2539,10 @@ footer {
     .circle {
         margin-bottom: 30px;
     }
+	
+	#background-video {
+		left: 75%;
+	}
 }
 
 /* Pas de vidéo sur smartphone, mais quand même sur tablette */
