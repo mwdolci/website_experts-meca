@@ -942,7 +942,7 @@ main {
     right: -120px;
     z-index: -1;
     scale: 30%;
-    opacity: 0.3;
+    opacity: 0.15;
 }
 
 #background-video {
@@ -2017,7 +2017,7 @@ footer {
 }
 
 @media (max-width: 1200px) {
-	
+		
     /* Supprime les éléments inutiles */
     .contact,
     .news-section,
@@ -2531,6 +2531,14 @@ footer {
 
     .circle {
         margin-bottom: 30px;
+    }
+}
+
+/* Pas de vidéo sur smartphone, mais quand même sur tablette */
+@media (max-width: 767px) {
+    #background-video,
+    .logo-backgroud {
+        display: none;
     }
 }
 
