@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // =========================
 	const counters = document.querySelectorAll(".number");
 
-    counters.forEach(counter => {
+    counters.forEach((counter, index) => {
 
         const target = +counter.getAttribute("data-target");
         let current = 0;
@@ -193,13 +193,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 current += increment;
 
                 // arrondi
-                counter.innerText = "+ " + Math.ceil(current);
+                counter.innerText = (index === 0 ? "" : "+ ") + Math.ceil(current);
 
                 requestAnimationFrame(updateCounter);
 
             } else {
 
-                counter.innerText = "+ " + target;
+                counter.innerText = (index === 0 ? "" : "+ ") + target;
             }
         };
 
