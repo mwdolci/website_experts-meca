@@ -293,7 +293,7 @@ const news = [
         date: "News: 01/09/2026",
         title: "Le Collège d'experts accueille régulièrement de nouveaux experts et expertes afin de maintenir son effectif.",
         linkText: "Toutes les informations",
-        linkUrl: "becomeexpert.html"
+        linkUrl: "news.html#nouveaux-experts"
     },
 	{
         date: "News: 17/08/2026",
