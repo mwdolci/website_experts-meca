@@ -290,22 +290,22 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+        date: "News: 01/09/2026",
+        title: "Le Collège d'experts accueille régulièrement de nouveaux experts et expertes afin de maintenir son effectif.",
+        linkText: "Toutes les informations",
+        linkUrl: "becomeexpert.html"
+    },
+	{
         date: "News: 17/08/2026",
         title: "Retrouvez les entreprises formatrices de la région grâce à notre carte interactive !",
         linkText: "Découvrir les entreprises formatrices",
         linkUrl: "entreprises-formatrices.html"
     },
 	{
-	date: "News: 17/06/2026",
-	title: "Les examens de connaissances professionnelles battent leur plein. Dès cette année format numérique pour tous !",
-	linkText: "En savoir plus",
-	linkUrl: "news.html#cpnum"
-    },
-	{
-	date: "News: 15/06/2026",
-	title: "Les examens de connaissances professionnelles approchent !",
-	linkText: "Retrouvez dès à présent les directives d'examens CP",
-	linkUrl: "cp.html"
+		date: "News: 17/06/2026",
+		title: "Les examens de connaissances professionnelles battent leur plein. Dès cette année format numérique pour tous !",
+		linkText: "En savoir plus",
+		linkUrl: "news.html#cpnum"
     },
 	{
 	  date: "News: 10/06/2026",
