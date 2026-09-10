@@ -290,6 +290,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+		date: "News: 10/09/2026",
+		title: "Les examens partiels 2026 sont disponibles ! Entraînez-vous dès maintenant en vue de la prochaine session d'examens.",
+		linkText: "En savoir plus",
+		linkUrl: "news.html#ep-2026-disponibles"
+	},
+	{
         date: "News: 01/09/2026",
         title: "Le Collège d'experts accueille régulièrement de nouveaux experts et expertes afin de maintenir son effectif.",
         linkText: "Toutes les informations",
@@ -307,12 +313,6 @@ const news = [
 		linkText: "En savoir plus",
 		linkUrl: "news.html#cpnum"
     },
-	{
-	  date: "News: 10/06/2026",
-	  title: "Examens partiel PMC en cours. Plein succès à tou(te)s les candidat(e)s !",
-	  linkText: "En savoir plus",
-	  linkUrl: "news.html#partialpmc"
-	},
 	{
 	  date: "News: 28/04/2026",
 	  title: "FUTUREMEM : réforme de nos métiers dès août 2026",
