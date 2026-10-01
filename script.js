@@ -290,6 +290,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+		date: "News: 01/10/2026",
+		title: "Tu as obtenu une excellente note à ton examen partiel ? Tente l'aventure SwissSkills 2027 et montre ton talent !",
+		linkText: "En savoir plus",
+		linkUrl: "news.html#swissskills-2027"
+	},
+	{
 		date: "News: 10/09/2026",
 		title: "Les examens partiels 2026 sont disponibles ! Entraînez-vous dès maintenant en vue de la prochaine session d'examens.",
 		linkText: "En savoir plus",
@@ -306,12 +312,6 @@ const news = [
         title: "Retrouvez les entreprises formatrices de la région grâce à notre carte interactive !",
         linkText: "Découvrir les entreprises formatrices",
         linkUrl: "entreprises-formatrices.html"
-    },
-	{
-		date: "News: 17/06/2026",
-		title: "Les examens de connaissances professionnelles battent leur plein. Dès cette année format numérique pour tous !",
-		linkText: "En savoir plus",
-		linkUrl: "news.html#cpnum"
     },
 	{
 	  date: "News: 28/04/2026",
