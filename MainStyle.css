@@ -1423,6 +1423,10 @@ button {
     z-index: 4;
 }
 
+.conseil {
+    text-decoration: none;
+}
+
 .conseil p {
     margin: 0;
 }
