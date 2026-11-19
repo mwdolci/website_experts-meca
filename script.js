@@ -290,6 +290,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+		date: "News: 19/11/2026",
+		title: "Le calendrier 2027 est en ligne !",
+		linkText: "Consulter le calendrier",
+		linkUrl: "calendar.html"
+	},
+	{
 		date: "News: 01/10/2026",
 		title: "Tu as obtenu une excellente note à ton examen partiel ? Tente l'aventure SwissSkills 2027 et montre ton talent !",
 		linkText: "En savoir plus",
@@ -301,12 +307,6 @@ const news = [
 		linkText: "En savoir plus",
 		linkUrl: "news.html#ep-2026-disponibles"
 	},
-	{
-        date: "News: 01/09/2026",
-        title: "Le Collège d'experts accueille régulièrement de nouveaux experts et expertes afin de maintenir son effectif.",
-        linkText: "Toutes les informations",
-        linkUrl: "news.html#nouveaux-experts"
-    },
 	{
         date: "News: 17/08/2026",
         title: "Retrouvez les entreprises formatrices de la région grâce à notre carte interactive !",
