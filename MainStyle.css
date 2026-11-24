@@ -2509,7 +2509,7 @@ footer {
     }
 
     /* Affiche une grande flèche animée */
-    .rotate-message {
+    body.rotate-page .rotate-message {
         display: flex !important;
         justify-content: center;
         align-items: center;
