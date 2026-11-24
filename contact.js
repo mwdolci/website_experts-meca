@@ -40,7 +40,7 @@ function createContactCard(contact) {
     card.appendChild(createContactElement(
         'h3',
         'contact-card-name',
-        `${contact.firstName} ${contact.lastName}`
+        `${contact.lastName} ${contact.firstName}`
     ));
 
     // Fonctions
