@@ -5,12 +5,65 @@ const calendarTable = document.getElementById('calendar-table');
 const btnCards = document.getElementById('btn-cards');
 const btnTable = document.getElementById('btn-table');
 
+const btnFilter = document.getElementById('btn-filter');
+const filterOptions = document.getElementById('filter-options');
+const filterLabel = document.getElementById('filter-label');
+
+let calendarEvents = [];
+
 const calendarRoles = {
     candidates: 'Candidats',
     trainers: 'Formateurs',
     experts: 'Experts',
     management: 'Management'
 };
+
+// Ouverture et fermeture du filtre
+btnFilter.addEventListener('click', () => {
+    filterOptions.hidden = !filterOptions.hidden;
+
+    btnFilter.setAttribute(
+        'aria-expanded',
+        String(!filterOptions.hidden)
+    );
+});
+
+// Modification des filtres
+filterOptions.addEventListener('change', applyCalendarFilter);
+
+// Fermeture lors d'un clic extérieur
+document.addEventListener('click', event => {
+    if (!event.target.closest('.calendar-filter')) {
+        filterOptions.hidden = true;
+        btnFilter.setAttribute('aria-expanded', 'false');
+    }
+});
+
+function applyCalendarFilter() {
+
+    const selectedRoles = Array.from(
+        filterOptions.querySelectorAll('input:checked')
+    ).map(input => input.value);
+
+    const filteredEvents = calendarEvents.filter(event =>
+        selectedRoles.length === 0 ||
+        selectedRoles.some(role => event[role] === true)
+    );
+
+    // Actualisation des deux modes d'affichage
+    renderTable(filteredEvents);
+    renderCards(filteredEvents);
+
+    // Actualisation du texte du bouton
+    filterLabel.textContent = selectedRoles.length === 0
+        ? 'Tous'
+        : selectedRoles.map(role => calendarRoles[role]).join(', ');
+
+    btnFilter.classList.toggle(
+        'filter-active',
+        selectedRoles.length > 0
+    );
+}
 
 // Création d'un élément HTML
 function createCalendarElement(tag, className, text) {
@@ -301,8 +354,8 @@ async function loadCalendar() {
         );
 
         // Génération des deux affichages
-        renderTable(events);
-        renderCards(events);
+        calendarEvents = events;
+        applyCalendarFilter();
 
     } catch (error) {
         console.error(

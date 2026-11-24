@@ -9,7 +9,8 @@
 
 .calendar-toolbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
@@ -242,6 +243,68 @@
     margin-top: 0;
 }
 
+/* ==================== FILTRE ==================== */
+
+.calendar-filter {
+    position: relative;
+    z-index: 5;
+}
+
+#btn-filter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    padding: 12px 16px;
+    font-size: 14px;
+}
+
+#btn-filter:hover {
+    border-color: #45a049;
+}
+
+#filter-options {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 180px;
+    padding: 10px;
+    background: #1B2025;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+#filter-options label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#filter-options label:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+#filter-options input {
+    accent-color: #45a049;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+#btn-filter.filter-active {
+    border-color: #45a049;
+    color: #45a049;
+}
+
 /* Positionnement du titre sur ordinateur */
 @media (min-width: 1201px) {
     .pagetitle-container {
@@ -271,7 +334,7 @@
         grid-template-columns: 1fr;
     }
 
-    .calendar-toolbar {
+    .calendar-toggle {
         display: none;
     }
 }
