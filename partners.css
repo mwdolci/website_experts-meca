@@ -1,0 +1,201 @@
+﻿/* ==================== INTRODUCTION ==================== */
+
+.partner-intro {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+}
+
+.partner-intro p {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==================== GRILLE ==================== */
+
+#partner-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 20px 40px;
+}
+
+/* ==================== PAVÉS ==================== */
+
+.partner-card {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 3px solid #45a049;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.partner-card:hover {
+    background: rgba(255, 255, 255, 0.10);
+    transform: translateY(-3px);
+}
+
+/* ==================== CONTENU ==================== */
+
+.partner-card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    flex: 1;
+}
+
+/* ==================== LOGO ==================== */
+
+.partner-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.partner-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==================== TEXTE ==================== */
+
+.partner-card-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.partner-card-title {
+    color: white;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 12px;
+}
+
+.partner-card-description {
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* ==================== FILIÈRES DE FORMATION ==================== */
+
+.partner-programs-title {
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 0 5px;
+}
+
+.partner-programs {
+    color: #cccccc;
+    font-size: 14px;
+    line-height: 1.6;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.partner-programs li::marker {
+    color: #70c875;
+}
+
+/* ==================== LIEN INTERNET ==================== */
+
+.partner-card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.partner-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #70c875;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.partner-card-link:hover {
+    color: white;
+}
+
+.partner-card-link i {
+    font-size: 12px;
+}
+
+/* ==================== RESPONSIVE PC ==================== */
+
+@media (min-width: 1201px) {
+    .pagetitle-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        padding: 60px 40px 0;
+    }
+}
+
+/* ==================== RESPONSIVE TABLETTE ==================== */
+
+@media (max-width: 1000px) {
+    #partner-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== RESPONSIVE SMARTPHONE ==================== */
+
+@media (max-width: 600px) {
+    .partner-intro {
+        padding: 15px 15px 0;
+    }
+
+    #partner-cards {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+
+    .partner-card {
+        padding: 18px;
+    }
+
+    .partner-card-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .partner-card-text {
+        width: 100%;
+    }
+
+    .partner-card-title {
+        text-align: center;
+    }
+
+    .partner-card:hover {
+        transform: none;
+    }
+}

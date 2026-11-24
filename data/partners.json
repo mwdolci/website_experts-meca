@@ -1,0 +1,43 @@
+[
+    {
+        "name": "Office des écoles moyennes et de la formation professionnelle (OMP)",
+        "logo": "images/logo_omp.png",
+        "website": "https://www.bkd.be.ch/omp",
+        "description": "L'Office des écoles moyennes et de la formation professionnelle est responsable du pilotage et de la surveillance des écoles moyennes, des écoles professionnelles, des écoles supérieures, des institutions de formation continue et de l'orientation professionnelle, conformément aux prescriptions légales de la Confédération et du canton. En collaboration avec ses partenaires de formation, l'office s'engage pour une formation d'aujourd'hui et de demain."
+    },
+    {
+        "name": "CIP Tramelan",
+        "logo": "images/logo_cip.png",
+        "website": "https://www.cip-tramelan.ch/",
+        "description": "Le CIP est prestataire de formation continue pour adultes dans des domaines touchant autant au secteur secondaire que tertiaire."
+    },
+    {
+        "name": "ceff INDUSTRIE",
+        "logo": "images/logo_ceff.png",
+        "website": "https://www.ceff.ch/ceff-industrie/",
+        "description": "Le ceff INDUSTRIE offre sur son site de Saint-Imier des formations à plein temps en école pour l'obtention d'un certificat fédéral de capacité (CFC) ou d'une attestation fédérale (AFP) dans 12 professions différentes. Il enseigne d'autre part les branches théoriques en voie duale pour une douzaine de métiers."
+    },
+    {
+        "name": "HE-Arc Ingénierie",
+        "logo": "images/He-arc.png",
+        "website": "https://www.he-arc.ch/ingenierie/bachelors/",
+        "description": "La Haute Ecole Arc Ingénierie forme des ingénieurs immédiatement opérationnels qui développent des solutions créatives et apportent une vision novatrice et durable à une industrie unique au monde: celle de l'arc jurassien.",
+        "programs": [
+            "Industrial Design Engineering",
+            "Informatique et systèmes de communication",
+            "Microtechniques"
+        ]
+    },
+    {
+        "name": "AFDT",
+        "logo": "images/logo_afdt.png",
+        "website": "https://www.afdt.ch/",
+        "description": "L'AFDT met en œuvre des actions pour promouvoir sa branche d'activité et soutenir les membres qui y sont attachées. Forte de plus de 60 membres, l'AFDT est un acteur incontournable de son domaine et permet à chacune des entreprises adhérentes de renforcer, individuellement ou en groupe, ses avantages concurrentiels sur la scène économique."
+    },
+    {
+        "name": "Ivaris",
+        "logo": "images/logo_ivaris.png",
+        "website": "https://www.ivaris.ch/fr/accueil/",
+        "description": "GRÜN Ivaris AG est une entreprise spécialisée dans les solutions logicielles pour le domaine de la formation et de l'éducation.\nElle fournit notamment la plateforme PKOrg pour le suivi des examens ainsi que la DPA pour le suivi des validations des acquis de l'expérience (VAE)."
+    }
+]
