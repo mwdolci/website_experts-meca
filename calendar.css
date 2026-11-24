@@ -28,14 +28,15 @@
 .calendar-toggle button {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
     border: none;
     border-radius: 8px;
     background: transparent;
-    color: #666;
-    font-size: 14px;
-    font-weight: 600;
+    color: #aaaaaa;
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
@@ -232,10 +233,19 @@
     color: #81c784;
 }
 
-/* Espacement du calendrier sur ordinateur */
-@media (min-width: 1024px) {
+/* Positionnement du titre sur ordinateur */
+@media (min-width: 1201px) {
+    .pagetitle-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        padding: 60px 40px 0;
+    }
+
     .calendar-toolbar {
-        margin-top: 80px;
+        margin-top: 0;
     }
 }
 
