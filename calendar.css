@@ -232,8 +232,14 @@
     color: #81c784;
 }
 
-/* Tablette */
+/* Espacement du calendrier sur ordinateur */
+@media (min-width: 1024px) {
+    .calendar-toolbar {
+        margin-top: 80px;
+    }
+}
 
+/* Tablette */
 @media (max-width: 1000px) {
     .calendar-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -241,7 +247,6 @@
 }
 
 /* Smartphone */
-
 @media (max-width: 600px) {
     .calendar-grid {
         grid-template-columns: 1fr;
