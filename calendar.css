@@ -233,15 +233,13 @@
     color: #81c784;
 }
 
-/* Suppression de l'espacement hérité de MainStyle.css */
+/* Positionnement du tableau sous le sélecteur */
 #calendar-table {
-    margin-top: 0;
     padding-top: 0;
 }
 
-#calendar-table .table-container-contact {
+#calendar-table table {
     margin-top: 0;
-    padding-top: 0;
 }
 
 /* Positionnement du titre sur ordinateur */
