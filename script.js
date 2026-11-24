@@ -290,6 +290,12 @@ boites.forEach(boite => {
 // Pour afficher les news en page d'accueil
 const news = [
 	{
+		date: "News: 24/11/2026",
+		title: "Assemblée générale 2026 : retour sur cette rencontre annuelle et bienvenue à nos 9 nouveaux expert(e)s !",
+		linkText: "En savoir plus",
+		linkUrl: "news.html#ag2026"
+	},
+	{
 		date: "News: 19/11/2026",
 		title: "Le calendrier 2027 est en ligne !",
 		linkText: "Consulter le calendrier",
@@ -307,12 +313,6 @@ const news = [
 		linkText: "En savoir plus",
 		linkUrl: "news.html#ep-2026-disponibles"
 	},
-	{
-        date: "News: 17/08/2026",
-        title: "Retrouvez les entreprises formatrices de la région grâce à notre carte interactive !",
-        linkText: "Découvrir les entreprises formatrices",
-        linkUrl: "entreprises-formatrices.html"
-    },
 	{
 	  date: "News: 28/04/2026",
 	  title: "FUTUREMEM : réforme de nos métiers dès août 2026",
