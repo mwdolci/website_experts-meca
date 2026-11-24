@@ -17,6 +17,7 @@
     <meta name="robots" content="index, follow">
     <title>Collège d'experts - Calendrier</title>
     <link rel="stylesheet" href="MainStyle.css?v=4.0.6">
+    <link rel="stylesheet" href="calendar.css?v=1.0.0">
     <link rel="icon" type="image/png" sizes="16x16" href="images/be_mini.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
@@ -90,24 +91,43 @@
                 </div>
             </div>
 
-            <div class="container-tableau-contact">
-                <div class="table-container-contact"></div>
+            <!-- Sélecteur du mode d'affichage -->
+            <div class="calendar-toolbar">
+                <div class="calendar-toggle">
+                    <button id="btn-cards" class="active" type="button" aria-pressed="true">
+                        <i class="fas fa-th-large"></i>
+                        Pavés
+                    </button>
+
+                    <button id="btn-table" type="button" aria-pressed="false">
+                        <i class="fas fa-list"></i>
+                        Tableau
+                    </button>
+                </div>
+            </div>
+
+            <!-- Affichage sous forme de pavés -->
+            <div id="calendar-cards"></div>
+
+            <!-- Affichage sous forme de tableau -->
+            <div class="container-tableau-contact" id="calendar-table" hidden>
+                <div class="table-container-contact">
                     <table>
-						<thead>
-							<tr>
-								<th>Date</th>
-								<th>Jour</th>
-								<th>Heure</th>
-								<th>Objet</th>
-								<th>Lieu</th>
-								<th>Candidats</th>
-								<th>Formateurs</th>
-								<th>Experts</th>
-								<th>Management</th>
-							</tr>
-						</thead>
-						<tbody id="calendar-body"></tbody>
-					</table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Jour</th>
+                                <th>Heure</th>
+                                <th>Objet</th>
+                                <th>Lieu</th>
+                                <th>Candidats</th>
+                                <th>Formateurs</th>
+                                <th>Experts</th>
+                                <th>Management</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendar-body"></tbody>
+                    </table>
                 </div>
             </div>
         </main>

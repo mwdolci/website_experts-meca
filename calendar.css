@@ -188,6 +188,50 @@
     margin-bottom: 10px;
 }
 
+/* Adaptation au thème sombre du site */
+
+.calendar-month-title {
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff25;
+}
+
+.calendar-card {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 3px solid #4caf50;
+}
+
+.calendar-card-date {
+    color: #81c784;
+}
+
+.calendar-card-title {
+    color: #ffffff;
+}
+
+.calendar-card-info {
+    color: #cccccc;
+}
+
+.calendar-provisional {
+    color: #fbbf24;
+}
+
+.calendar-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid #ffffff20;
+}
+
+.calendar-toggle button {
+    color: #aaaaaa;
+}
+
+.calendar-toggle button.active {
+    background: #ffffff15;
+    color: #81c784;
+}
+
 /* Tablette */
 
 @media (max-width: 1000px) {
