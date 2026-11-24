@@ -17,12 +17,12 @@
     <meta name="robots" content="index, follow">
     <title>Collège d'experts - Contacts</title>
     <link rel="stylesheet" href="MainStyle.css?v=4.0.4">
+    <link rel="stylesheet" href="contact.css?v=1.0.0">
     <link rel="icon" type="image/png" sizes="16x16" href="images/be_mini.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
-<body class="rotate-page">
-    <div class="rotate-message"></div>
+<body>
     <div class="page-container">
         <!-- En-tête que l'on doit retrouver sur toutes les pages du site web -->
         <header class="entete">
@@ -91,77 +91,7 @@
                 </div>
             </div>
 
-            <div class="container-tableau-contact">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Entité</th>
-                            <th>Fonction</th>
-                            <th>Personne</th>
-                            <th>e-mail</th>
-                            <th>Numéro</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowspan="6">Collège d'experts domaine mécanique<br>Section francophone canton de Berne</td>
-                            <td>Chef expert</td>
-                            <td>Greco Thierry</td>
-                            <td><a href="mailto:thierry.greco@experts-meca.ch" id="email-link">thierry.greco@experts-meca.ch</a></td>
-                            <td>+41 79 427 62 26</td>
-                        </tr>
-                        <tr>
-                            <td>Chef expert adjoint & Responsable IT</td>
-                            <td>Dolci Marco</td>
-                            <td><a href="mailto:marco.dolci@experts-meca.ch" id="email-link">marco.dolci@experts-meca.ch</a></td>
-                            <td>+41 79 560 85 45</td>
-                        </tr>
-                        <tr>
-                            <td>Chef de groupe TPI</td>
-                            <td>Greco Thierry</td>
-                            <td><a href="mailto:thierry.greco@experts-meca.ch" id="email-link">thierry.greco@experts-meca.ch</a></td>
-                            <td>+41 79 427 62 26</td>
-                        </tr>
-                        <tr>
-                            <td>Chef de groupe Examens partiels</td>
-                            <td>Pires Nicolas</td>
-                            <td><a href="mailto:nicolas.pires@experts-meca.ch" id="email-link">nicolas.pires@experts-meca.ch</a></td>
-                            <td>+41 76 615 14 78</td>
-                        </tr>
-                        <tr>
-                            <td>Chef de groupe Connaissances professionnelles</td>
-                            <td>Membrez François</td>
-                            <td><a href="mailto:francois.membrez@experts-meca.ch" id="email-link">francois.membrez@experts-meca.ch</a></td>
-                            <td>+41 79 632 00 46</td>
-                        </tr>
-                        <tr>
-                            <td>Chef de groupe Qualification des adultes</td>
-                            <td>Martinerie Laurent</td>
-                            <td><a href="mailto:laurent.martinerie@experts-meca.ch" id="email-link">laurent.martinerie@experts-meca.ch</a></td>
-                            <td>+41 79 370 30 48</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="3">Procédures de qualification<br><br>Office des écoles Moyennes<br> et de la formation Professionnelle<br><br>Chemin des Lovières 13, 2720 Tramelan</td>
-                            <td>Responsable des examens</td>
-                            <td>Marti Alain</td>
-                            <td><a href="mailto:alain.marti@be.ch" id="email-link">alain.marti@be.ch</a></td>
-                            <td>+41 31 636 16 48</td>
-                        </tr>
-                        <tr>
-                            <td>Collaboratrice spécialisée</td>
-                            <td>Büttiker Carine</td>
-                            <td><a href="mailto:carine.buettiker@be.ch" id="email-link">carine.buettiker@be.ch</a></td>
-                            <td>+41 31 636 16 38</td>
-                        </tr>
-                        <tr>
-                            <td>Collaboratrice spécialisée</td>
-                            <td>Mathys Karine</td>
-                            <td><a href="mailto:karine.mathys@be.ch" id="email-link">karine.mathys@be.ch</a></td>
-                            <td>+41 31 636 82 60</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div id="contact-cards"></div>
         </main>
     </div>
 
@@ -192,5 +122,6 @@
         <button id="cookie-ok">OK</button>
     </div>
     <script src="script.js?v=4.0.0"></script>
+    <script src="contact.js?v=1.0.0"></script>
 </body>
 </html>

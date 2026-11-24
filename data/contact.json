@@ -1,0 +1,90 @@
+[
+    {
+        "entity": "Collège d'experts – Domaine mécanique",
+        "description": "Section francophone du canton de Berne",
+        "address": null,
+        "contacts": [
+            {
+                "firstName": "Thierry",
+                "lastName": "Greco",
+                "roles": [
+                    "Chef expert",
+                    "Chef de groupe TPI"
+                ],
+                "email": "thierry.greco@experts-meca.ch",
+                "phone": "+41 79 427 62 26"
+            },
+            {
+                "firstName": "Marco",
+                "lastName": "Dolci",
+                "roles": [
+                    "Chef expert adjoint",
+                    "Responsable IT"
+                ],
+                "email": "marco.dolci@experts-meca.ch",
+                "phone": "+41 79 560 85 45"
+            },
+            {
+                "firstName": "Nicolas",
+                "lastName": "Pires",
+                "roles": [
+                    "Chef de groupe Examens partiels"
+                ],
+                "email": "nicolas.pires@experts-meca.ch",
+                "phone": "+41 76 615 14 78"
+            },
+            {
+                "firstName": "François",
+                "lastName": "Membrez",
+                "roles": [
+                    "Chef de groupe Connaissances professionnelles"
+                ],
+                "email": "francois.membrez@experts-meca.ch",
+                "phone": "+41 79 632 00 46"
+            },
+            {
+                "firstName": "Laurent",
+                "lastName": "Martinerie",
+                "roles": [
+                    "Chef de groupe Qualification des adultes"
+                ],
+                "email": "laurent.martinerie@experts-meca.ch",
+                "phone": "+41 79 370 30 48"
+            }
+        ]
+    },
+    {
+        "entity": "Procédures de qualification",
+        "description": "Office des écoles moyennes et de la formation professionnelle",
+        "address": "Chemin des Lovières 13, 2720 Tramelan",
+        "contacts": [
+            {
+                "firstName": "Alain",
+                "lastName": "Marti",
+                "roles": [
+                    "Responsable des examens"
+                ],
+                "email": "alain.marti@be.ch",
+                "phone": "+41 31 636 16 48"
+            },
+            {
+                "firstName": "Carine",
+                "lastName": "Büttiker",
+                "roles": [
+                    "Collaboratrice spécialisée"
+                ],
+                "email": "carine.buettiker@be.ch",
+                "phone": "+41 31 636 16 38"
+            },
+            {
+                "firstName": "Karine",
+                "lastName": "Mathys",
+                "roles": [
+                    "Collaboratrice spécialisée"
+                ],
+                "email": "karine.mathys@be.ch",
+                "phone": "+41 31 636 82 60"
+            }
+        ]
+    }
+]
