@@ -305,6 +305,13 @@
     color: #45a049;
 }
 
+/* ==================== ÉVÉNEMENTS TERMINÉS ==================== */
+
+.calendar-card.completed {
+    border-top-color: #808080;
+    opacity: 0.55;
+}
+
 /* Positionnement du titre sur ordinateur */
 @media (min-width: 1201px) {
     .pagetitle-container {

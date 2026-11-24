@@ -190,12 +190,28 @@ function createCardInfo(icon, text) {
     return info;
 }
 
+// Vérification si un événement est terminé
+function isEventCompleted(event) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const endDate = event.endDate || event.startDate;
+    const eventDate = new Date(endDate + 'T00:00:00');
+
+    return eventDate < today;
+}
+
 // Création d'un pavé
 function createCalendarCard(event) {
     const card = createCalendarElement(
         'article',
         'calendar-card'
     );
+
+    // Événement terminé
+    if (isEventCompleted(event)) {
+        card.classList.add('completed');
+    }
 
     // Date
     card.appendChild(createCalendarElement(
