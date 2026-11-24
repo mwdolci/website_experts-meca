@@ -273,10 +273,10 @@ function setCalendarView(view) {
 
     // Mémorisation de la préférence
     try {
-        localStorage.setItem(
-            'calendarView',
-            isCards ? 'cards' : 'table'
-        );
+        if (!window.matchMedia('(max-width: 600px)').matches) {
+            savedView = isCards ? 'cards' : 'table';
+            localStorage.setItem('calendarView', savedView);
+        };
     } catch (error) {
         // L'affichage reste fonctionnel sans stockage local.
     }
@@ -340,6 +340,21 @@ try {
     // Affichage par défaut sous forme de pavés.
 }
 
+// Détection du format smartphone
+const smartphone = window.matchMedia('(max-width: 600px)');
+
+// Adaptation du mode d'affichage
+function updateCalendarView() {
+    if (smartphone.matches) {
+        setCalendarView('cards');
+    } else {
+        setCalendarView(savedView);
+    }
+}
+
+// Détection du changement de taille d'écran
+smartphone.addEventListener('change', updateCalendarView);
+
 // Initialisation
-setCalendarView(savedView);
+updateCalendarView();
 loadCalendar();

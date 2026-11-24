@@ -263,6 +263,6 @@
     }
 
     .calendar-toolbar {
-        justify-content: center;
+        display: none;
     }
 }
