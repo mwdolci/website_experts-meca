@@ -233,6 +233,17 @@
     color: #81c784;
 }
 
+/* Suppression de l'espacement hérité de MainStyle.css */
+#calendar-table {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#calendar-table .table-container-contact {
+    margin-top: 0;
+    padding-top: 0;
+}
+
 /* Positionnement du titre sur ordinateur */
 @media (min-width: 1201px) {
     .pagetitle-container {
